@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@font-face {
+  font-family: "alkatra";
+  src: url("./assets/fonts/Alkatra/Alkatra-Regular.ttf");
+}
+
+@font-face {
+  font-family: "alkatra-bold";
+  src: url("./assets/fonts/Alkatra/Alkatra-Bold.ttf");
+}
+
+
+@font-face {
+  font-family: "alkatra-semibold";
+  src: url("./assets/fonts/Alkatra/Alkatra-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "poppins";
+  src: url("./assets/fonts/Poppins/Poppins-Medium.ttf");
+}
+
+@font-face {
+  font-family: "poppins-bold";
+  src: url("./assets/fonts/Poppins/Poppins-Bold.ttf");
+}
+
+
+@font-face {
+  font-family: "poppins-semibold";
+  src: url("./assets/fonts/Poppins/Poppins-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "poppins-light";
+  src: url("./assets/fonts/Poppins/Poppins-Light.ttf");
+}
+
+
+* {
+  box-sizing: border-box !important;
+  /* transition: ease all 0.5s; */
+}
+
+body {
+  font-size: 14px;
+  font-weight: normal;
+  background: #ffffff !important;
+}
