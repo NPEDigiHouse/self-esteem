@@ -17,8 +17,7 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({ scrollY = 0 }) => {
 
   return (
     <div className="relative z-[100]">
-      <Grid className=" fixed top-10 w-full">
-        <Grid.Col span={7}>
+      <div className="fixed top-4 w-full">
           <Group
             className={`${
               !isScrolled ? "bg-transparent" : "bg-white/[0.925]"
@@ -61,8 +60,7 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({ scrollY = 0 }) => {
               isActive={currentPage == "Contact"}
             />
           </Group>
-        </Grid.Col>
-      </Grid>
+      </div>
     </div>
   );
 };

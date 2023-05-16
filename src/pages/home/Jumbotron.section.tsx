@@ -1,43 +1,80 @@
 import { Button, Grid, Group, Image, Stack, Text } from "@mantine/core";
 import React from "react";
-import personality from "../../assets/images/persona-logos.png";
-import { ArrowRightAltIcon, FaceInsideFaceIcon } from "../../assets/icons/Fluent";
+import doctor from "../../assets/images/doctor.png";
+import advertising from "../../assets/images/advertising.png";
+import marketing from "../../assets/images/marketing.png";
+import readingBook from "../../assets/images/reading-book.png";
+import stayHome from "../../assets/images/stay-home.png";
+import studying from "../../assets/images/studying.png";
+import personaLogo from "../../assets/images/persona-logos.png";
+
+import {
+  ArrowRightAltIcon,
+  PersonalitySearchIcon
+} from "../../assets/icons/Fluent";
+import PersonalityProfile from "../../components/PersonalityProfile.component";
 
 export interface IJumbotron {}
 
 const Jumbotron: React.FC<IJumbotron> = ({}) => {
   return (
-    <div className="">
-      {/* <Group className="gap-20 mx-4 flex-nowrap pt-16"> */}
-      <Grid className="mt-28">
-        <Grid.Col span={7} className="">
-          <Stack className="gap-10 w-fit mx-auto">
-            <Stack className="gap-0 items-center">
-              <Text className="font-poppins-bold text-[64px] text-pastel-primary-text z-10">
-                Personality Test
-              </Text>
-              <Text className="text-secondary-text-500 font-semibold text-2xl -mt-4">
-                Know Yourself better
-              </Text>
-            </Stack>
-            <Text className="bg-error-50 text-xl self-center mx-8 text-center tracking-4 font-semibold text-primary-text-500">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga
-              voluptates eos qui eius quo minima id dicta eum laborum suscipit!
+    <Stack className="gap-0 mb-40">
+      {/* <Grid className="mt-28 px-20">
+        <Grid.Col span={4} className="">
+          <PersonalitySearchIcon size={400} />
+        </Grid.Col>
+        <Grid.Col span={8} className=""></Grid.Col>
+      </Grid> */}
+      {/* <Group className="mt-24 px-10 justify-center gap-8">
+        <PersonalitySearchIcon size={400} className="black" color2="white" />
+      </Group> */}
+      <div className="mt-2 w-[72px] ml-14">
+        <Image src={personaLogo} className="" />
+      </div>
+      <Stack className="mt-12 self-center bg-white">
+        <Stack className="gap-10 w-[60%] self-center">
+          <Stack className="gap-0 items-center">
+            <Text className="font-poppins-bold text-[54px] text-pastel-primary-text z-10">
+              Discover Yourself
             </Text>
-            <Button className="bg-pastel-blue-black rounded-full px-4" rightIcon={<ArrowRightAltIcon />}>
-              Start Personality Test
-            </Button>
           </Stack>
-        </Grid.Col>
-        <Grid.Col span={5} className="">
-          <Stack className="w-96">
-            <Image src={personality} className="" />
-          </Stack>
-        </Grid.Col>
-      </Grid>
-
+          <Text className="text-[18px] self-center mx-8 text-center tracking-4 font-semibold text-primary-text-500">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At, odio laboriosam nobis aperiam consectetur quam architecto consequuntur suscipit. Sequi culpa quia magnam blanditiis pariatur ducimus ratione fugit nihil earum explicabo.
+          </Text>
+          <Button
+            className="bg-pastel-blue-black rounded-full px-10 w-fit !h-14 text-[18px] self-center"
+            rightIcon={<ArrowRightAltIcon size={28} className="mt-1" />}
+          >
+            Start Personality Test
+          </Button>
+        </Stack>
+      </Stack>
+      <Group className="self-center gap-16 bg-error-50 items-start mt-6">
+        <PersonalityProfile imgSrc={doctor} personalityType="Clever" />
+        <PersonalityProfile
+          imgSrc={studying}
+          personalityType="Clever"
+          mtType={1}
+        />
+        <PersonalityProfile
+          imgSrc={stayHome}
+          personalityType="Clever"
+          mtType={1}
+        />
+        <PersonalityProfile
+          imgSrc={readingBook}
+          personalityType="Clever"
+          mtType={1}
+        />
+        <PersonalityProfile
+          imgSrc={marketing}
+          personalityType="Clever"
+          mtType={1}
+        />
+        <PersonalityProfile imgSrc={advertising} personalityType="Clever" />
+      </Group>
       {/* <div className="bg-pastel-blue-black w-[450px] h-[450px] rounded-3xl mt-8 absolute -z-40 top-14 right-[72px]"></div> */}
-    </div>
+    </Stack>
   );
 };
 export default Jumbotron;
