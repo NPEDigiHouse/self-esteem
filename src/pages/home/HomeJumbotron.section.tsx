@@ -19,30 +19,21 @@ export interface IJumbotron {}
 const Jumbotron: React.FC<IJumbotron> = ({}) => {
   return (
     <Stack className="gap-0 mb-40">
-      {/* <Grid className="mt-28 px-20">
-        <Grid.Col span={4} className="">
-          <PersonalitySearchIcon size={400} />
-        </Grid.Col>
-        <Grid.Col span={8} className=""></Grid.Col>
-      </Grid> */}
-      {/* <Group className="mt-24 px-10 justify-center gap-8">
-        <PersonalitySearchIcon size={400} className="black" color2="white" />
-      </Group> */}
       <div className="mt-2 w-[72px] ml-14">
         <Image src={personaLogo} className="" />
       </div>
       <Stack className="mt-12 self-center bg-white">
         <Stack className="gap-10 w-[60%] self-center">
           <Stack className="gap-0 items-center">
-            <Text className="font-poppins-bold text-[54px] text-pastel-primary-text z-10">
+            <Text className="font-poppins-semibold text-[54px] text-pastel-primary-text z-10">
               Discover Yourself
             </Text>
           </Stack>
-          <Text className="text-[18px] self-center mx-8 text-center tracking-4 font-semibold text-primary-text-500">
+          <Text className="text-[18px] self-center mx-8 text-center tracking-4 text-primary-text-500">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. At, odio laboriosam nobis aperiam consectetur quam architecto consequuntur suscipit. Sequi culpa quia magnam blanditiis pariatur ducimus ratione fugit nihil earum explicabo.
           </Text>
           <Button
-            className="bg-pastel-blue-black rounded-full px-10 w-fit !h-14 text-[18px] self-center"
+            className="bg-pastel-blue-black rounded-full px-10 w-fit !h-12 text-[18px] self-center"
             rightIcon={<ArrowRightAltIcon size={28} className="mt-1" />}
           >
             Start Personality Test

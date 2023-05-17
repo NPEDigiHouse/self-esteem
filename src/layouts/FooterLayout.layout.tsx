@@ -14,7 +14,7 @@ export interface IFooterLayout {}
 const FooterLayout: React.FC<IFooterLayout> = ({}) => {
   const theme= useMantineTheme();
   return (
-    <Stack className="bg-secondary-900 pb-4 pt-8 mt-10">
+    <Stack className="bg-secondary-900 pb-4 pt-8 mt-20">
       <Group className="self-center gap-14">
         <div className="w-[120px] mr-4">
           <Image src={personaLogo} className="" />

@@ -147,10 +147,16 @@ module.exports = {
       'poppins-light': [
         'poppins-light', 'sans-serif'
       ],
-      'poppins-semibold': ['poppins-semibold', 'sans-serif'],
-      'alkatra': ['alkatra', 'sans-serif'],
-      'alkatra-semibold': ['alkatra-semibold', 'sans-serif'],
-      'alkatra-bold': ['alkatra-bold', 'sans-serif'],
+      'poppins-semibold': [
+        'poppins-semibold', 'sans-serif'
+      ],
+      'alkatra': [
+        'alkatra', 'sans-serif'
+      ],
+      'alkatra-semibold': [
+        'alkatra-semibold', 'sans-serif'
+      ],
+      'alkatra-bold': ['alkatra-bold', 'sans-serif']
     },
     fontSize: {
       xs: 10,
