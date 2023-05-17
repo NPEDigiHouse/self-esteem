@@ -1,14 +1,15 @@
 import { Grid, Group } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 import HeaderNavbarMenuItems from "./HeaderNavbarMenuItems";
+import { NavbarMenuType } from "../utils/const/types";
 
 export interface IHeaderLayout {
   scrollY: any;
+  currentPage: NavbarMenuType;
+  setCurrentPage: React.Dispatch<React.SetStateAction<NavbarMenuType>>;
 }
 
-const HeaderLayout: React.FC<IHeaderLayout> = ({ scrollY = 0 }) => {
-  const [currentPage, setCurrentPage] = useState("Home");
-
+const HeaderLayout: React.FC<IHeaderLayout> = ({ scrollY = 0, currentPage, setCurrentPage }) => {
   const [isScrolled, setIsScrolled] = useState<boolean>(scrollY != 0);
 
   useEffect(() => {
@@ -27,37 +28,28 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({ scrollY = 0 }) => {
               href="/"
               isScrolled={isScrolled}
               label="Home"
-              onClick={() => {
-                setCurrentPage("Home");
-              }}
-              isActive={currentPage == "Home"}
+              // onClick={() => {
+              //   setCurrentPage("");
+              // }}
+              isActive={currentPage == ""}
             />
             <HeaderNavbarMenuItems
               href="/"
               isScrolled={isScrolled}
               label="Personality Test"
-              onClick={() => {
-                setCurrentPage("Personality Test");
-              }}
-              isActive={currentPage == "Personality Test"}
+              isActive={currentPage == "personality-test"}
             />
             <HeaderNavbarMenuItems
-              href="/"
+              href="/personality-type"
               isScrolled={isScrolled}
               label="Personality Type"
-              onClick={() => {
-                setCurrentPage("Personality Type");
-              }}
-              isActive={currentPage == "Personality Type"}
+              isActive={currentPage == "personality-type"}
             />
             <HeaderNavbarMenuItems
               href="/"
               isScrolled={isScrolled}
               label="Contact"
-              onClick={() => {
-                setCurrentPage("Contact");
-              }}
-              isActive={currentPage == "Contact"}
+              isActive={currentPage == "contact"}
             />
           </Group>
       </div>

@@ -4,14 +4,20 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home.page";
+import PersonalityType from "./pages/personality-type/PersonalityType.page";
+import React from "react";
+import AppContextProvider from "./context/app-context.context";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
-    </BrowserRouter>
+    <AppContextProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/personality-type" element={<PersonalityType />} />
+        </Routes>
+      </BrowserRouter>
+    </AppContextProvider>
   );
 }
 

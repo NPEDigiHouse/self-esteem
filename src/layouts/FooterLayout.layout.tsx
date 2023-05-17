@@ -59,13 +59,13 @@ const FooterLayout: React.FC<IFooterLayout> = ({}) => {
         <Link to={"/"} className="font-semibold tracking-[0.05em]">
           Personality Type
         </Link>
-        <Link to={"/"} className="font-semibold tracking-[0.05em]">
+        <Link to={"/personality-type"} className="font-semibold tracking-[0.05em]">
           Contact
         </Link>
       </Group>
       <Divider color={theme.colors['secondary-text'][5]} />
 
-      <Text className="text-white text-md text-center mt-1">
+      <Text className="text-white text-lg text-center mt-1 tracking-4">
         &copy; 2023 Persona - All rights reserved
       </Text>
     </Stack>
