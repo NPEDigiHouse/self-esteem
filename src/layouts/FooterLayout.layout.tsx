@@ -8,6 +8,7 @@ import {
 } from "../assets/icons/Fluent";
 import VerticalDivider from "../components/VerticalDivider.component";
 import { Link } from "react-router-dom";
+import DotDivider from "../components/DotDivider.component";
 
 export interface IFooterLayout {}
 
@@ -19,7 +20,7 @@ const FooterLayout: React.FC<IFooterLayout> = ({}) => {
         <div className="w-[120px] mr-4">
           <Image src={personaLogo} className="" />
         </div>
-        <div className="w-2 h-2 bg-secondary-500 rounded-full"></div>
+        <DotDivider />
         <Stack className="gap-1">
           <Text className="self-center text-[18px] font-poppins">
             Find Us On

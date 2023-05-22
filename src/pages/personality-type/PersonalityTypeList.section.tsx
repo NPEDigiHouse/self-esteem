@@ -1,5 +1,8 @@
 import { Divider, Grid, Image, Stack, Text } from "@mantine/core";
 import studying from "../../assets/images/studying.png";
+import advertising from "../../assets/images/advertising.png";
+import readingBook from "../../assets/images/reading-book.png";
+import stayHome from "../../assets/images/stay-home.png";
 import React from "react";
 import PersonalityTypeCard from "../../components/PersonalityTypeCard.component";
 
@@ -19,25 +22,25 @@ const PersonalityTypeList: React.FC<IPersonalityTypeList> = ({}) => {
           <PersonalityTypeCard />
         </Grid.Col>
         <Grid.Col span={3}>
-          <PersonalityTypeCard />
+          <PersonalityTypeCard imgSrc={advertising} />
         </Grid.Col>
         <Grid.Col span={3}>
           <PersonalityTypeCard />
         </Grid.Col>
         <Grid.Col span={3}>
-          <PersonalityTypeCard />
+          <PersonalityTypeCard imgSrc={readingBook} />
+        </Grid.Col>
+        <Grid.Col span={3}>
+          <PersonalityTypeCard imgSrc={advertising} />
+        </Grid.Col>
+        <Grid.Col span={3}>
+          <PersonalityTypeCard imgSrc={stayHome} />
         </Grid.Col>
         <Grid.Col span={3}>
           <PersonalityTypeCard />
         </Grid.Col>
         <Grid.Col span={3}>
-          <PersonalityTypeCard />
-        </Grid.Col>
-        <Grid.Col span={3}>
-          <PersonalityTypeCard />
-        </Grid.Col>
-        <Grid.Col span={3}>
-          <PersonalityTypeCard />
+          <PersonalityTypeCard imgSrc={advertising} />
         </Grid.Col>
       </Grid>
     </Stack>

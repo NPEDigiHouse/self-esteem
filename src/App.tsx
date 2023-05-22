@@ -7,6 +7,7 @@ import Home from "./pages/home/Home.page";
 import PersonalityType from "./pages/personality-type/PersonalityType.page";
 import React from "react";
 import AppContextProvider from "./context/app-context.context";
+import PersonalityTest from "./pages/personality-test/PersonalityTest.page";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/personality-type" element={<PersonalityType />} />
+          <Route path="/personality-test" element={<PersonalityTest />} />
         </Routes>
       </BrowserRouter>
     </AppContextProvider>

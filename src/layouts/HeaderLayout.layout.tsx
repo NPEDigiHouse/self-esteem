@@ -34,7 +34,7 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({ scrollY = 0, currentPage, setCu
               isActive={currentPage == ""}
             />
             <HeaderNavbarMenuItems
-              href="/"
+              href="/personality-test"
               isScrolled={isScrolled}
               label="Personality Test"
               isActive={currentPage == "personality-test"}

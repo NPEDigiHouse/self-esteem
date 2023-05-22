@@ -7,7 +7,6 @@ module.exports = {
       transparent: "transparent",
       white: "#ffffff",
       black: "#000000",
-      error: Array (10).fill ("#FF2C56"),
       "primary-text": {
         50: "#657387",
         100: "#5b697d",
@@ -44,6 +43,19 @@ module.exports = {
         700: "#eb1842",
         800: "#e10e38",
         900: "#d7042e"
+      },
+      green: {
+        DEFAULT: "#4af087",
+        50: "#4af087",
+        100: "#4af087",
+        200: "#4af087",
+        300: "#4af087",
+        400: "#4af087",
+        500: "#4af087",
+        600: "#4af087",
+        700: "#4af087",
+        800: "#4af087",
+        900: "#4af087"
       },
       secondary: {
         DEFAULT: "#DEDDF1",
