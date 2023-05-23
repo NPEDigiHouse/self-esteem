@@ -13,6 +13,8 @@ import {
   PersonalitySearchIcon
 } from "../../assets/icons/Fluent";
 import PersonalityProfile from "../../components/PersonalityProfile.component";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../../utils/const/routes";
 
 export interface IJumbotron {}
 
@@ -35,6 +37,8 @@ const Jumbotron: React.FC<IJumbotron> = ({}) => {
           <Button
             className="bg-pastel-blue-black rounded-full px-10 w-fit !h-12 text-[18px] self-center"
             rightIcon={<ArrowRightAltIcon size={28} className="mt-1" />}
+            component={Link}
+            to={ROUTES.personalityTest}
           >
             Start Personality Test
           </Button>

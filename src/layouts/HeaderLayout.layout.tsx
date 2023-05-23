@@ -2,6 +2,7 @@ import { Grid, Group } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 import HeaderNavbarMenuItems from "./HeaderNavbarMenuItems";
 import { NavbarMenuType } from "../utils/const/types";
+import { ROUTES } from "../utils/const/routes";
 
 export interface IHeaderLayout {
   scrollY: any;
@@ -22,35 +23,35 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({ scrollY = 0, currentPage, setCu
           <Group
             className={`${
               !isScrolled ? "bg-transparent" : "bg-white/[0.925]"
-            } px-4 py-3 transition-all ease-linear duration-200 rounded-full justify-evenly w-fit gap-8 mx-auto`}
+            } px-3 py-2 transition-all ease-linear duration-200 rounded-full justify-evenly w-fit gap-8 mx-auto`}
           >
             <HeaderNavbarMenuItems
-              href="/"
+              href={`/${ROUTES.home}`}
               isScrolled={isScrolled}
               label="Home"
               // onClick={() => {
               //   setCurrentPage("");
               // }}
-              isActive={currentPage == ""}
+              isActive={currentPage == ROUTES.home}
             />
             <HeaderNavbarMenuItems
-              href="/personality-test"
+              href={`/${ROUTES.personalityTest}`}
               isScrolled={isScrolled}
               label="Personality Test"
-              isActive={currentPage == "personality-test"}
+              isActive={currentPage == ROUTES.personalityTest}
             />
             <HeaderNavbarMenuItems
-              href="/personality-type"
+              href={`/${ROUTES.personalityType}`}
               isScrolled={isScrolled}
               label="Personality Type"
-              isActive={currentPage == "personality-type"}
+              isActive={currentPage == ROUTES.personalityType}
             />
-            <HeaderNavbarMenuItems
+            {/* <HeaderNavbarMenuItems
               href="/"
               isScrolled={isScrolled}
               label="Contact"
               isActive={currentPage == "contact"}
-            />
+            /> */}
           </Group>
       </div>
     </div>

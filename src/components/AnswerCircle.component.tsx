@@ -19,10 +19,10 @@ const AnswerCircle: React.FC<IAnswerCircle> = ({
     <div
       onClick={onClick}
       className={`${clickable ? "cursor-pointer" : ""} ${
-        size == "md" ? "h-10 w-10" : size == "sm" ? "h-8 w-6" : "h-14 w-14"
+        size == "md" ? "h-10 w-10" : size == "sm" ? "h-8 w-8" : "h-12 w-12"
       } ${
-        focus? "bg-secondary-600" : "bg-white"
-      } rounded-full border-[4px] border-error-500 bg-white `}
+        focus? "bg-error-50" : "bg-white"
+      } rounded-full border-[4px] border-error-500`}
     ></div>
   );
 };

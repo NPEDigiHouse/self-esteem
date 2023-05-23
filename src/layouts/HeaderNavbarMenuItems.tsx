@@ -23,7 +23,7 @@ const HeaderNavbarMenuItems: React.FC<IHeaderNavbarMenuItems> = ({
       className={`px-4 py-2 rounded-full ${
         isActive
           ? `bg-white border border-white ${
-              isScrolled ? "!border-secondary-500 bg-error-50" : "shadow-lg"
+              isScrolled ? "!border-secondary-text-200 bg-error-50" : "shadow-lg"
             }`
           : "bg-transparent"
       }`}
