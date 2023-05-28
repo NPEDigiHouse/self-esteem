@@ -78,7 +78,7 @@ const Question: React.FC<IQuestion> = ({
 
   return (
     <Stack className="w-[80%] self-center">
-      <Text className="text-center text-xl text-primary-text-500">
+      <Text className="text-center text-xl text-primary-text-500 tracking-4">
         {idx}. {questions}
       </Text>
       <div className="self-center">

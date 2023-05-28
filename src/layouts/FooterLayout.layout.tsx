@@ -1,14 +1,8 @@
 import { Divider, Group, Image, Stack, Text, useMantineTheme } from "@mantine/core";
 import React from "react";
-import tkIcon from "../assets/images/tk-icon-white.png";
-import {
-  FacebookIcon,
-  InstagramIcon,
-  LocationIcon
-} from "../assets/icons/Fluent";
-import VerticalDivider from "../components/VerticalDivider.component";
 import { Link } from "react-router-dom";
-import DotDivider from "../components/DotDivider.component";
+import tkIcon from "../assets/images/tk-icon-white.png";
+import { ROUTES } from "../utils/const/routes";
 
 export interface IFooterLayout {}
 
@@ -54,11 +48,11 @@ const FooterLayout: React.FC<IFooterLayout> = ({}) => {
         <Link to={"/"} className="font-semibold tracking-[0.05em] text-white">
           Home
         </Link>
-        <Link to={"/"} className="font-semibold tracking-[0.05em] text-white">
-          Personality Test
+        <Link to={ROUTES.anxietyTest} className="font-semibold tracking-[0.05em] text-white">
+          Tes Kecemasan
         </Link>
-        <Link to={"/"} className="font-semibold tracking-[0.05em] text-white">
-          Personality Type
+        <Link to={ROUTES.anxietyClass} className="font-semibold tracking-[0.05em] text-white">
+          Tingkat Kecemasan
         </Link>
         {/* <Link to={"/personality-type"} className="font-semibold tracking-[0.05em]">
           Contact

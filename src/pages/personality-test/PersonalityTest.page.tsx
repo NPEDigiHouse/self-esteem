@@ -16,21 +16,25 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
     <MainLayout>
       <Stack className="">
         {progressCount != 0 && (
-          <div className="w-1/2 self-center py-1 px-2 bg-white rounded-full fixed bottom-6 z-[100]">
+          <div className="w-1/2 self-center py-1 px-2 bg-secondary-500 rounded-full fixed bottom-6 z-[100]">
             <Slider
               size={"xs"}
               radius={"xl"}
               value={progressPercentage}
               thumbSize={10}
               labelAlwaysOn
-              label={(value) => `${value==100? value : value.toFixed(2)} %`}
+              label={(value) => `${value==100? value : value.toFixed(1)} %`}
               color="gray"
+              styles={{
+                root: {
+                }
+              }}
             />
           </div>
         )}
         <PersonalityTestJumbotron />
         <PersonalityTestInformation />
-        <Stack className="mt-40 gap-20 mb-10">
+        <Stack className="mt-40 gap-24 mb-10">
           {QuestionPack?.map((question: IQuestionPack, e: number) => {
             return (
               <Question
