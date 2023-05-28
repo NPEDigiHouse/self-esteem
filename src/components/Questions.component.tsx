@@ -5,9 +5,11 @@ import QuestionCircleComponent, {
   IQuestionCircleComponent
 } from "./QuestionCircle.component";
 import usePrevious from "../hooks/usePrevious";
+import { AnswerCircleColorType } from "../utils/const/types";
 
 export interface IQuestion {
   progressCount: number;
+  idx: number;
   setProgressCount: React.Dispatch<React.SetStateAction<number>>;
   questions: string;
 }
@@ -33,15 +35,18 @@ const answerPointList: Array<IQuestionCircleComponent> = [
     point: 0,
     focusedChoice: 0
   },
-  {
-    order: 5,
-    point: 5,
-    focusedChoice: 0
-  }
+];
+
+const answerChoiceColour: Array<AnswerCircleColorType> = [
+  "primaryGreen",
+  "step2",
+  "step3",
+  "primaryDarkBlue"
 ];
 
 const Question: React.FC<IQuestion> = ({
   progressCount,
+  idx,
   setProgressCount,
   questions
 }) => {
@@ -49,11 +54,6 @@ const Question: React.FC<IQuestion> = ({
   const prevFocusedChoice = usePrevious(focusedChoice);
   const [addPoint, setAddPoint] = useState(0);
   const [addProgress, setaddProgress] = useState(0);
-
-  console.log(focusedChoice, "focusedChoice");
-  console.log(prevFocusedChoice, "prevFocusedChoice");
-  console.log(addPoint, "addPoint");
-  console.log(progressCount, "addProgress");
 
   function chooseNewChoice(order: number, point: number) {
     if (focusedChoice == order) {
@@ -79,12 +79,12 @@ const Question: React.FC<IQuestion> = ({
   return (
     <Stack className="w-[80%] self-center">
       <Text className="text-center text-xl text-primary-text-500">
-        {questions}
+        {idx}. {questions}
       </Text>
       <div className="self-center">
-        <Group className="gap-6 self-center flex-nowrap">
-          <Text className="self-end mb-1 text-error-500 text-xl font-poppins">
-            Disagree
+        <Group className="gap-6 self-center flex-nowrap relative">
+          <Text className="self-end mb-1 text-primaryGreen text-xl font-poppins absolute -left-40">
+            Sangat Setuju
           </Text>
           <Group className="gap-8">
             {answerPointList?.map(
@@ -97,13 +97,14 @@ const Question: React.FC<IQuestion> = ({
                     point={point.point}
                     focusedChoice={focusedChoice}
                     chooseNewChoice={chooseNewChoice}
+                    color={answerChoiceColour[e]}
                   />
                 );
               }
             )}
           </Group>
-          <Text className="self-end mb-1 text-green-500 text-xl font-poppins">
-            Agree
+          <Text className="self-end mb-1 text-primaryDarkBlue text-xl font-poppins absolute -right-[216px]">
+            Sangat Tidak Setuju
           </Text>
         </Group>
       </div>

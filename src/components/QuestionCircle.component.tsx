@@ -1,6 +1,7 @@
 import { Stack, Text } from "@mantine/core";
 import React from "react";
 import AnswerCircle from "./AnswerCircle.component";
+import { AnswerCircleColorType } from "../utils/const/types";
 
 export interface IQuestionCircleComponent {
   size?: number;
@@ -8,6 +9,7 @@ export interface IQuestionCircleComponent {
   point: number;
   focusedChoice: number | null;
   chooseNewChoice?: (a: number, b: number) => void;
+  color?: AnswerCircleColorType ;
 }
 
 const QuestionCircleComponent: React.FC<IQuestionCircleComponent> = ({
@@ -15,7 +17,8 @@ const QuestionCircleComponent: React.FC<IQuestionCircleComponent> = ({
   order,
   point,
   chooseNewChoice,
-  focusedChoice
+  focusedChoice,
+  color="step2"
 }) => {
   return (
     <Stack className="bg-white gap-1 h-full">
@@ -30,6 +33,7 @@ const QuestionCircleComponent: React.FC<IQuestionCircleComponent> = ({
         //     ? "md"
         //     : "sm"
         // }
+        color={color}
         focus={focusedChoice == order}
         onClick={() => {
           chooseNewChoice!(order, point);

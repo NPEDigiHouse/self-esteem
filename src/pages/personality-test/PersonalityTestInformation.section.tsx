@@ -9,22 +9,27 @@ const PersonalityTestInformation: React.FC<
   IPersonalityTestInformation
 > = ({}) => {
   return (
-    <Stack className="self-center rounded-full w-[80%] justify-center mt-40">
-      <Text className="text-center self-center font-poppins text-xl">About the Option</Text>
-      <Group className="self-center bg-pastel-blue-light-50 justify-center gap-8 rounded-full py-2 px-10">
+    <Stack className="self-center rounded-full w-[80%] justify-center mt-32">
+      <Text className="text-center self-center font-poppins text-xl">Keterangan Pilihan Jawaban</Text>
+      <Group className="self-center bg-secondary-400 justify-center gap-8 rounded-full py-2 px-10">
         <Group className="flex-nowrap gap-2">
-          <AnswerCircle clickable={false} />
-          <Text className="font- text-lg text-primary-text-500">Disagree</Text>
+          <AnswerCircle clickable={false} color="primaryGreen" />
+          <Text className="text-lg text-primary-text-500 font-semibold">Sangat Setuju</Text>
         </Group>
-        <DotDivider />
+        <DotDivider type="dark" />
         <Group className="flex-nowrap gap-2">
-          <AnswerCircle clickable={false} />
-          <Text className="font- text-lg text-primary-text-500">Natural</Text>
+          <AnswerCircle clickable={false} color="step2" />
+          <Text className="text-lg text-primary-text-500 font-semibold">Setuju</Text>
         </Group>
-        <DotDivider />
+        <DotDivider type="dark" />
         <Group className="flex-nowrap gap-2">
-          <AnswerCircle clickable={false} />
-          <Text className="font- text-lg text-primary-text-500">Agree</Text>
+          <AnswerCircle clickable={false} color="step3" />
+          <Text className="text-lg text-primary-text-500 font-semibold">Tidak Setuju</Text>
+        </Group>
+        <DotDivider type="dark" />
+        <Group className="flex-nowrap gap-2">
+          <AnswerCircle clickable={false} color="primaryDarkBlue" />
+          <Text className="text-lg text-primary-text-500 font-semibold">Sangat Tidak Setuju</Text>
         </Group>
       </Group>
     </Stack>

@@ -30,11 +30,12 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
         )}
         <PersonalityTestJumbotron />
         <PersonalityTestInformation />
-        <Stack className="mt-20 gap-20 mb-10">
+        <Stack className="mt-40 gap-20 mb-10">
           {QuestionPack?.map((question: IQuestionPack, e: number) => {
             return (
               <Question
                 key={e}
+                idx={e+1}
                 questions={question.question}
                 progressCount={progressCount}
                 setProgressCount={setProgressCount}

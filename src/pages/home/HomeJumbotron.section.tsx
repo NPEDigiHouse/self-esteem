@@ -24,7 +24,7 @@ const Jumbotron: React.FC<IJumbotron> = ({}) => {
   const theme= useMantineTheme();
   return (
     <Stack className="gap-0 mb-40">
-      <div className="w-[106px] ml-10 mt-3">
+    <div className="w-[120px] ml-10 mt-6 ">
         <Image src={tkIcon} className="" />
       </div>
       <Stack className="mt-16 self-center bg-white">
