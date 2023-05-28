@@ -35,16 +35,16 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({ scrollY = 0, currentPage, setCu
               isActive={currentPage == ROUTES.home}
             />
             <HeaderNavbarMenuItems
-              href={`/${ROUTES.personalityTest}`}
+              href={`/${ROUTES.anxietyTest}`}
               isScrolled={isScrolled}
-              label="Personality Test"
-              isActive={currentPage == ROUTES.personalityTest}
+              label="Tes Kecemasan"
+              isActive={currentPage == ROUTES.anxietyTest}
             />
             <HeaderNavbarMenuItems
-              href={`/${ROUTES.personalityType}`}
+              href={`/${ROUTES.anxietyClass}`}
               isScrolled={isScrolled}
-              label="Personality Type"
-              isActive={currentPage == ROUTES.personalityType}
+              label="Tingkat Kecemasan"
+              isActive={currentPage == ROUTES.anxietyClass}
             />
             {/* <HeaderNavbarMenuItems
               href="/"

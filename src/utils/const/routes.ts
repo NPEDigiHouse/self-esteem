@@ -1,5 +1,13 @@
-export const ROUTES = {
+import { NavbarMenuType } from "./types";
+
+interface IROUTES {
+  home : NavbarMenuType;
+  anxietyTest: NavbarMenuType;
+  anxietyClass: NavbarMenuType;
+}
+
+export const ROUTES : IROUTES = {
   home: "",
-  personalityTest: "personality-test",
-  personalityType: "personality-type"
+  anxietyTest: "tes-kecemasan",
+  anxietyClass: "tingkat-kecemasan"
 }

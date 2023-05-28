@@ -44,7 +44,7 @@ const Jumbotron: React.FC<IJumbotron> = ({}) => {
             className="bg-primaryDarkBlue hover:bg-primaryDarkBlue rounded-full px-10 w-fit !h-12 text-[18px] self-center font-normal"
             rightIcon={<ArrowRightAltIcon size={28} className="mt-[2px]" color={"#FFFFFF"} />}
             component={Link}
-            to={ROUTES.personalityTest}
+            to={ROUTES.anxietyTest}
           >
             Mulai Tes Kecemasan
           </Button>

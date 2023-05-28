@@ -9,6 +9,7 @@ import React from "react";
 import AppContextProvider from "./context/app-context.context";
 import PersonalityTest from "./pages/personality-test/PersonalityTest.page";
 import { MantineProvider, PaginationStylesParams } from "@mantine/core";
+import { ROUTES } from "./utils/const/routes";
 
 function App() {
   return (
@@ -146,8 +147,8 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/personality-type" element={<PersonalityType />} />
-            <Route path="/personality-test" element={<PersonalityTest />} />
+            <Route path={ROUTES.anxietyClass} element={<PersonalityType />} />
+            <Route path={ROUTES.anxietyTest} element={<PersonalityTest />} />
           </Routes>
         </BrowserRouter>
       </MantineProvider>
