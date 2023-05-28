@@ -23,7 +23,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
               value={progressPercentage}
               thumbSize={10}
               labelAlwaysOn
-              label={(value) => `${value.toFixed(2)} %`}
+              label={(value) => `${value==100? value : value.toFixed(2)} %`}
               color="gray"
             />
           </div>

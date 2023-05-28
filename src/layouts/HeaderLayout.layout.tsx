@@ -18,12 +18,12 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({ scrollY = 0, currentPage, setCu
   }, [scrollY]);
 
   return (
-    <div className="relative z-[100]">
-      <div className="fixed top-4 w-full">
+    <div className="relative z-[100] ">
+      <div className="fixed top-4 w-full ">
           <Group
             className={`${
-              !isScrolled ? "bg-transparent" : "bg-white/[0.925]"
-            } px-3 py-2 transition-all ease-linear duration-200 rounded-full justify-evenly w-fit gap-8 mx-auto`}
+              !isScrolled ? "bg-transparent border-white" : "bg-white/[0.925] !border-secondary-500"
+            } px-3 py-2 transition-all ease-linear duration-200 rounded-full justify-evenly w-fit gap-8 mx-auto border shadow-[0_0_20px_4px_rgba(0,0,0,0.125)]`}
           >
             <HeaderNavbarMenuItems
               href={`/${ROUTES.home}`}
