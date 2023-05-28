@@ -1,6 +1,6 @@
 import { Group, Stack, Text } from '@mantine/core';
 import React from 'react';
-import { PersonalitySearchIcon, QuotesIconOutline } from '../assets/icons/Fluent';
+import { AnxietyPersonIcon, PersonalitySearchIcon, QuotesIconOutline, ScaredPersonIcon } from '../assets/icons/Fluent';
 import personaLogo from "../assets/images/persona-logos.png";
 import VerticalDivider from './VerticalDivider.component';
 
@@ -23,7 +23,8 @@ const ParagraphWithImage: React.FC<IParagraphWithImage> = ({
             className="w-fit rounded-full"
             alt="Foto Ketua Lurah"
           /> */}
-          <PersonalitySearchIcon size={400} />
+          <ScaredPersonIcon size={300} />
+          
         </div>
       <Stack className="relative">
         <QuotesIconOutline
@@ -35,7 +36,7 @@ const ParagraphWithImage: React.FC<IParagraphWithImage> = ({
           <Text className="font-poppins-bold text-[18px] md:text-[30px] text-primary-text-500">
             {primaryTitle}
           </Text>
-          <Text className="font-poppins-bold text-[22px] md:text-[54px] text-secondary-text-500 -mt-2">
+          <Text className="font-poppins-bold text-[22px] md:text-[54px] text-primaryGreen -mt-2">
             {secondaryTitle}
           </Text>
         </Stack>
@@ -48,16 +49,6 @@ const ParagraphWithImage: React.FC<IParagraphWithImage> = ({
             className={`md:w-[600px] text-primary-text-500 tracking-1 text-justify text-[18px]`}
           >
             {paragraph}
-            {/* Assalamualaikum Warahmatullahi Wabarakatuh. Puji syukur kepada Allah
-            Subhana wa Taala atas nikmat yang dianugerahkan, Salawat serta salam
-            kepada junjungan nabi besar Muhammad Sallahu Alai wa Sallam. Salam
-            sejahterah untuk kita semua
-            <br />
-            <br />
-            Dewasa ini, perkembangan teknologi, komunikasi dan informasi membawa
-            kemajuan yang sangat pesat di berbagai bidang kehidupan. 
-            Mudah-mudahan dengan adanya website ini Kelurahan Banyorang dapat
-            berkembang jauh lebih baik. */}
           </Text>
         </Stack>
       </Stack>

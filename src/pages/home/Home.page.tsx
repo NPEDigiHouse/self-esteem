@@ -12,9 +12,9 @@ const Home: React.FC<IHome> = ({}) => {
       <Stack className="">
         <Jumbotron />
         <ParagraphWithImage
-          primaryTitle="So.. Why"
-          secondaryTitle="We Need This ?"
-          paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae accusantium optio at velit, consequatur voluptas corporis dolor in a odit, repellat asperiores fuga soluta! Nesciunt animi laborum eum assumenda exercitationem."
+          primaryTitle="Kenapa Tes Kecemasan"
+          secondaryTitle="Sebuah Keharusan ?"
+          paragraph="Tes kecemasan penting karena membantu menentukan tingkat kecemasan seseorang, meningkatkan kesadaran diri tentang gejala kecemasan, memulai percakapan tentang kesejahteraan mental, mengidentifikasi strategi pengelolaan yang efektif, dan meningkatkan kualitas hidup dengan mengatasi kecemasan secara optimal."
         />
         {/* <div className="h-[1000px]"></div> */}
       </Stack>
