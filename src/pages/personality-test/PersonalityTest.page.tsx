@@ -55,7 +55,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
 
   return (
     <MainLayout>
-      <Stack className="mb-40 relative">
+      <Stack className="mb-16 relative">
         {progressCount != 0 && (
           <div className="w-1/2 self-center py-1 px-2 bg-secondary-500 rounded-full fixed bottom-6 z-[100]">
             <Slider
