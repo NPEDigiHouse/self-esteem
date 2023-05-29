@@ -12,27 +12,28 @@ export interface IQuestion {
   idx: number;
   setProgressCount: React.Dispatch<React.SetStateAction<number>>;
   questions: string;
+  updateScore: any;
 }
 
 const answerPointList: Array<IQuestionCircleComponent> = [
   {
     order: 1,
-    point: -15,
+    point: 1,
     focusedChoice: 0
   },
   {
     order: 2,
-    point: -10,
+    point: 2,
     focusedChoice: 0
   },
   {
     order: 3,
-    point: -5,
+    point: 3,
     focusedChoice: 0
   },
   {
     order: 4,
-    point: 0,
+    point: 4,
     focusedChoice: 0
   },
 ];
@@ -48,21 +49,22 @@ const Question: React.FC<IQuestion> = ({
   progressCount,
   idx,
   setProgressCount,
-  questions
+  questions,
+  updateScore
 }) => {
   const [focusedChoice, setFocusedChoice] = useState<number | null>(null);
   const prevFocusedChoice = usePrevious(focusedChoice);
-  const [addPoint, setAddPoint] = useState(0);
+  const [currPoint, setCurrPoint] = useState(0);
   const [addProgress, setaddProgress] = useState(0);
 
   function chooseNewChoice(order: number, point: number) {
     if (focusedChoice == order) {
       setFocusedChoice(null);
-      setAddPoint(0);
+      setCurrPoint(0);
       setProgressCount(progressCount - 1);
     } else {
       setFocusedChoice(order);
-      setAddPoint(point);
+      setCurrPoint(point);
       setProgressCount(progressCount + 1);
     }
   }
@@ -74,6 +76,8 @@ const Question: React.FC<IQuestion> = ({
     ) {
       setProgressCount(progressCount - 1);
     }
+
+    updateScore(idx, currPoint);
   }, [focusedChoice]);
 
   return (

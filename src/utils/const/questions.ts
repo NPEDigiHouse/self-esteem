@@ -6,13 +6,13 @@ export const QuestionPack: Array<IQuestionPack> = [
   {
     question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   },
-  // {
-  //   question:
-  //     "Sed dapibus, est vel efficitur scelerisque, nisi elit consequat elit."
-  // },
-  // {
-  //   question: "Fusce maximus aliquet dolor ut consectetur."
-  // },
+  {
+    question:
+      "Sed dapibus, est vel efficitur scelerisque, nisi elit consequat elit."
+  },
+  {
+    question: "Fusce maximus aliquet dolor ut consectetur."
+  },
   // {
   //   question: "Vivamus interdum tristique metus, vel ultrices purus."
   // },

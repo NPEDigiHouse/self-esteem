@@ -31,7 +31,15 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
         <Text className="w-[90%] text-center self-center font-poppins-semibold text-[44px] text-primary-text-500">
           Hasil Tes: Anda Mempunyai Tingkat Kecemasan
         </Text>
-        <Text className="w-[90%] text-center self-center font-poppins-bold text-[44px] text-primaryGreen">
+        <Text
+          className={`w-[90%] text-center self-center font-poppins-bold text-[44px] ${
+            result === "Rendah"
+              ? "text-primaryGreen"
+              : result === "Sedang"
+              ? "text-primaryBlue"
+              : "text-primaryDarkBlue"
+          }`}
+        >
           Tingkat {result}
         </Text>
       </Stack>
@@ -42,9 +50,13 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
             className="w-fit rounded-full"
             alt="Foto Ketua Lurah"
           /> */}
-          <NotAnxietyIcon size={300} />
-          {/* <ResultAnxietyIcon size={300} className="self-center ml-2" /> */}
-          {/* <NormalAnxietyIcon size={300} className="self-center ml-2" /> */}
+          {result === "Rendah" ? (
+            <NotAnxietyIcon size={300} />
+          ) : result === "Sedang" ? (
+            <NormalAnxietyIcon size={300} className="self-center ml-2" />
+          ) : (
+            <ResultAnxietyIcon size={300} className="self-center ml-2" />
+          )}
         </div>
         <Stack className="relative">
           <FileCheckIcon
@@ -81,7 +93,7 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
         onClick={() => {
           setScene("pertanyaan");
           // scrollTo({ y: 600 });
-          
+
           scrollIntoView({
             alignment: "center"
           });

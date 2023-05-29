@@ -9,8 +9,11 @@ import { SearchIcon } from "../../assets/icons/Fluent";
 import PersonalityTestResult from "./PersonalityTestResult.section";
 import { useScrollIntoView, useWindowScroll } from "@mantine/hooks";
 import { AppContext } from "../../context/app-context.context";
+import useArray from "../../hooks/useArray";
 
 export interface IPersonalityTest {}
+
+const defaultScoreArr: Array<number> = Array(QuestionPack.length).fill(0);
 
 const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
   const { result, resultPercentage, setResult, setResultPercentage } =
@@ -24,15 +27,27 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
 
   const [scroll, scrollTo] = useWindowScroll();
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
-    duration : 500
+    duration: 500
   });
-  const { scrollIntoView: scrollIntoView2, targetRef: targetRef2 } = useScrollIntoView<HTMLDivElement>({
-    duration : 500
-  });
+  const { scrollIntoView: scrollIntoView2, targetRef: targetRef2 } =
+    useScrollIntoView<HTMLDivElement>({
+      duration: 500
+    });
+
+  const { array: scoreArr, update } = useArray(defaultScoreArr);
+  const [sumScoreArr, setSumScoreArr] = useState(
+    scoreArr.reduce((partialSum: number, a: number) => partialSum + a, 0)
+  );
 
   const [progressCount, setProgressCount] = useState<number>(0);
   const progressPercentage: number =
     (progressCount / QuestionPack.length) * 100;
+
+  useEffect(() => {
+    setSumScoreArr(
+      scoreArr.reduce((partialSum: number, a: number) => partialSum + a, 0)
+    );
+  }, [scoreArr]);
 
   // useEffect(() => {
   //   scrollTo({ y: (scene=="hasil"? 1000 : 500) });
@@ -59,8 +74,14 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
         )}
         <PersonalityTestJumbotron />
         <PersonalityTestInformation />
-        <div ref={targetRef} className="absolute top-[1200px] bg-error-50 self-center -z-10"></div>
-        <div ref={targetRef2} className="absolute top-[900px] bg-error-50 self-center -z-10"></div>
+        <div
+          ref={targetRef}
+          className="absolute top-[1200px] self-center -z-10"
+        ></div>
+        <div
+          ref={targetRef2}
+          className="absolute top-[900px] self-center -z-10"
+        ></div>
         {scene === "pertanyaan" && result == null ? (
           <>
             <Stack className="mt-36 gap-24 mb-10">
@@ -73,9 +94,13 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                       questions={question.question}
                       progressCount={progressCount}
                       setProgressCount={setProgressCount}
+                      updateScore={update}
                     />
                     {e + 1 < QuestionPack.length && (
-                      <Divider key={e} className="w-[90%] self-center" />
+                      <Divider
+                        key={"divider-" + e}
+                        className="w-[90%] self-center"
+                      />
                     )}
                   </>
                 );
@@ -97,13 +122,20 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
               disabled={progressPercentage < 100}
               onClick={() => {
                 setScene("hasil");
-                // scrollTo({ y: 1000 });
                 setProgressCount(0);
-
-                setResult("Rendah");
                 scrollIntoView({
                   alignment: "center"
                 });
+
+                if (sumScoreArr < 5) {
+                  setResult("Rendah");
+                } else if (sumScoreArr < 10) {
+                  setResult("Sedang");
+                } else {
+                  setResult("Tinggi");
+                }
+
+                setResultPercentage(sumScoreArr);
               }}
             >
               Lihat Hasil
