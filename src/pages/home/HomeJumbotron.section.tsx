@@ -14,6 +14,10 @@ import {
   ArrowRightAltIcon,
   DescriptionIcon,
   InsightIcon,
+  NormalAnxietyIcon,
+  NotAnxietyIcon,
+  ResultAnxietyIcon,
+  ScaredPersonIcon,
   SearchIcon
 } from "../../assets/icons/Fluent";
 import { ROUTES } from "../../utils/const/routes";
@@ -21,28 +25,48 @@ import { ROUTES } from "../../utils/const/routes";
 export interface IJumbotron {}
 
 const Jumbotron: React.FC<IJumbotron> = ({}) => {
-  const theme= useMantineTheme();
+  const theme = useMantineTheme();
   return (
     <Stack className="gap-0 mb-40">
-    <div className="w-[120px] ml-10 mt-6 ">
+      <div className="w-[120px] ml-10 mt-6 ">
         <Image src={tkIcon} className="" />
       </div>
-      <Stack className="mt-16 self-center bg-white">
-        <Stack className="gap-10 w-[60%] self-center">
-          <Stack className="gap-0 items-center">
-            <Text className="font-poppins-semibold text-[40px] text-pastel-primary-text z-10 text-center">
-              “Taklukkan <span className="font-bold text-primaryBlue">Kecemasan</span>, Temukan Keseimbangan Hidupmu.”
+      <Stack className="mt-24 self-center bg-white relative">
+        <div className="absolute z-0 left-20 top-20 overflow-hidden border-4 border-secondary-500 bg-secondary-400 rounded-full">
+          <NormalAnxietyIcon size={160} className="self-center rounded-full -rotate-12" />
+        </div>
+        <div className="absolute z-0 right-14 -top-20 overflow-hidden border-4 border-secondary-500 bg-secondary-400 rounded-full">
+          <NotAnxietyIcon size={160} className="self-center rounded-full rotate-12" />
+        </div>
+        <div className="absolute z-0 right-32 -bottom-10 overflow-hidden border-4 border-secondary-500 bg-secondary-400 rounded-full">
+          <ResultAnxietyIcon size={160} className="self-center rounded-full rotate-[10deg]" />
+        </div>
+        {/* <div className="absolute z-0 right-52 bottom-0 bg-primaryGreen overflow-hidden rounded-full">
+          <ScaredPersonIcon size={160} className="self-center rounded-full bg-error-50 rotate-12" />
+        </div> */}
+        <Stack className="gap-10 w-[60%] self-center z-10 ">
+          <Stack className="gap-0 items-center z-10">
+            <Text className="font-poppins-semibold text-[40px] text-pastel-primary-text z-10 text-center bg-white/[0.75] rounded-xl">
+              “Taklukkan{" "}
+              <span className="font-bold text-primaryBlue">Kecemasan</span>,
+              Temukan Keseimbangan Hidupmu.”
             </Text>
           </Stack>
-          <Text className="text-[18px] self-center mx-8 text-center tracking-4 text-primary-text-500">
+          <Text className="text-[18px] self-center mx-8 text-center tracking-4 text-primary-text-500 z-10 bg-white/[0.75] rounded-b-xl">
             Selamat datang di website Tes Kecemasan! Website ini dirancang
             khusus untuk membantu Anda mengidentifikasi tingkat kecemasan Anda.
             Kami menyediakan 45 pertanyaan yang dirancang secara cermat untuk
             memahami perasaan dan pikiran Anda terkait kecemasan.
           </Text>
           <Button
-            className="bg-primaryDarkBlue hover:bg-primaryDarkBlue rounded-full px-10 w-fit !h-12 text-[18px] self-center font-normal"
-            rightIcon={<ArrowRightAltIcon size={28} className="mt-[2px]" color={"#FFFFFF"} />}
+            className="bg-primaryDarkBlue hover:bg-primaryDarkBlue z-10 rounded-full px-10 w-fit !h-12 text-[18px] self-center font-normal"
+            rightIcon={
+              <ArrowRightAltIcon
+                size={28}
+                className="mt-[2px]"
+                color={"#FFFFFF"}
+              />
+            }
             component={Link}
             to={ROUTES.anxietyTest}
           >
@@ -50,7 +74,7 @@ const Jumbotron: React.FC<IJumbotron> = ({}) => {
           </Button>
         </Stack>
       </Stack>
-      <Stack className="mt-20 mb-40 w-[80%] self-center">
+      <Stack className="mt-20 mb-40 w-[80%] self-center z-20">
         <Stepper
           active={-1}
           breakpoint="sm"
@@ -81,10 +105,9 @@ const Jumbotron: React.FC<IJumbotron> = ({}) => {
               marginTop: -15,
               marginRight: "-7%",
               marginLeft: "-7%",
-              backgroundColor: theme.colors['secondary'][5]
+              backgroundColor: theme.colors["secondary"][5]
             }
           }}
-
           className=""
         >
           <Stepper.Step
@@ -128,8 +151,8 @@ const Jumbotron: React.FC<IJumbotron> = ({}) => {
                 </Text>
 
                 <Text className="text-primary-text-500 tracking-4 text-lg text-justify min-h-[124px]">
-                  Informasi tentang tingkat kecemasan ini akan membantu Anda untuk lebih memahami kondisi
-                  kecemasan Anda sendiri.
+                  Informasi tentang tingkat kecemasan ini akan membantu Anda
+                  untuk lebih memahami kondisi kecemasan Anda sendiri.
                 </Text>
               </Stack>
             }

@@ -29,7 +29,7 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
     <Stack className="mt-28">
       <Stack className="gap-0">
         <Text className="w-[90%] text-center self-center font-poppins-semibold text-[44px] text-primary-text-500">
-          Hasil Tes: Anda Mempunyai Tingkat Kecemasan
+          Hasil Tes: Anda Mempunyai Kecemasan
         </Text>
         <Text
           className={`w-[90%] text-center self-center font-poppins-bold text-[44px] ${
