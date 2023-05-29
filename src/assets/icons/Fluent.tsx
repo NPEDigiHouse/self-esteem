@@ -294,6 +294,30 @@ export function DescriptionIcon({
   );
 }
 
+export function FileCheckIcon({
+  size = 24,
+  color = "black",
+  onClick,
+  className
+}: IFluentProps) {
+  return (
+    <svg
+      width={size + `px`}
+      height={size + `px`}
+      viewBox={`0 -960 960 960`}
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      onClick={onClick}
+      className={className}
+    >
+      <path
+        d="m423-329 277-277-43-43-234 234-121-121-42 42 163 165ZM180-120q-24.75 0-42.375-17.625T120-180v-600q0-24.75 17.625-42.375T180-840h205q5-35 32-57.5t63-22.5q36 0 63 22.5t32 57.5h205q24.75 0 42.375 17.625T840-780v600q0 24.75-17.625 42.375T780-120H180Zm0-60h600v-600H180v600Zm300-617q14 0 24.5-10.5T515-832q0-14-10.5-24.5T480-867q-14 0-24.5 10.5T445-832q0 14 10.5 24.5T480-797ZM180-180v-600 600Z"
+        fill={color}
+      />
+    </svg>
+  );
+}
+
 export function PersonalitySearchGradientIcon({
   size = 24,
   color = "black",
@@ -1933,6 +1957,1013 @@ export function ScaredPersonIcon({
             strokeOpacity: 1
           }}
           transform="translate(149.021 7.5)"
+        />
+      </g>
+    </svg>
+  );
+}
+
+export function ResultAnxietyIcon({
+  size = 24,
+  color = "black",
+  onClick,
+  className
+}: IFluentProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size + `px`}
+      height={size + `px`}
+      viewBox="0 0 510 510"
+      className={className}
+    >
+      <path
+        fill="#ff2c56"
+        d="M123.749 395.19c-30.897 11.583-60 27.002-60 60v49.31h384.5v-49.31c0-32.996-29.103-48.418-60-60l-50.756-19.027c-5.367 40.216-39.814 71.253-81.494 71.253s-76.128-31.037-81.494-71.253l-50.756 19.027z"
+        data-original="#fdef8e"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#fff"
+        d="M174.506 376.163c5.367 40.216 39.813 71.253 81.494 71.253s76.127-31.037 81.494-71.253l-29.269-10.972c0 28.843-23.382 52.226-52.226 52.226-28.843 0-52.226-23.382-52.226-52.226l-29.267 10.972z"
+        data-original="#ffffff"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#f6d9ad"
+        d="M203.774 365.19c0 28.843 23.382 52.226 52.226 52.226 28.843 0 52.226-23.382 52.226-52.226L301 338.052a89.243 89.243 0 0 1-45 12.139 89.243 89.243 0 0 1-45-12.139l-7.226 27.138z"
+        data-original="#f6d9ad"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#f6d9ad"
+        d="M211 338.051a89.239 89.239 0 0 0 44.999 12.139 89.23 89.23 0 0 0 45-12.139c26.849-15.62 44.998-44.723 44.999-77.86V179.12c0-17.258-19.445-36.167-36.708-38.225-23.529-2.805-34.894 15.725-53.291 15.725s-29.762-18.53-53.291-15.725C185.445 142.953 166 159.864 166 179.12v81.071c.001 33.134 18.151 62.239 45 77.86z"
+        data-original="#f6d9ad"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#eeae7e"
+        d="M151.001 260.192h15v-60h-30c-8.25 0-15 6.75-15 15v15c0 16.501 13.5 30 30 30z"
+        data-original="#eeae7e"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#00337c"
+        d="M202.709 140.896c23.529-2.805 34.894 15.725 53.291 15.725s29.762-18.53 53.291-15.725c17.263 2.058 36.708 20.968 36.708 38.225v21.071h30l-.002-77.877c0-13.807-9.454-25.512-22.208-28.965C353.788 56.36 306.503 37.5 256 37.5s-97.788 18.86-97.788 55.851c-12.754 3.453-22.208 15.158-22.208 28.965l-.002 77.877h30v-21.071c-.001-19.257 19.444-36.168 36.707-38.226z"
+        data-original="#7094c6"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#eeae7e"
+        d="M345.999 200.192v60h15c16.5 0 30-13.5 30-30v-15c0-8.25-6.75-15-15-15h-30z"
+        data-original="#eeae7e"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#ff2c56"
+        d="m99.794 125.054-8.792-63.75h22.499L107.294 7.5H30l23.647 50.055H26.894zm321.204-63.75-8.792 63.75 72.9-67.499h-26.754L482 7.5h-77.294l-6.208 53.804z"
+        data-original="#fdef8e"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#cd042c"
+        d="M91.692 410.247C75.357 420.526 63.75 434.352 63.75 455.19v49.31h22.5v-71.81c-.001-8.593 1.977-15.991 5.442-22.443z"
+        data-original="#fee026"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#eeae7e"
+        d="M211 338.051a89.239 89.239 0 0 0 44.999 12.139c3.813 0 7.572-.241 11.263-.707-44.082-5.566-78.762-43.413-78.762-89.292v-114.53c-12.235 6.718-22.5 19.468-22.5 33.459v81.071c.001 33.134 18.151 62.239 45 77.86z"
+        data-original="#eeae7e"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#13005a"
+        d="M158.211 93.351c-12.754 3.453-22.208 15.158-22.208 28.965l-.002 77.877h22.5l-.29-106.842z"
+        data-original="#5781ba"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#eeae7e"
+        d="M203.774 365.19c0 13.842 5.388 26.425 14.178 35.771l13.401-54.224A89.59 89.59 0 0 1 211 338.052l-7.226 27.138z"
+        data-original="#eeae7e"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="none"
+        stroke="#fff"
+        strokeMiterlimit={22.926}
+        strokeWidth={15}
+        d="M288.912 79.838v-15m29.999 30v-15"
+        clipRule="evenodd"
+        data-original="#ffffff"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd",
+          strokeWidth: 15.0001,
+          strokeMiterlimit: 22.9256
+        }}
+      />
+      <path
+        fill="none"
+        stroke="#000"
+        strokeMiterlimit={22.926}
+        strokeWidth={15}
+        d="m211 338.052-7.226 27.138m104.451 0L301 338.052m7.225 27.138 80.025 30c30.897 11.582 60 27.004 60 60v49.31h-37.5m-15 0h-332v-49.31c0-32.997 29.103-48.417 60-60l80.025-30m-37.774-104.998h-15c-16.5 0-30-13.5-30-30v-15c0-8.25 6.75-15 15-15h30m179.997 60h15c16.5 0 30-13.5 30-30v-15c0-8.25-6.75-15-15-15h-30M229.244 307.811c4.967-9.753 15.115-16.473 26.757-16.473 11.642 0 21.79 6.72 26.757 16.473"
+        clipRule="evenodd"
+        data-original="#000000"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd",
+          strokeWidth: 15.0001,
+          strokeMiterlimit: 22.9256
+        }}
+      />
+      <path
+        fill="none"
+        stroke="#000"
+        strokeMiterlimit={22.926}
+        strokeWidth={15}
+        d="M337.494 376.163c-5.367 40.216-39.814 71.253-81.494 71.253s-76.128-31.037-81.494-71.253l29.269-10.972"
+        clipRule="evenodd"
+        data-original="#000000"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd",
+          strokeWidth: 15.0001,
+          strokeMiterlimit: 22.9256
+        }}
+      />
+      <path
+        fill="none"
+        stroke="#000"
+        strokeMiterlimit={22.926}
+        strokeWidth={15}
+        d="M308.225 365.19c0 28.843-23.382 52.226-52.226 52.226-28.843 0-52.226-23.382-52.226-52.226m109.839-112.498-22.5-15 22.5-15m-115.225 30 22.5-15-22.5-15"
+        clipRule="evenodd"
+        data-original="#000000"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd",
+          strokeWidth: 15.0001,
+          strokeMiterlimit: 22.9256
+        }}
+      />
+      <path
+        fill="none"
+        stroke="#000"
+        strokeMiterlimit={22.926}
+        strokeWidth={15}
+        d="M345.999 179.121c0-17.258-19.445-36.167-36.708-38.225-23.529-2.805-34.894 15.725-53.291 15.725s-29.762-18.53-53.291-15.725c-17.263 2.058-36.708 18.969-36.708 38.225v81.071c0 49.493 40.499 89.999 89.999 89.999 49.5 0 89.999-40.499 89.999-89.999v-81.071z"
+        clipRule="evenodd"
+        data-original="#000000"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd",
+          strokeWidth: 15.0001,
+          strokeMiterlimit: 22.9256
+        }}
+      />
+      <path
+        fill="none"
+        stroke="#000"
+        strokeMiterlimit={22.926}
+        strokeWidth={15}
+        d="m375.999 200.192-.002-77.877c0-13.807-9.454-25.512-22.208-28.965C353.788 56.36 306.503 37.5 256 37.5c-19.087 0-37.712 2.696-53.501 8.045m-14.289 5.987c-18.159 9.339-29.999 23.309-29.999 41.819-12.754 3.453-22.208 15.158-22.208 28.965l-.002 77.877m-22.5-138.889L107.294 7.5H30l23.647 50.055H26.894l72.9 67.499-8.792-63.749h22.499v-.001zm284.997 0L404.706 7.5H482l-23.648 50.055h26.753l-72.9 67.499 8.792-63.749h-22.499zm-10.499 289.789c-5.734-21.704-3.222-35.476 2.554-44.112 17.503-26.168 51.627-10.816 60.848 11.52 11.28 27.323-7.512 44.711-23.766 30.366-11.885-10.49-19.383-38.953-6.018-64.133 15.326-28.873 47.702-24.248 67.096-11.096m-364.712 77.455c5.734-21.704 3.223-35.476-2.554-44.112-17.503-26.168-51.627-10.816-60.848 11.52-11.28 27.323 7.512 44.711 23.766 30.366 11.885-10.49 19.383-38.953 6.018-64.133-15.325-28.873-47.702-24.248-67.095-11.096"
+        clipRule="evenodd"
+        data-original="#000000"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd",
+          strokeWidth: 15.0001,
+          strokeMiterlimit: 22.9256
+        }}
+      />
+    </svg>
+  );
+}
+
+export function NormalAnxietyIcon({
+  size = 24,
+  color = "black",
+  onClick,
+  className
+}: IFluentProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlSpace="preserve"
+      width={size + `px`}
+      height={size + `px`}
+      viewBox="0 0 510 510"
+      className={className}
+    >
+      <path
+        fill="#fe8"
+        d="M256.001 7.5C190 7.5 136 61.5 136 127.5v42.706h30l15-30h149.998l15 30h30.004V127.5c.001-66-53.999-120-120.001-120z"
+        data-original="#ffee88"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#fdf1e0"
+        d="M330.999 140.206H181.001l-15 30v60c0 49.718 40.717 89.999 89.999 89.999 49.28 0 89.999-40.282 89.999-89.999v-60l-15-30z"
+        data-original="#fdf1e0"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#fdf1e0"
+        d="M301 308.065c-13.258 7.713-28.637 12.139-45 12.139s-31.742-4.425-45-12.138l-7.225 27.138c0 28.843 23.382 52.225 52.225 52.225s52.226-23.382 52.226-52.225L301 308.065z"
+        data-original="#fdf1e0"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#1c82ad"
+        d="M146.25 452c0 20.39-8.251 38.944-21.574 52.499h66.574v-54.001h129.5V504.5h66.574c-14.591-14.845-21.574-33.309-21.574-54.001v-91.5l-57.524-23.795c0 28.843-23.382 52.225-52.226 52.225s-52.225-23.382-52.225-52.225l-57.524 23.794V452z"
+        data-original="#f88fa4"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#00337c"
+        d="M146.25 452c0 20.39-8.251 38.944-21.574 52.499h28.65A96.99 96.99 0 0 0 168.75 452V349.692l-22.5 9.307V452z"
+        data-original="#f05475"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#fff"
+        d="M191.249 450.499H320.75V504.5H191.249z"
+        data-original="#ffffff"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#fdf1e0"
+        d="M124.676 504.5c13.323-13.555 21.574-32.11 21.574-52.499v-93.002l-15.001 6.205c-30.491 12.612-60 27.003-60 60V504.5h53.427zm262.648 0C374 490.945 365.75 472.39 365.75 452v-93.002l15.001 6.205c30.491 12.612 60 27.003 60 60V504.5h-53.427z"
+        data-original="#fdf1e0"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#83f2f8"
+        d="M191.249 450.499h22.5V504.5h-22.5z"
+        data-original="#83f2f8"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#ffdfb9"
+        d="M98.947 380.979c-16.131 10.202-27.697 23.566-27.697 44.224V504.5h22.5V402.704c-.001-8.34 1.887-15.49 5.197-21.725zm132.215-64.283a89.535 89.535 0 0 1-20.162-8.63l-7.225 27.138c0 13.228 4.92 25.305 13.027 34.507l14.36-53.015z"
+        data-original="#ffdfb9"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#ffdfb9"
+        d="M188.5 140.206H181l-15 30v60c0 49.718 40.717 89.999 89.999 89.999 3.806 0 7.561-.242 11.25-.708-44.078-5.572-78.749-43.414-78.749-89.29v-90.001z"
+        data-original="#ffdfb9"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#ffdf00"
+        d="M256.001 7.5C190 7.5 136 61.5 136 127.5v42.706h22.5V127.5c0-62.207 47.974-113.746 108.751-119.465a120.241 120.241 0 0 0-11.25-.535z"
+        data-original="#ffdf00"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="#ffdfb9"
+        d="M166.001 230.206v-60h-30c-8.25 0-15 6.75-15 15v15c0 11.045 6.049 20.746 14.998 25.953a29.744 29.744 0 0 0 15.002 4.047h15zm179.997 0h15a29.753 29.753 0 0 0 15.004-4.048c8.948-5.207 14.996-14.907 14.996-25.952v-15c0-8.25-6.75-15-15-15h-30v60z"
+        data-original="#ffdfb9"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd"
+        }}
+      />
+      <path
+        fill="none"
+        stroke="#000"
+        strokeMiterlimit={22.926}
+        strokeWidth={15}
+        d="M166.001 230.206h-15c-16.5 0-30-13.5-30-30v-15c0-8.25 6.75-15 15-15h30m179.997 60h15c16.5 0 30-13.5 30-30v-15c0-8.25-6.75-15-15-15h-30M282.811 51.277v-15m29.999 30v-15M301 308.066l7.225 27.138 72.525 30c30.49 12.612 60 27.005 60 60V504.5H283.251m-15 0H71.25v-79.296c0-32.997 29.508-47.387 60-60l72.525-30L211 308.066m-3.75-92.86v-22.5m97.499 22.5v-22.5m-70.618 75.601c5.483 5.849 13.269 9.517 21.87 9.517s16.387-3.668 21.87-9.517"
+        clipRule="evenodd"
+        data-original="#000000"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd",
+          strokeWidth: 15,
+          strokeMiterlimit: 22.9256
+        }}
+      />
+      <path
+        fill="none"
+        stroke="#000"
+        strokeMiterlimit={22.926}
+        strokeWidth={15}
+        d="M376.003 170.206V127.5c0-66-54-120-120.001-120-30.229 0-57.936 11.332-79.094 29.953m-10.954 10.954c-18.62 21.159-29.953 48.865-29.953 79.094v42.706m45-30.001h149.998l15 30v60c0 49.497-40.499 89.999-89.999 89.999-49.499 0-89.999-40.499-89.999-89.999v-60l15-30zm127.224 194.998c0 28.843-23.382 52.225-52.226 52.225s-52.225-23.382-52.225-52.225m-57.524 23.794V452c0 20.39-8.251 38.944-21.574 52.499M365.75 358.998V452c0 20.39 8.251 38.944 21.574 52.499m-196.075.001v-54.001m-44.999 0h219.5m-45 0V504.5"
+        clipRule="evenodd"
+        data-original="#000000"
+        style={{
+          fillRule: "evenodd",
+          clipRule: "evenodd",
+          strokeWidth: 15,
+          strokeMiterlimit: 22.9256
+        }}
+      />
+    </svg>
+  );
+}
+
+export function NotAnxietyIcon({
+  size = 24,
+  color = "black",
+  onClick,
+  className
+}: IFluentProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      xmlSpace="preserve"
+      width={size + `px`}
+      height={size + `px`}
+      viewBox="0 0 682.667 682.667"
+      className={className}
+    >
+      <defs>
+        <clipPath id="a" clipPathUnits="userSpaceOnUse">
+          <path d="M0 512h512V0H0Z" data-original="#000000" />
+        </clipPath>
+      </defs>
+      <path
+        fill="#fed2a4"
+        d="M0 0v-39.2l-43.881-33.04-43.88 33.04V0Z"
+        data-original="#fed2a4"
+        style={{
+          fillOpacity: 1,
+          fillRule: "nonzero",
+          stroke: "none"
+        }}
+        transform="matrix(1.33333 0 0 -1.33333 451.612 348.548)"
+      />
+      <path
+        fill="#ffbd86"
+        d="M0 0v39.199h-20V0l43.88-33.04 10 7.529z"
+        data-original="#ffbd86"
+        style={{
+          fillOpacity: 1,
+          fillRule: "nonzero",
+          stroke: "none"
+        }}
+        transform="matrix(1.33333 0 0 -1.33333 361.264 400.815)"
+      />
+      <g clipPath="url(#a)" transform="matrix(1.33333 0 0 -1.33333 0 682.667)">
+        <path
+          fill="#03c988"
+          d="M0 0h-63.188c-8.284 0-15 6.716-15 15v94.958c0 8.285 6.716 15 15 15H0c8.284 0 15-6.715 15-15V62.479l31.062-31.417H15V15C15 6.716 8.284 0 0 0"
+          data-original="#66bb6a"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+          transform="translate(124.518 256)"
+        />
+        <path
+          fill="#fed2a4"
+          d="M0 0h31.062v33.044c0 8.577-6.954 15.531-15.531 15.531C6.953 48.575 0 41.621 0 33.044Z"
+          data-original="#fed2a4"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+          transform="translate(69.626 162.814)"
+        />
+        <path
+          fill="#ffbd86"
+          d="M0 0a15.461 15.461 0 0 1-7.5 1.934c-8.578 0-15.531-6.954-15.531-15.532v-33.044h15v33.044C-8.031-7.741-4.787-2.646 0 0"
+          data-original="#ffbd86"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+          transform="translate(92.657 209.455)"
+        />
+        <path
+          fill="#03c988"
+          d="M0 0c8.284 0 15 6.715 15 15v16.062l56.893 73.853a30.003 30.003 0 0 0 13.261 9.793l72.369 27.054 43.85-33.04 43.851 33.04 98.019-30.881c17.271-5.63 28.971-21.73 28.971-39.92v-133.05l-295.09.001v77.619L23.906-48.766A30.003 30.003 0 0 0-1.056-62.125h-.538c-16.568 0-30 13.432-30 30V-.001z"
+          data-original="#42a5f5"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+          transform="translate(93.455 69.627)"
+        />
+        <path
+          fill="#00ad74"
+          d="m0 0 37.953 28.597-14.102 4.443L-10 7.534Z"
+          data-original="#0593fc"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+          transform="translate(314.828 178.349)"
+        />
+        <path
+          fill="#00ad74"
+          d="M170.579 7.539h20v93.443h-20z"
+          data-original="#0593fc"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+        />
+        <path
+          fill="#00ad74"
+          d="M0 0v32.124l31.594.001c8.284 0 15 6.715 15 15v16.062l56.892 73.854a30.01 30.01 0 0 0 13.262 9.792l59.001 22.056-6.632 4.998-72.369-27.054a30.01 30.01 0 0 1-13.262-9.792L26.594 63.187V47.125c0-8.285-6.716-15-15-15L-20 32.124V0c0-16.568 13.432-30 30-30h.538c3.353 0 6.626.572 9.713 1.629C8.47-24.323 0-13.154 0 0"
+          data-original="#0593fc"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+          transform="translate(81.861 37.502)"
+        />
+        <path
+          fill="#ffca28"
+          d="M403.547 38.564H170.579v62.418h232.968z"
+          data-original="#ffca28"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+        />
+        <path
+          fill="#f9b916"
+          d="M170.579 38.564h20v62.418h-20z"
+          data-original="#f9b916"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+        />
+        <path
+          fill="#fed2a4"
+          d="M0 0h-15.061c-11.541 0-20.897-9.355-20.897-20.897v-15.659c0-11.541 9.356-20.897 20.897-20.897H0z"
+          data-original="#fed2a4"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+          transform="translate(219.578 380.248)"
+        />
+        <path
+          fill="#fed2a4"
+          d="M0 0h15.062c11.541 0 20.897-9.355 20.897-20.897v-15.659c0-11.541-9.356-20.897-20.897-20.897H0z"
+          data-original="#fed2a4"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+          transform="translate(370.076 380.248)"
+        />
+        <path
+          fill="#fff3de"
+          d="M0 0v-72.26c0-38.389 31.12-69.51 69.511-69.51H80.99c38.391 0 69.51 31.121 69.51 69.51V-.71L75.25 30.965Z"
+          data-original="#fff3de"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+          transform="translate(219.578 380.958)"
+        />
+        <path
+          fill="#ffe5c2"
+          d="M0 0v72.261l65.137 26.802-9.887 4.163L-20 72.261V0c0-38.39 31.12-69.51 69.511-69.51H60.99c1.432 0 2.85.058 4.26.143C28.846-67.165 0-36.958 0 0"
+          data-original="#ffe5c2"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+          transform="translate(239.578 308.698)"
+        />
+        <path
+          fill="#546e7a"
+          d="M0 0h34.512c16.568 0 30 13.432 30 30v63.19H45c-24.853 0-45-20.147-45-45z"
+          data-original="#546e7a"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+          transform="translate(191.488 380.248)"
+        />
+        <path
+          fill="#435860"
+          d="M0 0v.013h-19.511c-24.852 0-45-20.148-45-45v-48.191h20v48.191C-44.511-20.299-24.626-.264 0 0"
+          data-original="#435860"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+          transform="translate(255.999 473.426)"
+        />
+        <path
+          fill="#546e7a"
+          d="M0 0c34.01 0 61.58-27.57 61.58-61.58v-62.67H-50.908c-16.57 0-30 13.432-30 30V-30c0 16.569 13.43 30 30 30z"
+          data-original="#546e7a"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+          transform="translate(336.908 504.498)"
+        />
+        <path
+          fill="#435860"
+          d="M0 0v64.25c0 16.568 13.432 30 30 30H10c-16.568 0-30-13.432-30-30V0c0-16.568 13.432-30 30-30h20C13.432-30 0-16.568 0 0"
+          data-original="#435860"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+          transform="translate(275.999 410.248)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0v-39.2l43.88-33.04L87.761-39.2V0"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(250.948 250.589)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0h-15.061c-11.541 0-20.897-9.355-20.897-20.897v-15.659c0-11.541 9.356-20.897 20.897-20.897H0z"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(219.578 380.248)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0h15.062c11.541 0 20.897-9.355 20.897-20.897v-15.659c0-11.541-9.356-20.897-20.897-20.897H0z"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(370.076 380.248)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0v-9.844"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(327.21 352.902)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0v-9.844"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(262.594 352.902)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0c0-10.388-8.421-18.81-18.81-18.81-10.387 0-18.808 8.422-18.808 18.81"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(313.638 302.276)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0v-19.9h-112.49c-16.57 0-30 13.429-30 30v64.25c0 16.57 13.43 30 30 30h50.91C-27.569 104.35 0 76.779 0 42.77V32.689"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(398.49 400.15)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0h34.512c16.568 0 30 13.432 30 30v63.19H45c-24.853 0-45-20.147-45-45z"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(191.488 380.248)"
+        />
+        <path
+          fill="#fff3de"
+          d="M0 0h32.125c8.284 0 15 6.716 15 15v63.188c0 8.284-6.716 15-15 15H0c-8.284 0-15-6.716-15-15V15C-15 6.716-8.284 0 0 0"
+          data-original="#fff3de"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+          transform="translate(61.33 69.626)"
+        />
+        <path
+          fill="#ffe5c2"
+          d="M0 0v63.188c0 8.284 6.716 15 15 15H-5c-8.284 0-15-6.716-15-15V0c0-8.284 6.716-15 15-15h20C6.716-15 0-8.284 0 0"
+          data-original="#ffe5c2"
+          style={{
+            fillOpacity: 1,
+            fillRule: "nonzero",
+            stroke: "none"
+          }}
+          transform="translate(66.33 84.626)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0v-77.1h-295.091V.521l-53.22-64.3a30.004 30.004 0 0 0-24.96-13.361h-.54c-16.57 0-30 13.43-30 30v32.13h31.601c8.279 0 15 6.71 15 15v16.061l56.89 73.849a30.046 30.046 0 0 0 13.259 9.8l72.371 27.05 43.849-33.04 43.851 33.04 98.019-30.88C-11.7 90.24 0 74.141 0 55.95V32.69"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(465.67 84.64)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0v-107.05"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(403.547 114.552)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0h32.125c8.284 0 15 6.716 15 15v63.188c0 8.284-6.716 15-15 15H0c-8.284 0-15-6.716-15-15V15C-15 6.716-8.284 0 0 0Z"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(61.33 69.626)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0h-31.062"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(108.455 131.751)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0h-31.062"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(108.455 100.689)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0v-17.39"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(100.689 71.484)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0v31.062"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(170.58 85.158)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0h31.062v33.044c0 8.577-6.954 15.531-15.531 15.531C6.953 48.575 0 41.621 0 33.044Z"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(69.626 162.814)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0h136.261v62.421H-96.71V0h64.03"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(267.29 38.56)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="m0 0 15.531-15.531 31.063 31.062"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(69.627 318.48)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0h-63.188c-8.284 0-15 6.716-15 15v94.958c0 8.285 6.716 15 15 15H0c8.284 0 15-6.715 15-15V62.479l31.062-31.417H15V15C15 6.716 8.284 0 0 0Z"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(124.518 256)"
+        />
+        <path
+          fill="none"
+          stroke="#000"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeMiterlimit={10}
+          strokeWidth={15}
+          d="M0 0v-71.55c0-38.389 31.12-69.51 69.511-69.51H80.99c38.391 0 69.51 31.121 69.51 69.51V0"
+          data-original="#000000"
+          style={{
+            strokeWidth: 15,
+            strokeLinecap: "round",
+            strokeLinejoin: "round",
+            strokeMiterlimit: 10,
+            strokeDasharray: "none",
+            strokeOpacity: 1
+          }}
+          transform="translate(219.578 380.248)"
         />
       </g>
     </svg>

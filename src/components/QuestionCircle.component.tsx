@@ -13,7 +13,7 @@ export interface IQuestionCircleComponent {
 }
 
 const QuestionCircleComponent: React.FC<IQuestionCircleComponent> = ({
-  size = "md",
+  size = 1,
   order,
   point,
   chooseNewChoice,

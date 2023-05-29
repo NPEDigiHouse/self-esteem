@@ -19,14 +19,41 @@ const AnswerCircle: React.FC<IAnswerCircle> = ({
   if (focus) {
     console.log("bg-" + color.split("-").at(-1));
   }
+
+  let borderColor = "border-" + color;
+  let backgroundColor = "bg-" + color;
+  let cn = "";
+
+  if (color == "step2") {
+    cn = `${clickable ? "cursor-pointer" : ""} ${
+      size == "md" ? "h-10 w-10" : size == "sm" ? "h-8 w-8" : "h-12 w-12"
+    } ${
+      focus ? `bg-step2` : "bg-white"
+    } rounded-full border-[4px] border-step2`;
+  }else if(color=="step3"){
+    cn = `${clickable ? "cursor-pointer" : ""} ${
+      size == "md" ? "h-10 w-10" : size == "sm" ? "h-8 w-8" : "h-12 w-12"
+    } ${
+      focus ? `bg-step3` : "bg-white"
+    } rounded-full border-[4px] border-step3`;
+  }else if(color=="primaryDarkBlue"){
+    cn = `${clickable ? "cursor-pointer" : ""} ${
+      size == "md" ? "h-10 w-10" : size == "sm" ? "h-8 w-8" : "h-12 w-12"
+    } ${
+      focus ? `bg-primaryDarkBlue` : "bg-white"
+    } rounded-full border-[4px] border-primaryDarkBlue`;
+  }else{
+    cn = `${clickable ? "cursor-pointer" : ""} ${
+      size == "md" ? "h-10 w-10" : size == "sm" ? "h-8 w-8" : "h-12 w-12"
+    } ${
+      focus ? `bg-primaryGreen` : "bg-white"
+    } rounded-full border-[4px] border-primaryGreen`;
+  }
+
   return (
     <div
       onClick={onClick}
-      className={`${clickable ? "cursor-pointer" : ""} ${
-        size == "md" ? "h-10 w-10" : size == "sm" ? "h-8 w-8" : "h-12 w-12"
-      } ${
-        focus ? `${"bg-"+color }` : "bg-white"
-      } rounded-full border-[4px] ${"border-"+color}`}
+      className={cn}
     ></div>
   );
 };
