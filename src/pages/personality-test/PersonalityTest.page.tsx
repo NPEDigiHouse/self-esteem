@@ -72,7 +72,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
             />
           </div>
         )}
-        <PersonalityTestJumbotron />
+        <PersonalityTestJumbotron scrollIntoView={result==null? scrollIntoView2 : scrollIntoView} />
         <PersonalityTestInformation />
         <div
           ref={targetRef}

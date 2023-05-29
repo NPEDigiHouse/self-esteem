@@ -70,7 +70,7 @@ const HomeJumbotron: React.FC<IHomeJumbotron> = ({}) => {
             component={Link}
             to={ROUTES.anxietyTest}
           >
-            Mulai Tes Kecemasan
+            Tes Kecemasan
           </Button>
         </Stack>
       </Stack>

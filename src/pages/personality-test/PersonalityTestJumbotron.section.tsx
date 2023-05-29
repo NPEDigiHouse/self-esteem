@@ -4,15 +4,24 @@ import {
   Text,
   Image,
   Group,
-  useMantineTheme
+  useMantineTheme,
+  Button
 } from "@mantine/core";
 import React from "react";
-import { AnxietyPersonIcon, QuizIcon, SearchIconBold } from "../../assets/icons/Fluent";
+import {
+  AnxietyPersonIcon,
+  QuizIcon,
+  SearchIconBold
+} from "../../assets/icons/Fluent";
 import tkIcon from "../../assets/images/tk-icon.png";
 
-export interface IPersonalityTestJumbotron {}
+export interface IPersonalityTestJumbotron {
+  scrollIntoView: any;
+}
 
-const PersonalityTestJumbotron: React.FC<IPersonalityTestJumbotron> = ({}) => {
+const PersonalityTestJumbotron: React.FC<IPersonalityTestJumbotron> = ({
+  scrollIntoView
+}) => {
   const theme = useMantineTheme();
   return (
     <Stack className="">
@@ -40,6 +49,17 @@ const PersonalityTestJumbotron: React.FC<IPersonalityTestJumbotron> = ({}) => {
                 pribadi Anda karena pilihan jawaban Anda akan memberikan
                 kontribusi terhadap hasil akhir
               </Text>
+
+              <Button
+                className="bg-primaryDarkBlue hover:bg-primaryDarkBlue rounded-full w-fit px-10 pb-1 !h-12 text-xl font-normal mt-4"
+                onClick={() => {
+                  scrollIntoView({
+                    alignment: "center"
+                  });
+                }}
+              >
+                Mulai Tes Kecemasan
+              </Button>
             </Stack>
           </Grid.Col>
           <Grid.Col span={5} className="">
