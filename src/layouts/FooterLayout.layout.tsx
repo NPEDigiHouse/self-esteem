@@ -48,10 +48,10 @@ const FooterLayout: React.FC<IFooterLayout> = ({}) => {
         <Link to={"/"} className="font-semibold tracking-[0.05em] text-white">
           Home
         </Link>
-        <Link to={ROUTES.anxietyTest} className="font-semibold tracking-[0.05em] text-white">
+        <Link to={"/"+ROUTES.anxietyTest} className="font-semibold tracking-[0.05em] text-white">
           Tes Kecemasan
         </Link>
-        <Link to={ROUTES.anxietyClass} className="font-semibold tracking-[0.05em] text-white">
+        <Link to={"/"+ROUTES.anxietyClass} className="font-semibold tracking-[0.05em] text-white">
           Tingkat Kecemasan
         </Link>
         {/* <Link to={"/personality-type"} className="font-semibold tracking-[0.05em]">

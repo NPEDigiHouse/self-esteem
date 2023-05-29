@@ -22,17 +22,17 @@ import {
 } from "../../assets/icons/Fluent";
 import { ROUTES } from "../../utils/const/routes";
 
-export interface IJumbotron {}
+export interface IHomeJumbotron {}
 
-const Jumbotron: React.FC<IJumbotron> = ({}) => {
+const HomeJumbotron: React.FC<IHomeJumbotron> = ({}) => {
   const theme = useMantineTheme();
   return (
     <Stack className="gap-0 mb-40">
       <div className="w-[120px] ml-10 mt-6 ">
         <Image src={tkIcon} className="" />
       </div>
-      <Stack className="mt-24 self-center bg-white relative">
-        <div className="absolute z-0 left-20 top-20 overflow-hidden border-4 border-secondary-500 bg-secondary-400 rounded-full">
+      <Stack className="mt-6 self-center bg-secondary-400 relative pt-[72px] pb-10">
+        {/* <div className="absolute z-0 left-20 top-20 overflow-hidden border-4 border-secondary-500 bg-secondary-400 rounded-full">
           <NormalAnxietyIcon size={160} className="self-center rounded-full -rotate-12" />
         </div>
         <div className="absolute z-0 right-14 -top-20 overflow-hidden border-4 border-secondary-500 bg-secondary-400 rounded-full">
@@ -40,19 +40,19 @@ const Jumbotron: React.FC<IJumbotron> = ({}) => {
         </div>
         <div className="absolute z-0 right-32 -bottom-10 overflow-hidden border-4 border-secondary-500 bg-secondary-400 rounded-full">
           <ResultAnxietyIcon size={160} className="self-center rounded-full rotate-[10deg]" />
-        </div>
+        </div> */}
         {/* <div className="absolute z-0 right-52 bottom-0 bg-primaryGreen overflow-hidden rounded-full">
           <ScaredPersonIcon size={160} className="self-center rounded-full bg-error-50 rotate-12" />
         </div> */}
         <Stack className="gap-10 w-[60%] self-center z-10 ">
           <Stack className="gap-0 items-center z-10">
-            <Text className="font-poppins-semibold text-[40px] text-pastel-primary-text z-10 text-center bg-white/[0.75] rounded-xl">
+            <Text className="font-poppins-semibold text-[40px] text-pastel-primary-text z-10 text-center rounded-xl">
               “Taklukkan{" "}
               <span className="font-bold text-primaryBlue">Kecemasan</span>,
               Temukan Keseimbangan Hidupmu.”
             </Text>
           </Stack>
-          <Text className="text-[18px] self-center mx-8 text-center tracking-4 text-primary-text-500 z-10 bg-white/[0.75] rounded-b-xl">
+          <Text className="text-[18px] self-center mx-8 text-center tracking-4 text-primary-text-500 z-10 rounded-b-xl">
             Selamat datang di website Tes Kecemasan! Website ini dirancang
             khusus untuk membantu Anda mengidentifikasi tingkat kecemasan Anda.
             Kami menyediakan 45 pertanyaan yang dirancang secara cermat untuk
@@ -74,7 +74,7 @@ const Jumbotron: React.FC<IJumbotron> = ({}) => {
           </Button>
         </Stack>
       </Stack>
-      <Stack className="mt-20 mb-40 w-[80%] self-center z-20">
+      <Stack className="mt-10 mb-40 w-[80%] self-center z-20">
         <Stepper
           active={-1}
           breakpoint="sm"
@@ -163,4 +163,4 @@ const Jumbotron: React.FC<IJumbotron> = ({}) => {
     </Stack>
   );
 };
-export default Jumbotron;
+export default HomeJumbotron;

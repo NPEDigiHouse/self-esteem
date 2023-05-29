@@ -28,25 +28,25 @@ const AnswerCircle: React.FC<IAnswerCircle> = ({
     cn = `${clickable ? "cursor-pointer" : ""} ${
       size == "md" ? "h-10 w-10" : size == "sm" ? "h-8 w-8" : "h-12 w-12"
     } ${
-      focus ? `bg-step2` : "bg-white"
+      focus ? `bg-step2` : "bg-white hover:bg-step2/[0.25]"
     } rounded-full border-[4px] border-step2`;
   }else if(color=="step3"){
     cn = `${clickable ? "cursor-pointer" : ""} ${
       size == "md" ? "h-10 w-10" : size == "sm" ? "h-8 w-8" : "h-12 w-12"
     } ${
-      focus ? `bg-step3` : "bg-white"
+      focus ? `bg-step3` : "bg-white hover:bg-step3/[0.25]"
     } rounded-full border-[4px] border-step3`;
   }else if(color=="primaryDarkBlue"){
     cn = `${clickable ? "cursor-pointer" : ""} ${
       size == "md" ? "h-10 w-10" : size == "sm" ? "h-8 w-8" : "h-12 w-12"
     } ${
-      focus ? `bg-primaryDarkBlue` : "bg-white"
+      focus ? `bg-primaryDarkBlue` : "bg-white hover:bg-primaryDarkBlue/[0.25]"
     } rounded-full border-[4px] border-primaryDarkBlue`;
   }else{
     cn = `${clickable ? "cursor-pointer" : ""} ${
       size == "md" ? "h-10 w-10" : size == "sm" ? "h-8 w-8" : "h-12 w-12"
     } ${
-      focus ? `bg-primaryGreen` : "bg-white"
+      focus ? `bg-primaryGreen` : "bg-white hover:bg-primaryGreen/[0.25]"
     } rounded-full border-[4px] border-primaryGreen`;
   }
 

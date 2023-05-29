@@ -45,11 +45,6 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
       </Stack>
       <Group className="justify-center w-[90%] self-center gap-10 md:gap-10 mt-10">
         <div className="flex self-center w-[200px] md:w-[320px] overflow-hidden">
-          {/* <img
-            src={personaLogo}
-            className="w-fit rounded-full"
-            alt="Foto Ketua Lurah"
-          /> */}
           {result === "Rendah" ? (
             <NotAnxietyIcon size={300} />
           ) : result === "Sedang" ? (
@@ -79,10 +74,25 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
             <Text
               className={`md:w-[700px] text-primary-text-500 tracking-1 text-justify text-[18px]`}
             >
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Assumenda, a sed ab hic accusantium eos consequuntur dignissimos
-              corporis aperiam? Laboriosam nemo corporis quaerat voluptate earum
-              nam ea aliquam tempora suscipit?
+              {result === "Rendah" ? (
+                <>
+                  Orang dengan tingkat kecemasan Rendah cenderung mempunyai
+                  sikap untuk mulai mengerjakan tugas segera setelah permberian
+                  tugas
+                </>
+              ) : result === "Sedang" ? (
+                <>
+                  Orang dengan tingkat kecemasan Sedang cenderung mempunyai
+                  sikap untuk mulai mengerjakan tugas saat beberapa hari sebelum
+                  hari pengumpulan.
+                </>
+              ) : (
+                <>
+                  Orang dengan tingkat kecemasan Tinggi cenderung mempunyai
+                  sikap untuk mulai mengerjakan tugas saat sudah mendekati waktu
+                  pengumpulan.
+                </>
+              )}
             </Text>
           </Stack>
         </Stack>

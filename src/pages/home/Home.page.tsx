@@ -2,7 +2,7 @@ import { Stack } from "@mantine/core";
 import React from "react";
 import ParagraphWithImage from "../../components/ParagraphWithImage.component";
 import MainLayout from "../../layouts/MainLayout.layout";
-import Jumbotron from "./HomeJumbotron.section";
+import HomeJumbotron from "./HomeJumbotron.section";
 
 export interface IHome {}
 
@@ -10,7 +10,7 @@ const Home: React.FC<IHome> = ({}) => {
   return (
     <MainLayout>
       <Stack className="">
-        <Jumbotron />
+        <HomeJumbotron />
         <ParagraphWithImage
           primaryTitle="Kenapa Tes Kecemasan"
           secondaryTitle="Sebuah Keharusan ?"
