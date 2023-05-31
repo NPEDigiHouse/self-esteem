@@ -1,109 +1,207 @@
 export interface IQuestionPack {
   question: string;
+  isPositive: boolean;
 }
 
-export const QuestionPack: Array<IQuestionPack> = [
+export const TempQuestionPack: Array<IQuestionPack> = [
+  // {
+  //   question:
+  //     "Teman teman dalam organisasi saya selalu mengandalkan saya Untuk memberikan pendapat terkait organisasi",
+  //   isPositive: true
+  // },
+  // {
+  //   question: "Saya merasa kurang percaya diri saat presentasi di depan kelas",
+  //   isPositive: false
+  // },
+  // {
+  //   question: "Saya selalu merasa percaya diri saat tampil di depan kelas",
+  //   isPositive: true
+  // },
+  // {
+  //   question: "Teman saya selalu membicarakan kekurangan yang saya miliki",
+  //   isPositive: false
+  // },
+  // {
+  //   question: "Saya selalu memberi tanggapan saat ada presentasi di kelas",
+  //   isPositive: true
+  // },
+  // {
+  //   question: "Saya selalu merasa percaya diri saat tampil didepan kelas",
+  //   isPositive: true
+  // },
+  // {
+  //   question: "Saya lebih menyukai menjadi audiens daripada presentator",
+  //   isPositive: false
+  // },
+  // {
+  //   question: "Saya merasa dikucilkan ketika bersama teman saya",
+  //   isPositive: false
+  // },
+  // {
+  //   question: "Saya merasa gugup berada di keramaian",
+  //   isPositive: false
+  // },
+  // {
+  //   question:
+  //     "Saya merasa jantung berdegup kencang dan sulit mengatur nafas saat berada didepan kelas",
+  //   isPositive: false
+  // },
+  // {
+  //   question: "Saya merasa lebih tenang jika berada ditempat sepi",
+  //   isPositive: false
+  // },
+  // {
+  //   question: "Saya bicara terbata-bata saat berbicara di depan umum",
+  //   isPositive: false
+  // },
+  // {
+  //   question:
+  //     "Guru sekolah selalu memberi pujian atas prestasi dan kerja keras saya",
+  //   isPositive: true
+  // },
+  // {
+  //   question: "Saya merasa teman-teman dikelas tidak tertarik dengan saya",
+  //   isPositive: false
+  // },
+  // {
+  //   question: "Saya selalu menghindar bergaul dengan teman yang kurang baik",
+  //   isPositive: false
+  // },
+  // {
+  //   question:
+  //     "Guru sekolah sering mengejek atau mengkritik saya secara tidak adil",
+  //   isPositive: false
+  // },
+  // {
+  //   question:
+  //     "Saya selalu percaya diri bahwa teman teman saya selalu ingin berteman dengan saya",
+  //   isPositive: true
+  // },
+  // {
+  //   question: "Berteman memudahkan kita bersosialisasi",
+  //   isPositive: true
+  // },
+  // {
+  //   question: "Guru sekolah merendahkan saya di depan teman-teman sekelas",
+  //   isPositive: false
+  // },
+  // {
+  //   question:
+  //     "Saya merasa bahwa teman teman saya selalu mengintimidasi saya saat di kelas",
+  //   isPositive: false
+  // },
+  // {
+  //   question: "Saat bersama teman-teman saya selalu diajak untuk membolos",
+  //   isPositive: false
+  // },
+  // {
+  //   question: "Saya memilih berdiam diri dirumah daripada ikut teman liburan",
+  //   isPositive: false
+  // },
+  // {
+  //   question: "Menyapa bapak dan ibu guru ketika bertemu di luar sekolah",
+  //   isPositive: true
+  // },
+  // {
+  //   question:
+  //     "Saya suka berkumpul bersama saudara atau kerabat yang datang kerumah",
+  //   isPositive: true
+  // },
+  // {
+  //   question: "Saya akan keluar bersama teman ke sebuah tempat saat libur",
+  //   isPositive: true
+  // },
+  // {
+  //   question:
+  //     "Ketika ada saudara atau kerabat yang datang ke rumah saya memilih berdiam diri di dalam kamar",
+  //   isPositive: false
+  // },
+  // {
+  //   question:
+  //     "Bersembunyi ketika bertemu bapak dan ibu guru saat bertemu di luar sekolah",
+  //   isPositive: false
+  // },
+  // {
+  //   question: "Menghampiri bapak dan ibu guru ketika bertemu di luar sekolah",
+  //   isPositive: true
+  // },
+  // {
+  //   question: "Saya selalu ikut liburan bersama teman saat libur sekolah",
+  //   isPositive: true
+  // },
+  // {
+  //   question:
+  //     "Saya memilih bertemu teman saat saudara atau kerabat datang kerumah",
+  //   isPositive: true
+  // },
+  // {
+  //   question:
+  //     "Saya sering kesulitan untuk menemukan kata-kata yang tepat untuk memulai percakapan dengan orang baru",
+  //   isPositive: false
+  // },
+  // {
+  //   question: "Saya percaya diri sepenuhnya saat tampil didepan umum",
+  //   isPositive: true
+  // },
+  // {
+  //   question:
+  //     "Saya merasa tertekan atau khawatir tentang kesan yang saya berikan saat berinteraksi dengan orang baru",
+  //   isPositive: false
+  // },
+  // {
+  //   question: "Saat di tempat les saya memiliki teman yang banyak",
+  //   isPositive: true
+  // },
+  // {
+  //   question: "Saya selalu mengabaikan teman saya saat berada ditempat les",
+  //   isPositive: false
+  // },
+  // {
+  //   question:
+  //     "Saya merasa nyaman dan santai saat berbicara dengan orang baru, tanpa perlu berpura-pura atau berusaha terlalu keras",
+  //   isPositive: true
+  // },
+  // {
+  //   question:
+  //     "Saat bertemu teman baru di tempat les saya enggan untuk menyapa terlebih dahulu",
+  //   isPositive: false
+  // },
+  // {
+  //   question: "Saya selalu terbuka dengan masukan dari kakak kelas",
+  //   isPositive: true
+  // },
   {
-    question: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    question: "Saya mencoba membangun tujuan yang ingin kami dicapai bersama",
+    isPositive: true
+  },
+  {
+    question: "Saya merasa takut akan penilaian kakak kelas terhadap saya",
+    isPositive: false
   },
   {
     question:
-      "Sed dapibus, est vel efficitur scelerisque, nisi elit consequat elit."
+      "Saya merasa berkeringat berlebihan saat berkerja sama dengan kakak kelas",
+    isPositive: false
   },
   {
-    question: "Fusce maximus aliquet dolor ut consectetur."
+    question: "Saya selalu menunduk ketika gugup",
+    isPositive: false
   },
-  // {
-  //   question: "Vivamus interdum tristique metus, vel ultrices purus."
-  // },
-  // {
-  //   question:
-  //     "Praesent commodo, risus ac pulvinar suscipit, quam odio pulvinar ligula."
-  // },
-  // {
-  //   question:
-  //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos non voluptatum, minima magnam adipisci totam nam quam ex obcaecati impedit iste illo incidunt ullam, dignissimos fugiat quod omnis asperiores aperiam?"
-  // },
-  // {
-  //   question: "Nulla facilisi. Sed in rutrum nisl."
-  // },
-  // {
-  //   question: "Proin a ligula sed dui fermentum consectetur ut vel nisi."
-  // },
-  // {
-  //   question:
-  //     "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas."
-  // },
-  // {
-  //   question:
-  //     "Vestibulum sodales, dolor et hendrerit bibendum, metus orci luctus sem, non efficitur enim ipsum a sem."
-  // },
-  // {
-  //   question:
-  //     "Praesent commodo, risus ac pulvinar suscipit, quam odio pulvinar ligula."
-  // },
-  // {
-  //   question:
-  //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos non voluptatum, minima magnam adipisci totam nam quam ex obcaecati impedit iste illo incidunt ullam, dignissimos fugiat quod omnis asperiores aperiam?"
-  // },
-  // {
-  //   question: "Nulla facilisi. Sed in rutrum nisl."
-  // },
-  // {
-  //   question:
-  //     "Praesent commodo, risus ac pulvinar suscipit, quam odio pulvinar ligula."
-  // },
-  // {
-  //   question:
-  //     "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos non voluptatum, minima magnam adipisci totam nam quam ex obcaecati impedit iste illo incidunt ullam, dignissimos fugiat quod omnis asperiores aperiam?"
-  // },
-  // {
-  //   question: "Nulla facilisi. Sed in rutrum nisl."
-  // },
-  // {
-  //   question: "Fusce vitae rutrum nisi, sit amet efficitur risus."
-  // },
-  // {
-  //   question: "Nam vel justo a mi suscipit tristique."
-  // },
-  // {
-  //   question: "Cras sit amet pulvinar ipsum."
-  // },
-  // {
-  //   question: "Phasellus nec mauris aliquet, lobortis turpis a, congue massa."
-  // },
-  // {
-  //   question: "Duis luctus eleifend lacus, a rhoncus tortor placerat eu."
-  // },
-  // {
-  //   question: "Nulla luctus risus a risus tristique tincidunt."
-  // },
-  // {
-  //   question: "Curabitur pharetra varius tellus in maximus."
-  // },
-  // {
-  //   question: "Fusce a purus nec velit vulputate faucibus ac ac mauris."
-  // },
-  // {
-  //   question:
-  //     "kasdj l oaisdioa  lasdkah sdk ashdkah sdashd askjhdkaj sdhasd kjadh"
-  // },
-  // {
-  //   question:
-  //     "Sed feugiat, felis non commodo porttitor, orci lorem tempor mi, ut cursus mi quam nec leo."
-  // }
+  {
+    question:
+      "Saya selalu diam dan tidak berbicara saat berkerja sama dengan kakak kelas",
+    isPositive: false
+  },
+  {
+    question: "Saya berusaha membangun kepercayaan dengan kakak kelas",
+    isPositive: true
+  },
+  {
+    question: "Kaki saya selalu gemetar saat tampil didepan umum",
+    isPositive: false
+  }
 ];
 
-// export const QuestionPack: Array<IQuestionPack> = [
-//   {
-//     question:
-//       "kasdj l oaisdioa  lasdkah sdk ashdkah sdashd askjhdkaj sdhasd kjadh"
-//   },
-//   {
-//     question: "asdddddddddddddddddddddda dsdddddddddddd aaaaaaa?"
-//   },
-//   {
-//     question:
-//       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos non voluptatum, minima magnam adipisci totam nam quam ex obcaecati impedit iste illo incidunt ullam, dignissimos fugiat quod omnis asperiores aperiam?"
-//   }
-// ];
+export function getQuestionPack(){
+  return TempQuestionPack.sort(() => Math.random() - 0.5);
+}

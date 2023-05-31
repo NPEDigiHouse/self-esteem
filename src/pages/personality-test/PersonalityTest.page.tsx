@@ -4,7 +4,7 @@ import { Button, Divider, Slider, Stack, useMantineTheme } from "@mantine/core";
 import PersonalityTestJumbotron from "./PersonalityTestJumbotron.section";
 import PersonalityTestInformation from "./PersonalityTestInformation.section";
 import Question from "../../components/Questions.component";
-import { IQuestionPack, QuestionPack } from "../../utils/const/questions";
+import { IQuestionPack, getQuestionPack } from "../../utils/const/questions";
 import { SearchIcon } from "../../assets/icons/Fluent";
 import PersonalityTestResult from "./PersonalityTestResult.section";
 import { useScrollIntoView, useWindowScroll } from "@mantine/hooks";
@@ -12,6 +12,8 @@ import { AppContext } from "../../context/app-context.context";
 import useArray from "../../hooks/useArray";
 
 export interface IPersonalityTest {}
+
+const QuestionPack = getQuestionPack();
 
 const defaultScoreArr: Array<number> = Array(QuestionPack.length).fill(0);
 
@@ -38,6 +40,8 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
   const [sumScoreArr, setSumScoreArr] = useState(
     scoreArr.reduce((partialSum: number, a: number) => partialSum + a, 0)
   );
+
+  console.log("sumScoreArr", sumScoreArr);
 
   const [progressCount, setProgressCount] = useState<number>(0);
   const progressPercentage: number =
@@ -72,7 +76,9 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
             />
           </div>
         )}
-        <PersonalityTestJumbotron scrollIntoView={result==null? scrollIntoView2 : scrollIntoView} />
+        <PersonalityTestJumbotron
+          scrollIntoView={result == null ? scrollIntoView2 : scrollIntoView}
+        />
         <PersonalityTestInformation />
         <div
           ref={targetRef}
@@ -91,6 +97,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                     <Question
                       key={e}
                       idx={e + 1}
+                      isPositive={question.isPositive}
                       questions={question.question}
                       progressCount={progressCount}
                       setProgressCount={setProgressCount}
@@ -127,15 +134,18 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   alignment: "center"
                 });
 
-                if (sumScoreArr < 5) {
-                  setResult("Rendah");
-                } else if (sumScoreArr < 10) {
+                let percentage =
+                  (sumScoreArr / (QuestionPack.length * 4)) * 100;
+
+                if (percentage > 66) {
+                  setResult("Tinggi");
+                } else if (percentage > 33) {
                   setResult("Sedang");
                 } else {
-                  setResult("Tinggi");
+                  setResult("Rendah");
                 }
 
-                setResultPercentage(sumScoreArr);
+                setResultPercentage(percentage);
               }}
             >
               Lihat Hasil

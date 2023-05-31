@@ -7,7 +7,7 @@ export interface IQuestionCircleComponent {
   size?: number;
   order: number;
   point: number;
-  focusedChoice: number | null;
+  focusedChoice?: number | null;
   chooseNewChoice?: (a: number, b: number) => void;
   color?: AnswerCircleColorType ;
 }
@@ -17,7 +17,7 @@ const QuestionCircleComponent: React.FC<IQuestionCircleComponent> = ({
   order,
   point,
   chooseNewChoice,
-  focusedChoice,
+  focusedChoice=0,
   color="step2"
 }) => {
   return (

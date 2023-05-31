@@ -64,7 +64,7 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
               Tingkat Kecemasan {result}
             </Text>
             <Text className="text-[22px] md:text-[20px] text-secondary-text-500 -mt-1">
-              Dengan Presentase Kecemasan {resultPercentage} %
+              Dengan Presentase Kecemasan {resultPercentage?.toFixed(1)} %
             </Text>
           </Stack>
           <div className="">

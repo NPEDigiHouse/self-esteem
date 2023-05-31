@@ -25,12 +25,12 @@ const PersonalityTestInformation: React.FC<
         <DotDivider type="dark" />
         <Group className="flex-nowrap gap-2">
           <AnswerCircle clickable={false} color="step3" />
-          <Text className="text-lg text-primary-text-500 font-semibold">Tidak Setuju</Text>
+          <Text className="text-lg text-primary-text-500 font-semibold">Kurang Setuju</Text>
         </Group>
         <DotDivider type="dark" />
         <Group className="flex-nowrap gap-2">
           <AnswerCircle clickable={false} color="primaryDarkBlue" />
-          <Text className="text-lg text-primary-text-500 font-semibold">Sangat Tidak Setuju</Text>
+          <Text className="text-lg text-primary-text-500 font-semibold">Tidak Setuju</Text>
         </Group>
       </Group>
     </Stack>

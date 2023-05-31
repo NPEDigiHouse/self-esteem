@@ -22,7 +22,7 @@ const MainLayout: React.FC<IMainLayout> = ({ children }) => {
   // useEffect(()=>{
   // }, [location.pathname])
 
-  console.log(location, "location")
+  // console.log(location, "location")
 
   return (
     <AppShell

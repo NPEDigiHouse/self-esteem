@@ -6,37 +6,16 @@ import QuestionCircleComponent, {
 } from "./QuestionCircle.component";
 import usePrevious from "../hooks/usePrevious";
 import { AnswerCircleColorType } from "../utils/const/types";
+import { negativeAnswerPointList, positiveAnswerPointList } from "../utils/const/answesList";
 
 export interface IQuestion {
   progressCount: number;
   idx: number;
   setProgressCount: React.Dispatch<React.SetStateAction<number>>;
   questions: string;
+  isPositive: boolean;
   updateScore: any;
 }
-
-const answerPointList: Array<IQuestionCircleComponent> = [
-  {
-    order: 1,
-    point: 1,
-    focusedChoice: 0
-  },
-  {
-    order: 2,
-    point: 2,
-    focusedChoice: 0
-  },
-  {
-    order: 3,
-    point: 3,
-    focusedChoice: 0
-  },
-  {
-    order: 4,
-    point: 4,
-    focusedChoice: 0
-  },
-];
 
 const answerChoiceColour: Array<AnswerCircleColorType> = [
   "primaryGreen",
@@ -50,12 +29,15 @@ const Question: React.FC<IQuestion> = ({
   idx,
   setProgressCount,
   questions,
+  isPositive,
   updateScore
 }) => {
   const [focusedChoice, setFocusedChoice] = useState<number | null>(null);
   const prevFocusedChoice = usePrevious(focusedChoice);
   const [currPoint, setCurrPoint] = useState(0);
   const [addProgress, setaddProgress] = useState(0);
+
+  const [answerPointList]= useState<Array<IQuestionCircleComponent>>(isPositive? positiveAnswerPointList : negativeAnswerPointList);
 
   function chooseNewChoice(order: number, point: number) {
     if (focusedChoice == order) {
@@ -81,7 +63,7 @@ const Question: React.FC<IQuestion> = ({
   }, [focusedChoice]);
 
   return (
-    <Stack className="w-[80%] self-center">
+    <Stack className={`w-[80%] self-center ${!isPositive? "bg-error-500/[0.2]" : "bg-primaryGreen/[0.2]"}`}>
       <Text className="text-center text-xl text-primary-text-500 tracking-4">
         {idx}. {questions}
       </Text>
@@ -107,8 +89,8 @@ const Question: React.FC<IQuestion> = ({
               }
             )}
           </Group>
-          <Text className="self-end mb-1 text-primaryDarkBlue text-xl font-poppins absolute -right-[216px]">
-            Sangat Tidak Setuju
+          <Text className="self-end mb-1 text-primaryDarkBlue text-xl font-poppins absolute -right-36">
+            Tidak Setuju
           </Text>
         </Group>
       </div>
