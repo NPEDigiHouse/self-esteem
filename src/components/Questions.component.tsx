@@ -63,7 +63,8 @@ const Question: React.FC<IQuestion> = ({
   }, [focusedChoice]);
 
   return (
-    <Stack className={`w-[80%] self-center ${!isPositive? "bg-error-500/[0.2]" : "bg-primaryGreen/[0.2]"}`}>
+    <Stack className={`w-[80%] self-center `}>
+      {/* ${!isPositive? "bg-error-500/[0.2]" : "bg-primaryGreen/[0.2]"} */}
       <Text className="text-center text-xl text-primary-text-500 tracking-4">
         {idx}. {questions}
       </Text>

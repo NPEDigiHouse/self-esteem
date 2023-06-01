@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 12,
     marginBottom: 16,
-    marginTop: 6,
+    marginTop: 16,
     fontFamily: "Times-Bold"
   },
   contentTitleText: {
@@ -293,6 +293,7 @@ const styles = StyleSheet.create({
     marginLeft: 30
   },
   table: {
+    marginTop: 16,
     borderWidth: 1
   },
   tableHead: {

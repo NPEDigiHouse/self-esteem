@@ -38,7 +38,7 @@ const PDFModal = ({
         title: {
           fontSize: 24,
           color: "#334155",
-          fontWeight: 700,
+          fontWeight: 600,
           padding: "6px !important"
         },
         close: {

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import MainLayout from "../../layouts/MainLayout.layout";
 import {
   Button,
@@ -25,14 +25,14 @@ import {
 import { useForm, yupResolver } from "@mantine/form";
 
 export interface IPersonalityTest {}
-
-const QuestionPack = getQuestionPack();
-
-const defaultScoreArr: Array<number> = Array(QuestionPack.length).fill(0);
+  
+const defaultScoreArr: Array<number> = Array(getQuestionPack().length).fill(0);
 
 const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
-  const { result, resultPercentage, setResult, setResultPercentage, currentTesterName, setCurrentTesterName } =
-    useContext(AppContext);
+  const { currentPage, result, resultPercentage, setResult, setResultPercentage, currentTesterName, setCurrentTesterName } =
+  useContext(AppContext);
+
+  const QuestionPack = useMemo(() => getQuestionPack(), [currentPage]);
 
   const theme = useMantineTheme();
 
