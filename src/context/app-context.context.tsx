@@ -11,21 +11,26 @@ interface IAppContext {
   result: TestResult;
   setResult: React.Dispatch<React.SetStateAction<TestResult>>;
   resultPercentage: number | null;
-  setResultPercentage: React.Dispatch<React.SetStateAction<number | null>>
+  setResultPercentage: React.Dispatch<React.SetStateAction<number | null>>;
+  currentTesterName: String | null;
+  setCurrentTesterName: React.Dispatch<React.SetStateAction<String | null>>;
 }
 
 export const AppContext = React.createContext<IAppContext>({
   currentPage: "home",
   setCurrentPage: () => {},
   result: null,
-  setResult: ()=>{},
+  setResult: () => {},
   resultPercentage: null,
-  setResultPercentage: ()=>{}
+  setResultPercentage: () => {},
+  currentTesterName: "",
+  setCurrentTesterName: () => {}
 });
 
 const AppContextProvider: React.FC<IAppContextProvider> = ({ children }) => {
   const [currPage, setCurrPage] = useState<NavbarMenuType>("home");
   const [result, setResult] = useState<TestResult>(null);
+  const [currentTesterName, setCurrentTesterName] = useState<String | null>(null)
   const [resultPercentage, setResultPercentage] = useState<number | null>(null);
 
   const defaultAppContext: IAppContext = {
@@ -34,7 +39,9 @@ const AppContextProvider: React.FC<IAppContextProvider> = ({ children }) => {
     result: result,
     setResult: setResult,
     resultPercentage: resultPercentage,
-    setResultPercentage: setResultPercentage
+    setResultPercentage: setResultPercentage,
+    currentTesterName: currentTesterName,
+    setCurrentTesterName: setCurrentTesterName
   };
 
   return (

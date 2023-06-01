@@ -1,6 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import MainLayout from "../../layouts/MainLayout.layout";
-import { Button, Divider, Slider, Stack, useMantineTheme } from "@mantine/core";
+import {
+  Button,
+  Divider,
+  Slider,
+  Stack,
+  useMantineTheme,
+  Text
+} from "@mantine/core";
 import PersonalityTestJumbotron from "./PersonalityTestJumbotron.section";
 import PersonalityTestInformation from "./PersonalityTestInformation.section";
 import Question from "../../components/Questions.component";
@@ -10,6 +17,12 @@ import PersonalityTestResult from "./PersonalityTestResult.section";
 import { useScrollIntoView, useWindowScroll } from "@mantine/hooks";
 import { AppContext } from "../../context/app-context.context";
 import useArray from "../../hooks/useArray";
+import { TextInput } from "../../components/FormInput.component";
+import {
+  IPersonalityTestForm,
+  personalityTestFormSchema
+} from "./PersonalityTestFormInterfaces";
+import { useForm, yupResolver } from "@mantine/form";
 
 export interface IPersonalityTest {}
 
@@ -18,7 +31,7 @@ const QuestionPack = getQuestionPack();
 const defaultScoreArr: Array<number> = Array(QuestionPack.length).fill(0);
 
 const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
-  const { result, resultPercentage, setResult, setResultPercentage } =
+  const { result, resultPercentage, setResult, setResultPercentage, currentTesterName, setCurrentTesterName } =
     useContext(AppContext);
 
   const theme = useMantineTheme();
@@ -52,6 +65,14 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
       scoreArr.reduce((partialSum: number, a: number) => partialSum + a, 0)
     );
   }, [scoreArr]);
+
+  const { onSubmit, ...form } = useForm<IPersonalityTestForm>({
+    validate: yupResolver(personalityTestFormSchema)
+  });
+
+  const { getInputProps, errors, setValues, values } = form;
+
+  console.log(values, 'values')
 
   // useEffect(() => {
   //   scrollTo({ y: (scene=="hasil"? 1000 : 500) });
@@ -91,6 +112,18 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
         {scene === "pertanyaan" && result == null ? (
           <>
             <Stack className="mt-36 gap-24 mb-10">
+              <Stack className="w-[60%] self-center gap-2">
+                <Text className="text-xl font-poppins text-primary-text-500 text-center">
+                  Masukkan Nama
+                </Text>
+                <TextInput
+                  placeholder="Masukkan nama terlebih dahulu"
+                  size="md"
+                  {...getInputProps("name")}
+                  error={errors["name" as keyof IPersonalityTestForm]}
+                  defaultValue={""}
+                />
+              </Stack>
               {QuestionPack?.map((question: IQuestionPack, e: number) => {
                 return (
                   <>
@@ -126,7 +159,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   }
                 />
               }
-              disabled={progressPercentage < 100}
+              disabled={progressPercentage < 100 || values?.name==null }
               onClick={() => {
                 setScene("hasil");
                 setProgressCount(0);
@@ -134,12 +167,14 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   alignment: "center"
                 });
 
+                setCurrentTesterName(values.name.trim())
+
                 let percentage =
                   (sumScoreArr / (QuestionPack.length * 4)) * 100;
 
-                if (percentage > 66) {
+                if (percentage >= 66) {
                   setResult("Tinggi");
-                } else if (percentage > 33) {
+                } else if (percentage >= 34) {
                   setResult("Sedang");
                 } else {
                   setResult("Rendah");

@@ -170,28 +170,28 @@ export const TempQuestionPack: Array<IQuestionPack> = [
   //   question: "Saya selalu terbuka dengan masukan dari kakak kelas",
   //   isPositive: true
   // },
-  {
-    question: "Saya mencoba membangun tujuan yang ingin kami dicapai bersama",
-    isPositive: true
-  },
-  {
-    question: "Saya merasa takut akan penilaian kakak kelas terhadap saya",
-    isPositive: false
-  },
-  {
-    question:
-      "Saya merasa berkeringat berlebihan saat berkerja sama dengan kakak kelas",
-    isPositive: false
-  },
-  {
-    question: "Saya selalu menunduk ketika gugup",
-    isPositive: false
-  },
-  {
-    question:
-      "Saya selalu diam dan tidak berbicara saat berkerja sama dengan kakak kelas",
-    isPositive: false
-  },
+  // {
+  //   question: "Saya mencoba membangun tujuan yang ingin kami dicapai bersama",
+  //   isPositive: true
+  // },
+  // {
+  //   question: "Saya merasa takut akan penilaian kakak kelas terhadap saya",
+  //   isPositive: false
+  // },
+  // {
+  //   question:
+  //     "Saya merasa berkeringat berlebihan saat berkerja sama dengan kakak kelas",
+  //   isPositive: false
+  // },
+  // {
+  //   question: "Saya selalu menunduk ketika gugup",
+  //   isPositive: false
+  // },
+  // {
+  //   question:
+  //     "Saya selalu diam dan tidak berbicara saat berkerja sama dengan kakak kelas",
+  //   isPositive: false
+  // },
   {
     question: "Saya berusaha membangun kepercayaan dengan kakak kelas",
     isPositive: true

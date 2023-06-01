@@ -1,14 +1,18 @@
-import { Button, Group, Stack, Text } from "@mantine/core";
-import React, { useContext } from "react";
+import { Button, Grid, Group, Stack, Text } from "@mantine/core";
+import React, { useContext, useState } from "react";
 import {
   FileCheckIcon,
   NormalAnxietyIcon,
   NotAnxietyIcon,
+  PDFIcon,
+  RestartIcon,
   ResultAnxietyIcon,
   ScaredPersonIcon
 } from "../../assets/icons/Fluent";
 import VerticalDivider from "../../components/VerticalDivider.component";
 import { AppContext } from "../../context/app-context.context";
+import PDFModal from "../../components/PDFModal";
+import AnxietyTestResult from "../../letters/AnxietyTestResult.letter";
 
 export interface IPersonalityTestResult {
   scene: "pertanyaan" | "hasil";
@@ -23,24 +27,39 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
   scrollTo,
   scrollIntoView
 }) => {
-  const { result, resultPercentage, setResult, setResultPercentage } =
-    useContext(AppContext);
+  const {
+    result,
+    resultPercentage,
+    setResult,
+    setResultPercentage,
+    currentTesterName
+  } = useContext(AppContext);
+
+  const [isResultModalOpened, setIsResultModalOpened] = useState(false);
+
   return (
     <Stack className="mt-28">
-      <Stack className="gap-0">
-        <Text className="w-[90%] text-center self-center font-poppins-semibold text-[44px] text-primary-text-500">
-          Hasil Tes: Anda Mempunyai Kecemasan
+      <PDFModal opened={isResultModalOpened} setOpened={setIsResultModalOpened}>
+        <AnxietyTestResult name={currentTesterName || ""} percentage={resultPercentage} result={result} />
+      </PDFModal>
+      <Stack className="gap-0 self-center w-[90%]">
+        <Text className="self-center font-poppins-semibold text-[38px] text-primary-text-500 text-start">
+          Nama: {currentTesterName}
         </Text>
-        <Text
-          className={`w-[90%] text-center self-center font-poppins-bold text-[44px] ${
-            result === "Rendah"
-              ? "text-primaryGreen"
-              : result === "Sedang"
-              ? "text-primaryBlue"
-              : "text-primaryDarkBlue"
-          }`}
-        >
-          Tingkat {result}
+        <Text className="self-center font-poppins-semibold text-[38px] text-primary-text-500">
+          Hasil Tes: Kecemasan
+          <span
+            className={`w-[90%] font-poppins-bold  ${
+              result === "Rendah"
+                ? "text-primaryGreen"
+                : result === "Sedang"
+                ? "text-primaryBlue"
+                : "text-primaryDarkBlue"
+            }`}
+          >
+            {" "}
+            Tingkat {result}
+          </span>
         </Text>
       </Stack>
       <Group className="justify-center w-[90%] self-center gap-10 md:gap-10 mt-10">
@@ -97,23 +116,40 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
           </Stack>
         </Stack>
       </Group>
+      <Grid className="mt-16 self-center w-[80%]">
+        <Grid.Col sm={12} md={6}>
+          <Button
+            className="bg-primaryGreen hover:bg-primaryGreen rounded-full !h-14 text-xl font-normal !w-full"
+            rightIcon={
+              <RestartIcon size={26} className="mt-[2px]" color={"#FFFFFF"} />
+            }
+            onClick={() => {
+              setScene("pertanyaan");
+              // scrollTo({ y: 600 });
 
-      <Button
-        className="bg-primaryDarkBlue hover:bg-primaryDarkBlue rounded-full w-[80%] !h-14 text-xl self-center font-normal mt-28"
-        onClick={() => {
-          setScene("pertanyaan");
-          // scrollTo({ y: 600 });
+              scrollIntoView({
+                alignment: "center"
+              });
 
-          scrollIntoView({
-            alignment: "center"
-          });
-
-          setResult(null);
-          setResultPercentage(null);
-        }}
-      >
-        Ulang Tes
-      </Button>
+              setResult(null);
+              setResultPercentage(null);
+            }}
+          >
+            Ulang Tes
+          </Button>
+        </Grid.Col>
+        <Grid.Col sm={12} md={6}>
+          <Button
+            className="bg-primaryDarkBlue hover:bg-primaryDarkBlue rounded-full !h-14 text-xl font-normal !w-full"
+            rightIcon={
+              <PDFIcon size={26} className="mt-[2px]" color={"#FFFFFF"} />
+            }
+            onClick={() => {setIsResultModalOpened(true)}}
+          >
+            Tampilkan Dokumen Hasil
+          </Button>
+        </Grid.Col>
+      </Grid>
     </Stack>
   );
 };
