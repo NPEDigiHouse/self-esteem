@@ -1,6 +1,10 @@
 import {
   TextInput as MantineTextInput,
+  NumberInput as MantineNumberInput,
+  NumberInputProps,
   NumberInputStylesNames,
+  Select,
+  SelectProps,
   SelectStylesNames,
   Styles,
   TextInputProps,
@@ -65,5 +69,51 @@ export const TextInput = ({ onFocus, onBlur, ...props }: TextInputProps) => {
         {...props}
       />
     </>
+  );
+};
+
+export const MyNumberInput = ({
+  onFocus,
+  onBlur,
+  ...props
+}: NumberInputProps) => {
+  const [isFocus, setIsFocus] = useState<boolean>(false);
+
+  return (
+    <MantineNumberInput
+      size="lg"
+      styles={{ ...getDefaultStyle(isFocus, !!props.error) }}
+      onFocus={(e) => {
+        setIsFocus(true);
+        if (!!onFocus) onFocus(e);
+      }}
+      onBlur={(e) => {
+        setIsFocus(false);
+        if (!!onBlur) onBlur(e);
+      }}
+      {...props}
+    />
+  );
+};
+
+export const SelectInput = ({ onFocus, onBlur, ...props }: SelectProps) => {
+  const [isFocus, setIsFocus] = useState<boolean>(false);
+
+  return (
+    <Select
+      size="lg"
+      styles={{ ...getDefaultStyle(isFocus, !!props.error) }}
+      onFocus={(e) => {
+        setIsFocus(true);
+        if (!!onFocus) onFocus(e);
+      }}
+      onBlur={(e) => {
+        setIsFocus(false);
+        if (!!onBlur) onBlur(e);
+      }}
+      searchable
+      nothingFound="Tidak Ada Opsi"
+      {...props}
+    />
   );
 };

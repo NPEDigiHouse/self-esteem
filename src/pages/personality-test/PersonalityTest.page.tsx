@@ -6,7 +6,8 @@ import {
   Slider,
   Stack,
   useMantineTheme,
-  Text
+  Text,
+  Grid
 } from "@mantine/core";
 import PersonalityTestJumbotron from "./PersonalityTestJumbotron.section";
 import PersonalityTestInformation from "./PersonalityTestInformation.section";
@@ -17,7 +18,7 @@ import PersonalityTestResult from "./PersonalityTestResult.section";
 import { useScrollIntoView, useWindowScroll } from "@mantine/hooks";
 import { AppContext } from "../../context/app-context.context";
 import useArray from "../../hooks/useArray";
-import { TextInput } from "../../components/FormInput.component";
+import { MyNumberInput, SelectInput, TextInput } from "../../components/FormInput.component";
 import {
   IPersonalityTestForm,
   personalityTestFormSchema
@@ -25,12 +26,19 @@ import {
 import { useForm, yupResolver } from "@mantine/form";
 
 export interface IPersonalityTest {}
-  
+
 const defaultScoreArr: Array<number> = Array(getQuestionPack().length).fill(0);
 
 const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
-  const { currentPage, result, resultPercentage, setResult, setResultPercentage, currentTesterName, setCurrentTesterName } =
-  useContext(AppContext);
+  const {
+    currentPage,
+    result,
+    resultPercentage,
+    setResult,
+    setResultPercentage,
+    currentTesterName,
+    setCurrentTesterName
+  } = useContext(AppContext);
 
   const QuestionPack = useMemo(() => getQuestionPack(), [currentPage]);
 
@@ -72,7 +80,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
 
   const { getInputProps, errors, setValues, values } = form;
 
-  console.log(values, 'values')
+  console.log(values, "values");
 
   // useEffect(() => {
   //   scrollTo({ y: (scene=="hasil"? 1000 : 500) });
@@ -112,18 +120,79 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
         {scene === "pertanyaan" && result == null ? (
           <>
             <Stack className="mt-36 gap-24 mb-10">
-              <Stack className="w-[60%] self-center gap-2">
-                <Text className="text-xl font-poppins text-primary-text-500 text-center">
-                  Masukkan Nama
-                </Text>
-                <TextInput
-                  placeholder="Masukkan nama terlebih dahulu"
-                  size="md"
-                  {...getInputProps("name")}
-                  error={errors["name" as keyof IPersonalityTestForm]}
-                  defaultValue={""}
-                />
-              </Stack>
+              <Grid className="w-[80%] self-center" gutter={"xl"}>
+                <Grid.Col md={6}>
+                  <Stack className="gap-1">
+                    <Text className="text-xl font-poppins text-primary-text-500 text-start">
+                      Masukkan Nama
+                    </Text>
+                    <TextInput
+                      placeholder="Masukkan nama..."
+                      size="md"
+                      {...getInputProps("name")}
+                      error={errors["name" as keyof IPersonalityTestForm]}
+                      defaultValue={""}
+                    />
+                  </Stack>
+                </Grid.Col>
+                <Grid.Col md={6}>
+                  <Stack className="gap-1">
+                    <Text className="text-xl font-poppins text-primary-text-500 text-start">
+                      Masukkan Kelas
+                    </Text>
+                    <TextInput
+                      placeholder="Masukkan kelas..."
+                      size="md"
+                      {...getInputProps("class")}
+                      error={errors["class" as keyof IPersonalityTestForm]}
+                      defaultValue={""}
+                    />
+                  </Stack>
+                </Grid.Col>
+                <Grid.Col md={6}>
+                  <Stack className="gap-1">
+                    <Text className="text-xl font-poppins text-primary-text-500 text-start">
+                      Masukkan Jenis Kelamin
+                    </Text>
+                    <SelectInput
+                      data={[
+                        {
+                          value: "Perempuan",
+                          label: "Perempuan"
+                        },
+                        {
+                          value: "Laki-laki",
+                          label: "Laki-laki"
+                        },
+                        {
+                          value: "Dll.",
+                          label: "Dll."
+                        }
+                      ]}
+                      placeholder="Masukkan jenis kelamin..."
+                      size="md"
+                      {...getInputProps("gender")}
+                      error={errors["gender" as keyof IPersonalityTestForm]}
+                    />
+                  </Stack>
+                </Grid.Col>
+                
+                <Grid.Col md={6}>
+                  <Stack className="gap-1">
+                    <Text className="text-xl font-poppins text-primary-text-500 text-start">
+                      Masukkan Umur
+                    </Text>
+                    <MyNumberInput
+                      placeholder="Masukkan umur..."
+                      size="md"
+                      {...getInputProps("age")}
+                      error={errors["age" as keyof IPersonalityTestForm]}
+                      min={0}
+                      max={150}
+                    />
+                  </Stack>
+                </Grid.Col>
+              </Grid>
               {QuestionPack?.map((question: IQuestionPack, e: number) => {
                 return (
                   <>
@@ -159,7 +228,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   }
                 />
               }
-              disabled={progressPercentage < 100 || values?.name==null }
+              disabled={progressPercentage < 100 || values?.name == null}
               onClick={() => {
                 setScene("hasil");
                 setProgressCount(0);
@@ -167,7 +236,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   alignment: "center"
                 });
 
-                setCurrentTesterName(values.name.trim())
+                setCurrentTesterName(values.name.trim());
 
                 let percentage =
                   (sumScoreArr / (QuestionPack.length * 4)) * 100;
