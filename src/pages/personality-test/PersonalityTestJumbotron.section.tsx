@@ -53,8 +53,7 @@ const PersonalityTestJumbotron: React.FC<IPersonalityTestJumbotron> = ({
                 pertanyaan dengan teliti. Pada kolom skala terdapat 4 skala
                 yaitu: sangat setuju, setuju, kurang setuju, dan tidak setuju.
                 Pilihlah salah satu skala tersebut yang sesuai dengan keadaan
-                diri anda dengan memberikan tanda (v) pada salah satu skala yang
-                dipilih.
+                diri anda dengan cara menekan pada satu skala .
               </Text>
 
               <Button

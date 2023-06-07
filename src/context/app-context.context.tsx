@@ -14,6 +14,12 @@ interface IAppContext {
   setResultPercentage: React.Dispatch<React.SetStateAction<number | null>>;
   currentTesterName: String | null;
   setCurrentTesterName: React.Dispatch<React.SetStateAction<String | null>>;
+  currentTesterClass: String | null;
+  setCurrentTesterClass: React.Dispatch<React.SetStateAction<String | null>>;
+  currentTesterGender: String | null;
+  setCurrentTesterGender: React.Dispatch<React.SetStateAction<String | null>>;
+  currentTesterAge: number | null;
+  setCurrentTesterAge: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
 export const AppContext = React.createContext<IAppContext>({
@@ -24,13 +30,28 @@ export const AppContext = React.createContext<IAppContext>({
   resultPercentage: null,
   setResultPercentage: () => {},
   currentTesterName: "",
-  setCurrentTesterName: () => {}
+  setCurrentTesterName: () => {},
+  currentTesterClass: "",
+  setCurrentTesterClass: () => {},
+  currentTesterGender: "",
+  setCurrentTesterGender: () => {},
+  currentTesterAge: null,
+  setCurrentTesterAge: () => {}
 });
 
 const AppContextProvider: React.FC<IAppContextProvider> = ({ children }) => {
   const [currPage, setCurrPage] = useState<NavbarMenuType>("home");
   const [result, setResult] = useState<TestResult>(null);
-  const [currentTesterName, setCurrentTesterName] = useState<String | null>(null)
+  const [currentTesterName, setCurrentTesterName] = useState<String | null>(
+    null
+  );
+  const [currentTesterClass, setCurrentTesterClass] = useState<String | null>(
+    null
+  );
+  const [currentTesterGender, setCurrentTesterGender] = useState<String | null>(
+    null
+  );
+  const [currentTesterAge, setCurrentTesterAge] = useState<number | null>(null);
   const [resultPercentage, setResultPercentage] = useState<number | null>(null);
 
   const defaultAppContext: IAppContext = {
@@ -41,7 +62,13 @@ const AppContextProvider: React.FC<IAppContextProvider> = ({ children }) => {
     resultPercentage: resultPercentage,
     setResultPercentage: setResultPercentage,
     currentTesterName: currentTesterName,
-    setCurrentTesterName: setCurrentTesterName
+    setCurrentTesterName: setCurrentTesterName,
+    currentTesterClass: currentTesterClass,
+    setCurrentTesterClass: setCurrentTesterClass,
+    currentTesterGender: currentTesterGender,
+    setCurrentTesterGender: setCurrentTesterGender,
+    currentTesterAge: currentTesterAge,
+    setCurrentTesterAge: setCurrentTesterAge
   };
 
   return (

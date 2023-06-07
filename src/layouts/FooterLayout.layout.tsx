@@ -1,7 +1,7 @@
 import { Divider, Group, Image, Stack, Text, useMantineTheme } from "@mantine/core";
 import React from "react";
 import { Link } from "react-router-dom";
-import tkIcon from "../assets/images/tk-icon-white.png";
+import uinLogo from "../assets/images/uin-logo.png";
 import { ROUTES } from "../utils/const/routes";
 
 export interface IFooterLayout {}
@@ -11,8 +11,8 @@ const FooterLayout: React.FC<IFooterLayout> = ({}) => {
   return (
     <Stack className="bg-primary-text-500 pb-4 pt-8 mt-32 border-t-[6px] border-t-primaryGreen">
       <Group className="self-center gap-10">
-        <div className="w-[160px]">
-          <Image src={tkIcon} className="" />
+        <div className="w-[100px]">
+          <Image src={uinLogo} className="" />
         </div>
         {/* <DotDivider />
         <Stack className="gap-1">

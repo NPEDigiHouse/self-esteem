@@ -202,6 +202,34 @@ export const TempQuestionPack: Array<IQuestionPack> = [
   }
 ];
 
+export const DummyQuestionPack: Array<IQuestionPack> = [
+  {
+    question:
+      "Teman teman dalam organisasi saya selalu mengandalkan saya Untuk memberikan pendapat terkait organisasi",
+    isPositive: true
+  },
+  {
+    question: "Saya merasa kurang percaya diri saat presentasi di depan kelas",
+    isPositive: false
+  },
+  {
+    question: "Saya selalu merasa percaya diri saat tampil di depan kelas",
+    isPositive: true
+  },
+  {
+    question: "Teman saya selalu membicarakan kekurangan yang saya miliki",
+    isPositive: false
+  },
+  {
+    question: "Saya selalu memberi tanggapan saat ada presentasi di kelas",
+    isPositive: true
+  },
+  {
+    question: "Saya selalu merasa percaya diri saat tampil didepan kelas",
+    isPositive: true
+  }
+];
+
 export function getQuestionPack(){
-  return TempQuestionPack.sort(() => Math.random() - 0.5);
+  return DummyQuestionPack.sort(() => Math.random() - 0.5);
 }

@@ -282,6 +282,12 @@ module.exports = {
           }
         }
       },
+      
+      backgroundImage: {
+        'backgroundImg': "url('../src/assets/images/background-img.png')",
+        'backgroundImg1': "url('../src/assets/images/background-img1.png')",
+        'backgroundImg2': "url('../src/assets/images/background-img2.png')",
+      },
       animation: {
         gradient: 'gradientAnim 2s ease infinite'
       }

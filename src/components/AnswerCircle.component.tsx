@@ -7,6 +7,7 @@ export interface IAnswerCircle {
   onClick?: () => void;
   clickable?: boolean;
   focus?: boolean;
+  disabled?: boolean;
 }
 
 const AnswerCircle: React.FC<IAnswerCircle> = ({
@@ -14,7 +15,8 @@ const AnswerCircle: React.FC<IAnswerCircle> = ({
   color = "step2",
   focus = false,
   onClick = () => {},
-  clickable = true
+  clickable = true,
+  disabled = false
 }) => {
   // if (focus) {
   //   console.log("bg-" + color.split("-").at(-1));
@@ -31,7 +33,9 @@ const AnswerCircle: React.FC<IAnswerCircle> = ({
       focus
         ? `bg-step2`
         : `bg-white ${clickable ? "hover:bg-step2/[0.25]" : ""} `
-    } rounded-full border-[4px] border-step2`;
+    } rounded-full border-[4px] border-step2 ${
+      disabled ? "!cursor-default !border-secondary-600 !bg-secondary-400" : ""
+    }`;
   } else if (color == "step3") {
     cn = `${clickable ? "cursor-pointer" : ""} ${
       size == "md" ? "h-10 w-10" : size == "sm" ? "h-8 w-8" : "h-12 w-12"
@@ -39,7 +43,9 @@ const AnswerCircle: React.FC<IAnswerCircle> = ({
       focus
         ? `bg-step3`
         : `bg-white ${clickable ? "hover:bg-step3/[0.25]" : ""} `
-    } rounded-full border-[4px] border-step3`;
+    } rounded-full border-[4px] border-step3 ${
+      disabled ? "!cursor-default !border-secondary-600 !bg-secondary-400" : ""
+    }`;
   } else if (color == "primaryDarkBlue") {
     cn = `${clickable ? "cursor-pointer" : ""} ${
       size == "md" ? "h-10 w-10" : size == "sm" ? "h-8 w-8" : "h-12 w-12"
@@ -47,7 +53,9 @@ const AnswerCircle: React.FC<IAnswerCircle> = ({
       focus
         ? `bg-primaryDarkBlue`
         : `bg-white ${clickable ? "hover:bg-primaryDarkBlue/[0.25]" : ""} `
-    } rounded-full border-[4px] border-primaryDarkBlue`;
+    } rounded-full border-[4px] border-primaryDarkBlue ${
+      disabled ? "!cursor-default !border-secondary-600 !bg-secondary-400" : ""
+    }`;
   } else {
     cn = `${clickable ? "cursor-pointer" : ""} ${
       size == "md" ? "h-10 w-10" : size == "sm" ? "h-8 w-8" : "h-12 w-12"
@@ -55,9 +63,11 @@ const AnswerCircle: React.FC<IAnswerCircle> = ({
       focus
         ? `bg-primaryGreen`
         : `bg-white ${clickable ? "hover:bg-primaryGreen/[0.25]" : ""} `
-    } rounded-full border-[4px] border-primaryGreen`;
+    } rounded-full border-[4px] border-primaryGreen ${
+      disabled ? "!cursor-default !border-secondary-600 !bg-secondary-400" : ""
+    }`;
   }
 
-  return <div onClick={onClick} className={cn}></div>;
+  return <div onClick={disabled ? () => {} : onClick} className={cn}></div>;
 };
 export default AnswerCircle;

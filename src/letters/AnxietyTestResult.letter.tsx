@@ -12,13 +12,22 @@ import { TestResult } from "../utils/const/types";
 // Create styles
 export interface IAnxietyTestResult {
   name: String;
+  gender: String;
+  classes: String;
+  age: number;
   result: TestResult;
   percentage: number | null;
-  
 }
 
 // Create Document Component
-const AnxietyTestResult: React.FC<IAnxietyTestResult> = ({ name, percentage, result }) => (
+const AnxietyTestResult: React.FC<IAnxietyTestResult> = ({
+  name,
+  percentage,
+  result,
+  age,
+  classes,
+  gender
+}) => (
   <PDFViewer style={styles.viewer}>
     <Document title={`Hasil Tes Kecemasan - ${name}`}>
       <Page size="A4" style={styles.page}>
@@ -42,31 +51,52 @@ const AnxietyTestResult: React.FC<IAnxietyTestResult> = ({ name, percentage, res
           </View>
 
           <View style={styles.students}>
-            <View style={styles.biodata}>
-              <View style={styles.studentData}>
-                <Text style={styles.data}>Nama</Text>
+            <View style={styles.biodataContainer}>
+              <View style={styles.biodata}>
+                <View style={styles.studentData}>
+                  <Text style={styles.data}>Nama</Text>
+                  <Text style={styles.data}>Kelas</Text>
+                </View>
+                <View style={styles.studentDataValue}>
+                  <Text style={styles.data}>: {name}</Text>
+                  <Text style={styles.data}>: {classes}</Text>
+                  {/* <Text style={styles.data}></Text> */}
+                </View>
               </View>
-              <View style={styles.studentDataValue}>
-                <Text style={styles.data}>: {name}</Text>
-                {/* <Text style={styles.data}></Text> */}
+              <View style={styles.biodata}>
+                <View style={styles.studentData}>
+                  <Text style={styles.data}>Jenis Kelamin</Text>
+                  <Text style={styles.data}>Umur</Text>
+                </View>
+                <View style={styles.studentDataValue}>
+                  <Text style={styles.data}>: {gender}</Text>
+                  <Text style={styles.data}>: {age}</Text>
+                  {/* <Text style={styles.data}></Text> */}
+                </View>
               </View>
             </View>
 
             <View>
               <Text style={styles.headerTextContent}>
+                {/* Dari hasil perhitungan angket yang sudah Anda isi diperoleh
+                hasil presentase sebesar {percentage?.toFixed(2)} %. Dengan ini
+                Anda dinyatakan masuk dalam kategori {result}. (jika hasilnya
+                rendah-sedang yang ditampilkan adalah, manfaat tidak memiliki
+                kecemasan, diantaranya mampu meningkatkan self esteem sehingga
+                dapat menerima segala kelebihan dan kekurangan yang dimiliki,
+                mendapatkan kepuasan hidup, kesehatan fisik dan psikologis lebih
+                terjaga, memudahkan untuk berinteraksi sosial.) (jika hasilnya
+                tinggi maka yang ditampilkan dampak dari kecemasan sosial,
+                diantaranya kesulitan dalam situasi sosial, harga diri yang
+                rendah, performa akademis yang menurun bahkan buruk, masalah
+                kesehatan fisik, dan juga dapat berdampak pada hubungan
+                interpersonal dengan orang lain.) */}
                 Dari hasil perhitungan angket yang sudah Anda isi diperoleh
-                hasil presentase sebesar {percentage} %. Dengan ini Anda
-                dinyatakan masuk dalam kategori {result}. (jika
-                hasilnya rendah-sedang yang ditampilkan adalah, manfaat tidak
-                memiliki kecemasan, diantaranya mampu meningkatkan self esteem
-                sehingga dapat menerima segala kelebihan dan kekurangan yang
-                dimiliki, mendapatkan kepuasan hidup, kesehatan fisik dan
-                psikologis lebih terjaga, memudahkan untuk berinteraksi sosial.)
-                (jika hasilnya tinggi maka yang ditampilkan dampak dari
-                kecemasan sosial, diantaranya kesulitan dalam situasi sosial,
-                harga diri yang rendah, performa akademis yang menurun bahkan
-                buruk, masalah kesehatan fisik, dan juga dapat berdampak pada
-                hubungan interpersonal dengan orang lain.)
+                hasil presentase sebesar {percentage?.toFixed(2)} %. Dengan ini
+                Anda dinyatakan masuk dalam kategori {result}.{" "}
+                {result == "Rendah"
+                  ? "Anda mampu meningkatkan self esteem sehingga dapat menerima segala kelebihan dan kekurangan yang dimiliki, mendapatkan kepuasan hidup, kesehatan fisik dan psikologis lebih terjaga, memudahkan untuk berinteraksi sosial."
+                  : "Dampak dari kecemasan sosial termasuk kesulitan dalam situasi sosial, harga diri yang rendah, performa akademis yang menurun bahkan buruk, masalah kesehatan fisik, dan juga dapat berdampak pada hubungan interpersonal dengan orang lain."}
               </Text>
             </View>
           </View>
@@ -134,7 +164,7 @@ const styles = StyleSheet.create({
     height: "100vh"
   },
   page: {
-    paddingHorizontal: 64,
+    paddingHorizontal: 58,
     paddingVertical: 30,
     fontFamily: "Times-Roman"
   },
@@ -217,7 +247,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     // paddingLeft: 12,
     marginBottom: 10,
-    fontFamily: "Times-Bold"
+    fontFamily: "Times-Bold",
+    flexWrap: "wrap",
+    overflow: "hidden"
   },
   headerTextContent: {
     fontSize: 12,
@@ -253,17 +285,22 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column"
   },
+  biodataContainer: {
+    display: "flex",
+    flexDirection: "row"
+  },
   biodata: {
     flexDirection: "row",
     marginTop: 16,
     fontFamily: "Times-Bold"
   },
   studentData: {
-    width: "20%",
-    fontFamily: "Times-Roman"
+    minWidth: "17%",
+    fontFamily: "Times-Roman",
+    overflow: "hidden"
   },
   studentDataValue: {
-    width: "80%",
+    width: "83%",
     fontFamily: "Times-Roman"
   },
 
@@ -311,14 +348,16 @@ const styles = StyleSheet.create({
   row1: {
     width: "25%",
     paddingHorizontal: 5,
-    paddingVertical: 5,
+    fontFamily: "Times-Roman",
     borderRight: 1,
+    paddingVertical: 5,
     textAlign: "center"
   },
   row2: {
     width: "25%",
     paddingHorizontal: 7,
     paddingVertical: 5,
+    fontFamily: "Times-Roman",
     borderRight: 1,
     textAlign: "center"
   },
@@ -326,6 +365,7 @@ const styles = StyleSheet.create({
     width: "50%",
     paddingHorizontal: 7,
     paddingVertical: 5,
+    fontFamily: "Times-Roman",
     textAlign: "justify"
   }
 });

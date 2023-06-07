@@ -15,6 +15,8 @@ export interface IQuestion {
   questions: string;
   isPositive: boolean;
   updateScore: any;
+  disabled?: boolean;
+  getError?: ()=>void;
 }
 
 const answerChoiceColour: Array<AnswerCircleColorType> = [
@@ -30,7 +32,9 @@ const Question: React.FC<IQuestion> = ({
   setProgressCount,
   questions,
   isPositive,
-  updateScore
+  updateScore,
+  disabled= false,
+  getError= ()=>{}
 }) => {
   const [focusedChoice, setFocusedChoice] = useState<number | null>(null);
   const prevFocusedChoice = usePrevious(focusedChoice);
@@ -63,14 +67,14 @@ const Question: React.FC<IQuestion> = ({
   }, [focusedChoice]);
 
   return (
-    <Stack className={`w-[80%] self-center `}>
+    <Stack className={`w-[80%] self-center`} onClick={disabled? getError : ()=>{}}>
       {/* ${!isPositive? "bg-error-500/[0.2]" : "bg-primaryGreen/[0.2]"} */}
-      <Text className="text-center text-xl text-primary-text-500 tracking-4">
+      <Text className={`text-center text-xl tracking-4 ${disabled? "text-secondary-text-500" : "text-primary-text-500"}`}>
         {idx}. {questions}
       </Text>
       <div className="self-center">
         <Group className="gap-6 self-center flex-nowrap relative">
-          <Text className="self-end mb-1 text-primaryGreen text-xl font-poppins absolute -left-40">
+          <Text className={`self-end mb-1  text-xl font-poppins  absolute -left-40 ${disabled? "text-secondary-text-500" : "text-primaryGreen"}`}>
             Sangat Setuju
           </Text>
           <Group className="gap-8">
@@ -85,12 +89,13 @@ const Question: React.FC<IQuestion> = ({
                     focusedChoice={focusedChoice}
                     chooseNewChoice={chooseNewChoice}
                     color={answerChoiceColour[e]}
+                    disabled={disabled}
                   />
                 );
               }
             )}
           </Group>
-          <Text className="self-end mb-1 text-primaryDarkBlue text-xl font-poppins absolute -right-36">
+          <Text className={`self-end mb-1  text-xl font-poppins  absolute -right-36 ${disabled? "text-secondary-text-500" : "text-primaryDarkBlue"}`}>
             Tidak Setuju
           </Text>
         </Group>

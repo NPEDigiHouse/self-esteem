@@ -21,19 +21,19 @@ const PersonalityTypeList: React.FC<IPersonalityTypeList> = ({}) => {
         <Grid.Col span={6} md={4}>
           <PersonalityTypeCard
             anxietyLevel={"Rendah"}
-            description="Orang dengan tingkat kecemasan Rendah cenderung mempunyai sikap untuk mulai mengerjakan tugas segera setelah permberian tugas."
+            description="Siswa memiliki persepsi positif terhadap diri dan lingkungan yang mendukungnya untuk dapat melakukan interaksi sosial dengan baik"
           />
         </Grid.Col>
         <Grid.Col span={6} md={4}>
           <PersonalityTypeCard
             anxietyLevel={"Sedang"}
-            description="Orang dengan tingkat kecemasan Sedang cenderung mempunyai sikap untuk mulai mengerjakan tugas saat beberapa hari sebelum hari pengumpulan."
+            description="Siswa cukup memiliki persepsi negatif terhadap diri dan lingkungan yang mengakibatkan siswa melakukan penghindaran sosial"
           />
         </Grid.Col>
         <Grid.Col span={6} md={4}>
           <PersonalityTypeCard
             anxietyLevel={"Tinggi"}
-            description="Orang dengan tingkat kecemasan Tinggi cenderung mempunyai sikap untuk mulai mengerjakan tugas saat sudah mendekati waktu pengumpulan."
+            description="Siswa memiliki persepsi negatif terhadap diri dan lingkungannya yang mengakibatkan siswa melakukan penghindaran sosial"
           />
         </Grid.Col>
         {/* <Grid.Col span={3}>

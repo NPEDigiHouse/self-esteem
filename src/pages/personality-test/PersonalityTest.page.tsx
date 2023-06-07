@@ -18,7 +18,11 @@ import PersonalityTestResult from "./PersonalityTestResult.section";
 import { useScrollIntoView, useWindowScroll } from "@mantine/hooks";
 import { AppContext } from "../../context/app-context.context";
 import useArray from "../../hooks/useArray";
-import { MyNumberInput, SelectInput, TextInput } from "../../components/FormInput.component";
+import {
+  MyNumberInput,
+  SelectInput,
+  TextInput
+} from "../../components/FormInput.component";
 import {
   IPersonalityTestForm,
   personalityTestFormSchema
@@ -37,7 +41,13 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
     setResult,
     setResultPercentage,
     currentTesterName,
-    setCurrentTesterName
+    setCurrentTesterName,
+    currentTesterClass,
+    currentTesterAge,
+    currentTesterGender,
+    setCurrentTesterAge,
+    setCurrentTesterClass,
+    setCurrentTesterGender
   } = useContext(AppContext);
 
   const QuestionPack = useMemo(() => getQuestionPack(), [currentPage]);
@@ -120,79 +130,99 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
         {scene === "pertanyaan" && result == null ? (
           <>
             <Stack className="mt-36 gap-24 mb-10">
-              <Grid className="w-[80%] self-center" gutter={"xl"}>
-                <Grid.Col md={6}>
-                  <Stack className="gap-1">
-                    <Text className="text-xl font-poppins text-primary-text-500 text-start">
-                      Masukkan Nama
-                    </Text>
-                    <TextInput
-                      placeholder="Masukkan nama..."
-                      size="md"
-                      {...getInputProps("name")}
-                      error={errors["name" as keyof IPersonalityTestForm]}
-                      defaultValue={""}
-                    />
-                  </Stack>
-                </Grid.Col>
-                <Grid.Col md={6}>
-                  <Stack className="gap-1">
-                    <Text className="text-xl font-poppins text-primary-text-500 text-start">
-                      Masukkan Kelas
-                    </Text>
-                    <TextInput
-                      placeholder="Masukkan kelas..."
-                      size="md"
-                      {...getInputProps("class")}
-                      error={errors["class" as keyof IPersonalityTestForm]}
-                      defaultValue={""}
-                    />
-                  </Stack>
-                </Grid.Col>
-                <Grid.Col md={6}>
-                  <Stack className="gap-1">
-                    <Text className="text-xl font-poppins text-primary-text-500 text-start">
-                      Masukkan Jenis Kelamin
-                    </Text>
-                    <SelectInput
-                      data={[
-                        {
-                          value: "Perempuan",
-                          label: "Perempuan"
-                        },
-                        {
-                          value: "Laki-laki",
-                          label: "Laki-laki"
-                        },
-                        {
-                          value: "Dll.",
-                          label: "Dll."
-                        }
-                      ]}
-                      placeholder="Masukkan jenis kelamin..."
-                      size="md"
-                      {...getInputProps("gender")}
-                      error={errors["gender" as keyof IPersonalityTestForm]}
-                    />
-                  </Stack>
-                </Grid.Col>
-                
-                <Grid.Col md={6}>
-                  <Stack className="gap-1">
-                    <Text className="text-xl font-poppins text-primary-text-500 text-start">
-                      Masukkan Umur
-                    </Text>
-                    <MyNumberInput
-                      placeholder="Masukkan umur..."
-                      size="md"
-                      {...getInputProps("age")}
-                      error={errors["age" as keyof IPersonalityTestForm]}
-                      min={0}
-                      max={150}
-                    />
-                  </Stack>
-                </Grid.Col>
-              </Grid>
+              <Stack className="gap-12">
+                <Stack className="gap-0">
+                  <Text className="font-poppins-semibold text-2xl text-primary-text-500 text-center">
+                    Identitas
+                  </Text>
+                  <Text className="text-lg text-secondary-text-500 text-center">
+                    Pertanyaan tes tidak bisa dijawab pertanyaan jika tidak
+                    mengisi identitas terlebih dahulu.
+                  </Text>
+                </Stack>
+                <Grid className="w-[80%] self-center" gutter={"xl"}>
+                  <Grid.Col md={6}>
+                    <Stack className="gap-[2px]">
+                      <Text className="text-lg font-poppins text-primary-text-500 text-start">
+                        Masukkan Nama
+                      </Text>
+                      <TextInput
+                        size="md"
+                        {...getInputProps("name")}
+                        disabled={progressPercentage != 0}
+                        error={errors["name" as keyof IPersonalityTestForm]}
+                      />
+                    </Stack>
+                  </Grid.Col>
+                  <Grid.Col md={6}>
+                    <Stack className="gap-[2px]">
+                      <Text className="text-lg font-poppins text-primary-text-500 text-start">
+                        Masukkan Kelas
+                      </Text>
+                      <TextInput
+                        size="md"
+                        {...getInputProps("class")}
+                        disabled={progressPercentage != 0}
+                        error={errors["class" as keyof IPersonalityTestForm]}
+                      />
+                    </Stack>
+                  </Grid.Col>
+                  <Grid.Col md={6}>
+                    <Stack className="gap-[2px]">
+                      <Text className="text-lg font-poppins text-primary-text-500 text-start">
+                        Masukkan Jenis Kelamin
+                      </Text>
+                      <SelectInput
+                        data={[
+                          {
+                            value: "Perempuan",
+                            label: "Perempuan"
+                          },
+                          {
+                            value: "Laki-laki",
+                            label: "Laki-laki"
+                          },
+                          {
+                            value: "Dll.",
+                            label: "Dll."
+                          }
+                        ]}
+                        size="md"
+                        {...getInputProps("gender")}
+                        disabled={progressPercentage != 0}
+                        error={errors["gender" as keyof IPersonalityTestForm]}
+                      />
+                    </Stack>
+                  </Grid.Col>
+
+                  <Grid.Col md={6}>
+                    <Stack className="gap-[2px]">
+                      <Text className="text-lg font-poppins text-primary-text-500 text-start">
+                        Masukkan Umur
+                      </Text>
+                      <MyNumberInput
+                        size="md"
+                        {...getInputProps("age")}
+                        disabled={progressPercentage != 0}
+                        error={errors["age" as keyof IPersonalityTestForm]}
+                        min={0}
+                        max={150}
+                        type={"number"}
+                      />
+                    </Stack>
+                  </Grid.Col>
+                </Grid>
+              </Stack>
+              <Stack className="gap-0 -mb-4">
+                <Text className="font-poppins-semibold text-2xl text-primary-text-500 text-center">
+                  Pertanyaan
+                </Text>
+                <Text className="text-lg text-secondary-text-500 text-center">
+                  Pilih jawaban yang paling sesuai dengan pengalaman pribadi
+                  Anda karena pilihan jawaban akan memberikan kontribusi
+                  terhadap hasil akhir
+                </Text>
+              </Stack>
               {QuestionPack?.map((question: IQuestionPack, e: number) => {
                 return (
                   <>
@@ -204,6 +234,14 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                       progressCount={progressCount}
                       setProgressCount={setProgressCount}
                       updateScore={update}
+                      getError={onSubmit(() => {})}
+                      disabled={
+                        values.age == null ||
+                        values.class == null ||
+                        values.gender == null ||
+                        values.name == null ||
+                        typeof values.age != "number"
+                      }
                     />
                     {e + 1 < QuestionPack.length && (
                       <Divider
@@ -237,6 +275,9 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                 });
 
                 setCurrentTesterName(values.name.trim());
+                setCurrentTesterAge(values.age)
+                setCurrentTesterClass(values.class.trim())
+                setCurrentTesterGender(values.gender.trim())
 
                 let percentage =
                   (sumScoreArr / (QuestionPack.length * 4)) * 100;

@@ -46,12 +46,6 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({ scrollY = 0, currentPage, setCu
               label="Tingkat Kecemasan"
               isActive={currentPage == ROUTES.anxietyClass}
             />
-            {/* <HeaderNavbarMenuItems
-              href="/"
-              isScrolled={isScrolled}
-              label="Contact"
-              isActive={currentPage == "contact"}
-            /> */}
           </Group>
       </div>
     </div>

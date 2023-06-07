@@ -32,15 +32,19 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
     resultPercentage,
     setResult,
     setResultPercentage,
-    currentTesterName
+    currentTesterName,
+    currentTesterAge,
+    currentTesterClass,
+    currentTesterGender
   } = useContext(AppContext);
 
   const [isResultModalOpened, setIsResultModalOpened] = useState(false);
+  console.log(currentTesterGender)
 
   return (
     <Stack className="mt-28">
       <PDFModal opened={isResultModalOpened} setOpened={setIsResultModalOpened}>
-        <AnxietyTestResult name={currentTesterName || ""} percentage={resultPercentage} result={result} />
+        <AnxietyTestResult name={currentTesterName || ""} age={currentTesterAge || 0} classes={currentTesterClass || ""} gender={currentTesterGender || ""} percentage={resultPercentage} result={result} />
       </PDFModal>
       <Stack className="gap-0 self-center w-[90%]">
         <Text className="self-center font-poppins-semibold text-[38px] text-primary-text-500 text-start">

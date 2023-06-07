@@ -10,6 +10,7 @@ export interface IQuestionCircleComponent {
   focusedChoice?: number | null;
   chooseNewChoice?: (a: number, b: number) => void;
   color?: AnswerCircleColorType ;
+  disabled?: boolean;
 }
 
 const QuestionCircleComponent: React.FC<IQuestionCircleComponent> = ({
@@ -18,7 +19,8 @@ const QuestionCircleComponent: React.FC<IQuestionCircleComponent> = ({
   point,
   chooseNewChoice,
   focusedChoice=0,
-  color="step2"
+  color="step2",
+  disabled= false
 }) => {
   return (
     <Stack className="bg-white gap-1 h-full">
@@ -38,6 +40,7 @@ const QuestionCircleComponent: React.FC<IQuestionCircleComponent> = ({
         onClick={() => {
           chooseNewChoice!(order, point);
         }}
+        disabled={disabled}
       />
     </Stack>
   );
