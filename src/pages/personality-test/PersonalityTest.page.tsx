@@ -232,7 +232,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                 <Text className="font-poppins-semibold text-2xl text-primary-text-500 text-center">
                   Pertanyaan
                 </Text>
-                <Text className="text-lg text-secondary-text-500 text-center">
+                <Text className="text-lg text-secondary-text-500 text-center w-[90%] self-center">
                   Pilih jawaban yang paling sesuai dengan pengalaman pribadi
                   Anda karena pilihan jawaban akan memberikan kontribusi
                   terhadap hasil akhir

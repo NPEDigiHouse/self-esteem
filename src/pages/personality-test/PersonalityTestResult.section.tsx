@@ -54,10 +54,10 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
         />
       </PDFModal>
       <Stack className="gap-0 self-center w-[90%]">
-        <Text className="self-center font-poppins-semibold text-[38px] text-primary-text-500 text-start">
+        <Text className="self-center font-poppins-semibold text-[30px] md:text-[38px] text-primary-text-500 text-center">
           Nama: {currentTesterName}
         </Text>
-        <Text className="self-center font-poppins-semibold text-[38px] text-primary-text-500">
+        <Text className="self-center font-poppins-semibold text-[30px] md:text-[38px] text-primary-text-500 text-center">
           Hasil Tes: Kecemasan
           <span
             className={`w-[90%] font-poppins-bold  ${
@@ -73,7 +73,7 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
           </span>
         </Text>
       </Stack>
-      <Group className="justify-center w-[90%] self-center gap-10 md:gap-10 mt-10">
+      <Group className="justify-center w-[90%] self-center gap-10 md:gap-10 mt-0 md:mt-10">
         <div className="flex self-center w-[200px] md:w-[320px] overflow-hidden">
           {result === "Rendah" ? (
             <NotAnxietyIcon size={300} />
@@ -93,7 +93,7 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
             <Text className="font-poppins-bold text-[18px] md:text-[30px] text-primary-text-500">
               Tingkat Kecemasan {result}
             </Text>
-            <Text className="text-[22px] md:text-[20px] text-secondary-text-500 -mt-1">
+            <Text className="text-[18px] md:text-[20px] text-secondary-text-500 -mt-1">
               Dengan Presentase Kecemasan {resultPercentage?.toFixed(1)} %
             </Text>
           </Stack>

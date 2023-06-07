@@ -25,23 +25,23 @@ const PersonalityTestJumbotron: React.FC<IPersonalityTestJumbotron> = ({
   const theme = useMantineTheme();
   return (
     <Stack className="">
-      <div className="w-[72px] ml-10 mt-4">
+      <div className="w-[72px] ml-10 mt-4 hidden md:block">
         <Image src={uinLogo} className="" />
       </div>
-      <Stack className="mt-16 w-[80%] self-center">
+      <Stack className="w-[80%] self-center mt-36 md:mt-16 ">
         <Grid className=" ">
-          <Grid.Col span={7} className="flex pr-10 relative">
+          <Grid.Col sm={12} md={7} className="flex pr-10 relative">
             {/* <SearchIconBold
               size={100}
               color={theme.colors["secondary"][4]}
               className="absolute top-0"
             /> */}
             <Stack className="w-fit align-middle h-fit self-center gap-8">
-              <Text className="font-poppins-semibold text-[54px] text-pastel-primary-text z-10">
+              <Text className="font-poppins-semibold text-[38px] md:text-[46px] lg:text-[54px] text-pastel-primary-text z-10">
                 {/* Tes Kecemasan */}
                 Petunjuk Pengisian
               </Text>
-              <Text className="text-xl text-primary-text-500 tracking-4 text-justify">
+              <Text className="text-[18px] md:text-xl text-primary-text-500 tracking-4 text-justify">
                 {/* Anda akan diarahkan untuk menjawab total 45 pertanyaan yang
                 masing-masing memiliki 4 pilihan jawaban.
                 <br />
@@ -68,13 +68,15 @@ const PersonalityTestJumbotron: React.FC<IPersonalityTestJumbotron> = ({
               </Button>
             </Stack>
           </Grid.Col>
-          <Grid.Col span={5} className="">
-            <div className="relative">
-              <div className="p-4 rounded-lg bg-secondary-500">
-                <AnxietyPersonIcon size={380} />
+          <Grid.Col md={5} className="">
+            <Stack className="pt-4 md:pt-4 lg:pt-0 hidden lg:flex">
+              <div className="relative self-center">
+                <div className="p-4 rounded-lg bg-secondary-500 overflow-hidden max-w-[440px]">
+                  <AnxietyPersonIcon size={320} className="self-center" />
+                </div>
+                <div className="h-full w-full bg-primaryGreen -z-10 top-4 left-4 rounded-lg absolute max-w-[440px]"></div>
               </div>
-              <div className="h-full w-full bg-primaryGreen -z-10 top-4 left-4 rounded-lg absolute"></div>
-            </div>
+            </Stack>
           </Grid.Col>
         </Grid>
       </Stack>
