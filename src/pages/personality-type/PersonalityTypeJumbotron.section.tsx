@@ -22,7 +22,7 @@ import advertising from "../../assets/images/advertising.png";
 import readingBook from "../../assets/images/reading-book.png";
 import stayHome from "../../assets/images/stay-home.png";
 import studying from "../../assets/images/studying.png";
-import tkIcon from "../../assets/images/tk-icon.png";
+import uinLogo from "../../assets/images/uin-logo.png";
 
 export interface IPersonalityTypeJumbotron {}
 
@@ -30,8 +30,8 @@ const PersonalityTypeJumbotron: React.FC<IPersonalityTypeJumbotron> = ({}) => {
   const theme = useMantineTheme();
   return (
     <Stack>
-      <div className="w-[120px] ml-10 mt-6 ">
-        <Image src={tkIcon} className="" />
+      <div className="w-[72px] ml-10 mt-4">
+        <Image src={uinLogo} className="" />
       </div>
       <Grid className="mt-16 w-[80%] self-center bg-white">
         <Grid.Col span={3} className="">

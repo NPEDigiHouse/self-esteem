@@ -13,7 +13,7 @@ import {
   QuizIcon,
   SearchIconBold
 } from "../../assets/icons/Fluent";
-import tkIcon from "../../assets/images/tk-icon.png";
+import uinLogo from "../../assets/images/uin-logo.png";
 
 export interface IPersonalityTestJumbotron {
   scrollIntoView: any;
@@ -25,8 +25,8 @@ const PersonalityTestJumbotron: React.FC<IPersonalityTestJumbotron> = ({
   const theme = useMantineTheme();
   return (
     <Stack className="">
-      <div className="w-[120px] ml-10 mt-6 ">
-        <Image src={tkIcon} className="" />
+      <div className="w-[72px] ml-10 mt-4">
+        <Image src={uinLogo} className="" />
       </div>
       <Stack className="mt-16 w-[80%] self-center">
         <Grid className=" ">

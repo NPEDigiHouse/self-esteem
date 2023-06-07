@@ -78,19 +78,30 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
   const progressPercentage: number =
     (progressCount / QuestionPack.length) * 100;
 
-  useEffect(() => {
-    setSumScoreArr(
-      scoreArr.reduce((partialSum: number, a: number) => partialSum + a, 0)
-    );
-  }, [scoreArr]);
 
-  const { onSubmit, ...form } = useForm<IPersonalityTestForm>({
-    validate: yupResolver(personalityTestFormSchema)
-  });
+    
+    useEffect(() => {
+      setSumScoreArr(
+        scoreArr.reduce((partialSum: number, a: number) => partialSum + a, 0)
+        );
+      }, [scoreArr]);
+      
+      const { onSubmit, ...form } = useForm<IPersonalityTestForm>({
+        validate: yupResolver(personalityTestFormSchema)
+      });
+      
+      const { getInputProps, errors, setValues, values } = form;
+      
+      useEffect(()=>{
+        setValues({
+          age: currentTesterAge || undefined,
+          class: (currentTesterClass || undefined) as any,
+          gender: (currentTesterGender || undefined) as any,
+          name: (currentTesterName || undefined) as any
+        })
+      }, [])
 
-  const { getInputProps, errors, setValues, values } = form;
-
-  console.log(values, "values");
+      console.log(values, "values");
 
   // useEffect(() => {
   //   scrollTo({ y: (scene=="hasil"? 1000 : 500) });
@@ -151,6 +162,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                         {...getInputProps("name")}
                         disabled={progressPercentage != 0}
                         error={errors["name" as keyof IPersonalityTestForm]}
+                        // value={(currentTesterName || null) as any}
                       />
                     </Stack>
                   </Grid.Col>
@@ -164,6 +176,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                         {...getInputProps("class")}
                         disabled={progressPercentage != 0}
                         error={errors["class" as keyof IPersonalityTestForm]}
+                        // value={(currentTesterClass || null) as any}
                       />
                     </Stack>
                   </Grid.Col>
@@ -191,6 +204,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                         {...getInputProps("gender")}
                         disabled={progressPercentage != 0}
                         error={errors["gender" as keyof IPersonalityTestForm]}
+                        // value={(currentTesterGender || null) as any}
                       />
                     </Stack>
                   </Grid.Col>
@@ -208,6 +222,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                         min={0}
                         max={150}
                         type={"number"}
+                        // value={(currentTesterAge || null) as any}
                       />
                     </Stack>
                   </Grid.Col>

@@ -11,7 +11,7 @@ const FooterLayout: React.FC<IFooterLayout> = ({}) => {
   return (
     <Stack className="bg-primary-text-500 pb-4 pt-8 mt-32 border-t-[6px] border-t-primaryGreen">
       <Group className="self-center gap-10">
-        <div className="w-[100px]">
+        <div className="w-[80px]">
           <Image src={uinLogo} className="" />
         </div>
         {/* <DotDivider />
@@ -44,7 +44,7 @@ const FooterLayout: React.FC<IFooterLayout> = ({}) => {
           </Group>
         </Stack> */}
       </Group>
-      <Group className="gap-10 self-center mt-4">
+      <Group className="gap-10 self-center mt-2">
         <Link to={"/"} className="font-semibold tracking-[0.05em] text-white">
           Home
         </Link>
@@ -61,7 +61,7 @@ const FooterLayout: React.FC<IFooterLayout> = ({}) => {
       <Divider color={theme.colors['secondary-text'][5]} />
 
       <Text className="text-white text-lg text-center mt-1 tracking-4">
-        &copy; 2023 Personality Test - All rights reserved
+        &copy; 2023 UIN Satu Tulungagung - All rights reserved
       </Text>
     </Stack>
   );

@@ -39,12 +39,19 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
   } = useContext(AppContext);
 
   const [isResultModalOpened, setIsResultModalOpened] = useState(false);
-  console.log(currentTesterGender)
+  console.log(currentTesterGender);
 
   return (
     <Stack className="mt-28">
       <PDFModal opened={isResultModalOpened} setOpened={setIsResultModalOpened}>
-        <AnxietyTestResult name={currentTesterName || ""} age={currentTesterAge || 0} classes={currentTesterClass || ""} gender={currentTesterGender || ""} percentage={resultPercentage} result={result} />
+        <AnxietyTestResult
+          name={currentTesterName || ""}
+          age={currentTesterAge || 0}
+          classes={currentTesterClass || ""}
+          gender={currentTesterGender || ""}
+          percentage={resultPercentage}
+          result={result}
+        />
       </PDFModal>
       <Stack className="gap-0 self-center w-[90%]">
         <Text className="self-center font-poppins-semibold text-[38px] text-primary-text-500 text-start">
@@ -99,21 +106,21 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
             >
               {result === "Rendah" ? (
                 <>
-                  Orang dengan tingkat kecemasan Rendah cenderung mempunyai
-                  sikap untuk mulai mengerjakan tugas segera setelah permberian
-                  tugas
+                  Siswa memiliki persepsi positif terhadap diri dan lingkungan
+                  yang mendukungnya untuk dapat melakukan interaksi sosial
+                  dengan baik
                 </>
               ) : result === "Sedang" ? (
                 <>
-                  Orang dengan tingkat kecemasan Sedang cenderung mempunyai
-                  sikap untuk mulai mengerjakan tugas saat beberapa hari sebelum
-                  hari pengumpulan.
+                  Siswa cukup memiliki persepsi negatif terhadap diri dan
+                  lingkungan yang mengakibatkan siswa melakukan penghindaran
+                  sosial
                 </>
               ) : (
                 <>
-                  Orang dengan tingkat kecemasan Tinggi cenderung mempunyai
-                  sikap untuk mulai mengerjakan tugas saat sudah mendekati waktu
-                  pengumpulan.
+                  Siswa memiliki persepsi negatif terhadap diri dan
+                  lingkungannya yang mengakibatkan siswa melakukan penghindaran
+                  sosial
                 </>
               )}
             </Text>
@@ -148,7 +155,9 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
             rightIcon={
               <PDFIcon size={26} className="mt-[2px]" color={"#FFFFFF"} />
             }
-            onClick={() => {setIsResultModalOpened(true)}}
+            onClick={() => {
+              setIsResultModalOpened(true);
+            }}
           >
             Tampilkan Dokumen Hasil
           </Button>
