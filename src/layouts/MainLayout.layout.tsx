@@ -19,10 +19,6 @@ const MainLayout: React.FC<IMainLayout> = ({ children }) => {
   const currPath= location.pathname.substring(1);
 
   setCurrentPage(currPath as NavbarMenuType)
-  // useEffect(()=>{
-  // }, [location.pathname])
-
-  // console.log(location, "location")
 
   return (
     <AppShell

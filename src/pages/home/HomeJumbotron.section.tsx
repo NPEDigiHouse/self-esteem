@@ -1,12 +1,6 @@
-import {
-  Image,
-  Stack,
-  Text,
-  useMantineTheme
-} from "@mantine/core";
+import { Image, Stack, Text, useMantineTheme } from "@mantine/core";
 import React from "react";
 import uinLogo from "../../assets/images/uin-logo.png";
-
 
 export interface IHomeJumbotron {}
 

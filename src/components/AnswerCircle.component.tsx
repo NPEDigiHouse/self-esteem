@@ -18,12 +18,6 @@ const AnswerCircle: React.FC<IAnswerCircle> = ({
   clickable = true,
   disabled = false
 }) => {
-  // if (focus) {
-  //   console.log("bg-" + color.split("-").at(-1));
-  // }
-
-  let borderColor = "border-" + color;
-  let backgroundColor = "bg-" + color;
   let cn = "";
 
   if (color == "step2") {

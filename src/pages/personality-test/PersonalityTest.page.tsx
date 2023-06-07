@@ -1,33 +1,33 @@
-import React, { useContext, useEffect, useMemo, useState } from "react";
-import MainLayout from "../../layouts/MainLayout.layout";
 import {
   Button,
   Divider,
+  Grid,
   Slider,
   Stack,
-  useMantineTheme,
   Text,
-  Grid
+  useMantineTheme
 } from "@mantine/core";
-import PersonalityTestJumbotron from "./PersonalityTestJumbotron.section";
-import PersonalityTestInformation from "./PersonalityTestInformation.section";
-import Question from "../../components/Questions.component";
-import { IQuestionPack, getQuestionPack } from "../../utils/const/questions";
-import { SearchIcon } from "../../assets/icons/Fluent";
-import PersonalityTestResult from "./PersonalityTestResult.section";
+import { useForm, yupResolver } from "@mantine/form";
 import { useScrollIntoView, useWindowScroll } from "@mantine/hooks";
-import { AppContext } from "../../context/app-context.context";
-import useArray from "../../hooks/useArray";
+import React, { useContext, useEffect, useMemo, useState } from "react";
+import { SearchIcon } from "../../assets/icons/Fluent";
 import {
   MyNumberInput,
   SelectInput,
   TextInput
 } from "../../components/FormInput.component";
+import Question from "../../components/Questions.component";
+import { AppContext } from "../../context/app-context.context";
+import useArray from "../../hooks/useArray";
+import MainLayout from "../../layouts/MainLayout.layout";
+import { IQuestionPack, getQuestionPack } from "../../utils/const/questions";
 import {
   IPersonalityTestForm,
   personalityTestFormSchema
 } from "./PersonalityTestFormInterfaces";
-import { useForm, yupResolver } from "@mantine/form";
+import PersonalityTestInformation from "./PersonalityTestInformation.section";
+import PersonalityTestJumbotron from "./PersonalityTestJumbotron.section";
+import PersonalityTestResult from "./PersonalityTestResult.section";
 
 export interface IPersonalityTest {}
 
@@ -72,36 +72,30 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
     scoreArr.reduce((partialSum: number, a: number) => partialSum + a, 0)
   );
 
-  console.log("sumScoreArr", sumScoreArr);
-
   const [progressCount, setProgressCount] = useState<number>(0);
   const progressPercentage: number =
     (progressCount / QuestionPack.length) * 100;
 
+  useEffect(() => {
+    setSumScoreArr(
+      scoreArr.reduce((partialSum: number, a: number) => partialSum + a, 0)
+    );
+  }, [scoreArr]);
 
-    
-    useEffect(() => {
-      setSumScoreArr(
-        scoreArr.reduce((partialSum: number, a: number) => partialSum + a, 0)
-        );
-      }, [scoreArr]);
-      
-      const { onSubmit, ...form } = useForm<IPersonalityTestForm>({
-        validate: yupResolver(personalityTestFormSchema)
-      });
-      
-      const { getInputProps, errors, setValues, values } = form;
-      
-      useEffect(()=>{
-        setValues({
-          age: currentTesterAge || undefined,
-          class: (currentTesterClass || undefined) as any,
-          gender: (currentTesterGender || undefined) as any,
-          name: (currentTesterName || undefined) as any
-        })
-      }, [])
+  const { onSubmit, ...form } = useForm<IPersonalityTestForm>({
+    validate: yupResolver(personalityTestFormSchema)
+  });
 
-      console.log(values, "values");
+  const { getInputProps, errors, setValues, values } = form;
+
+  useEffect(() => {
+    setValues({
+      age: currentTesterAge || undefined,
+      class: (currentTesterClass || undefined) as any,
+      gender: (currentTesterGender || undefined) as any,
+      name: (currentTesterName || undefined) as any
+    });
+  }, []);
 
   // useEffect(() => {
   //   scrollTo({ y: (scene=="hasil"? 1000 : 500) });
@@ -144,7 +138,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
               <Stack className="gap-12">
                 <Stack className="gap-0">
                   <Text className="font-poppins-semibold text-2xl text-primary-text-500 text-center">
-                    Identitas
+                    Pengisian Identitas
                   </Text>
                   <Text className="text-lg text-secondary-text-500 text-center">
                     Pertanyaan tes tidak bisa dijawab pertanyaan jika tidak
@@ -155,7 +149,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   <Grid.Col md={6}>
                     <Stack className="gap-[2px]">
                       <Text className="text-lg font-poppins text-primary-text-500 text-start">
-                        Masukkan Nama
+                        Nama
                       </Text>
                       <TextInput
                         size="md"
@@ -169,7 +163,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   <Grid.Col md={6}>
                     <Stack className="gap-[2px]">
                       <Text className="text-lg font-poppins text-primary-text-500 text-start">
-                        Masukkan Kelas
+                        Kelas
                       </Text>
                       <TextInput
                         size="md"
@@ -183,7 +177,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   <Grid.Col md={6}>
                     <Stack className="gap-[2px]">
                       <Text className="text-lg font-poppins text-primary-text-500 text-start">
-                        Masukkan Jenis Kelamin
+                        Jenis Kelamin
                       </Text>
                       <SelectInput
                         data={[
@@ -212,7 +206,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   <Grid.Col md={6}>
                     <Stack className="gap-[2px]">
                       <Text className="text-lg font-poppins text-primary-text-500 text-start">
-                        Masukkan Umur
+                        Umur
                       </Text>
                       <MyNumberInput
                         size="md"
@@ -290,9 +284,9 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                 });
 
                 setCurrentTesterName(values.name.trim());
-                setCurrentTesterAge(values.age)
-                setCurrentTesterClass(values.class.trim())
-                setCurrentTesterGender(values.gender.trim())
+                setCurrentTesterAge(values.age);
+                setCurrentTesterClass(values.class.trim());
+                setCurrentTesterGender(values.gender.trim());
 
                 let percentage =
                   (sumScoreArr / (QuestionPack.length * 4)) * 100;

@@ -1,9 +1,7 @@
 import { Button, Stack, useMantineTheme } from "@mantine/core";
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  ArrowRightAltIcon
-} from "../../assets/icons/Fluent";
+import { ArrowRightAltIcon } from "../../assets/icons/Fluent";
 import ParagraphWithImage from "../../components/ParagraphWithImage.component";
 import MainLayout from "../../layouts/MainLayout.layout";
 import { ROUTES } from "../../utils/const/routes";

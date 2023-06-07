@@ -1,17 +1,14 @@
 import {
+  Button,
   Grid,
+  Image,
   Stack,
   Text,
-  Image,
-  Group,
-  useMantineTheme,
-  Button
+  useMantineTheme
 } from "@mantine/core";
 import React from "react";
 import {
-  AnxietyPersonIcon,
-  QuizIcon,
-  SearchIconBold
+  AnxietyPersonIcon
 } from "../../assets/icons/Fluent";
 import uinLogo from "../../assets/images/uin-logo.png";
 

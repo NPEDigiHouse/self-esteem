@@ -6,12 +6,11 @@ import {
   NotAnxietyIcon,
   PDFIcon,
   RestartIcon,
-  ResultAnxietyIcon,
-  ScaredPersonIcon
+  ResultAnxietyIcon
 } from "../../assets/icons/Fluent";
+import PDFModal from "../../components/PDFModal";
 import VerticalDivider from "../../components/VerticalDivider.component";
 import { AppContext } from "../../context/app-context.context";
-import PDFModal from "../../components/PDFModal";
 import AnxietyTestResult from "../../letters/AnxietyTestResult.letter";
 
 export interface IPersonalityTestResult {
@@ -39,7 +38,6 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
   } = useContext(AppContext);
 
   const [isResultModalOpened, setIsResultModalOpened] = useState(false);
-  console.log(currentTesterGender);
 
   return (
     <Stack className="mt-28">

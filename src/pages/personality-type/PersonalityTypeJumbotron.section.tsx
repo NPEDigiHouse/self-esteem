@@ -1,28 +1,14 @@
 import {
-  Button,
   Grid,
+  Group,
+  Image,
   Stack,
   Text,
-  Image,
-  Stepper,
-  useMantineTheme,
-  rem,
-  Group
+  useMantineTheme
 } from "@mantine/core";
 import React from "react";
-import VerticalDivider from "../../components/VerticalDivider.component";
-import {
-  DescriptionIcon,
-  InsightIcon,
-  QuotesIconOutline,
-  SearchIcon
-} from "../../assets/icons/Fluent";
-import StackedPersonalityTypeImage from "../../components/StackedPersonalityTypeImage.component";
-import advertising from "../../assets/images/advertising.png";
-import readingBook from "../../assets/images/reading-book.png";
-import stayHome from "../../assets/images/stay-home.png";
-import studying from "../../assets/images/studying.png";
 import uinLogo from "../../assets/images/uin-logo.png";
+import VerticalDivider from "../../components/VerticalDivider.component";
 
 export interface IPersonalityTypeJumbotron {}
 

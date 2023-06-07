@@ -1,10 +1,8 @@
-import { Button, Grid, Stack, Text } from "@mantine/core";
+import { Stack } from "@mantine/core";
 import React from "react";
-import { SearchIcon } from "../../assets/icons/Fluent";
-import VerticalDivider from "../../components/VerticalDivider.component";
 import MainLayout from "../../layouts/MainLayout.layout";
-import PersonalityTypeList from "./PersonalityTypeList.section";
 import PersonalityTypeJumbotron from "./PersonalityTypeJumbotron.section";
+import PersonalityTypeList from "./PersonalityTypeList.section";
 
 export interface IPersonalityType {}
 

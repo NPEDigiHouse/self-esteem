@@ -1,8 +1,4 @@
-import { Divider, Grid, Image, Stack, Text } from "@mantine/core";
-import studying from "../../assets/images/studying.png";
-import advertising from "../../assets/images/advertising.png";
-import readingBook from "../../assets/images/reading-book.png";
-import stayHome from "../../assets/images/stay-home.png";
+import { Divider, Grid, Stack, Text } from "@mantine/core";
 import React from "react";
 import PersonalityTypeCard from "../../components/PersonalityTypeCard.component";
 
