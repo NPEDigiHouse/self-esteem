@@ -85,6 +85,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
   const { onSubmit, ...form } = useForm<IPersonalityTestForm>({
     validate: yupResolver(personalityTestFormSchema)
   });
+  console.log('Pertanyaan Positif: ')
 
   const { getInputProps, errors, setValues, values } = form;
 

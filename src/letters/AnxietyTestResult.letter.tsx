@@ -33,7 +33,7 @@ const AnxietyTestResult: React.FC<IAnxietyTestResult> = ({
       <Page size="A4" style={styles.page}>
         <View style={styles.content}>
           <View style={styles.contentTitle}>
-            <Text style={styles.contentTitleText}>
+            {/* <Text style={styles.contentTitleText}>
               DEPARTEMEN PENDIDIKAN NASIONAL
             </Text>
             <Text style={styles.contentTitleText}>
@@ -44,7 +44,7 @@ const AnxietyTestResult: React.FC<IAnxietyTestResult> = ({
             </Text>
             <Text style={styles.contentTitleText}>
               JURUSAN BIMBINGAN KONSELING ISLAM
-            </Text>
+            </Text> */}
             <Text style={styles.contentTitleText2}>
               LAPORAN HASIL KECEMASAN SOSIAL PADA SISWA
             </Text>
@@ -102,7 +102,7 @@ const AnxietyTestResult: React.FC<IAnxietyTestResult> = ({
           </View>
         </View>
       </Page>
-      <Page size="A4" style={styles.page}>
+      {/* <Page size="A4" style={styles.page}>
         <View style={styles.content}>
           <View style={styles.contentTitle}>
             <Text style={styles.contentTitleText}>
@@ -153,7 +153,7 @@ const AnxietyTestResult: React.FC<IAnxietyTestResult> = ({
             </View>
           </View>
         </View>
-      </Page>
+      </Page> */}
     </Document>
   </PDFViewer>
 );
@@ -239,7 +239,7 @@ const styles = StyleSheet.create({
     marginBottom: 2
   },
   contentTitleText2: {
-    marginTop: 20,
+    marginTop: 24,
     fontSize: 12
   },
   data: {
@@ -283,7 +283,8 @@ const styles = StyleSheet.create({
   },
   students: {
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
+    marginTop:  10
   },
   biodataContainer: {
     display: "flex",

@@ -1,12 +1,14 @@
-import { Group, Radio, Stack, Text } from "@mantine/core";
+import { Group, Stack, Text } from "@mantine/core";
 import React, { useEffect, useState } from "react";
-import AnswerCircle from "./AnswerCircle.component";
+import usePrevious from "../hooks/usePrevious";
+import {
+  negativeAnswerPointList,
+  positiveAnswerPointList
+} from "../utils/const/answesList";
+import { AnswerCircleColorType } from "../utils/const/types";
 import QuestionCircleComponent, {
   IQuestionCircleComponent
 } from "./QuestionCircle.component";
-import usePrevious from "../hooks/usePrevious";
-import { AnswerCircleColorType } from "../utils/const/types";
-import { negativeAnswerPointList, positiveAnswerPointList } from "../utils/const/answesList";
 
 export interface IQuestion {
   progressCount: number;
@@ -16,7 +18,7 @@ export interface IQuestion {
   isPositive: boolean;
   updateScore: any;
   disabled?: boolean;
-  getError?: ()=>void;
+  getError?: () => void;
 }
 
 const answerChoiceColour: Array<AnswerCircleColorType> = [
@@ -33,15 +35,20 @@ const Question: React.FC<IQuestion> = ({
   questions,
   isPositive,
   updateScore,
-  disabled= false,
-  getError= ()=>{}
+  disabled = false,
+  getError = () => {}
 }) => {
   const [focusedChoice, setFocusedChoice] = useState<number | null>(null);
   const prevFocusedChoice = usePrevious(focusedChoice);
   const [currPoint, setCurrPoint] = useState(0);
-  const [addProgress, setaddProgress] = useState(0);
 
-  const [answerPointList]= useState<Array<IQuestionCircleComponent>>(isPositive? positiveAnswerPointList : negativeAnswerPointList);
+  const [answerPointList] = useState<Array<IQuestionCircleComponent>>(
+    isPositive ? positiveAnswerPointList : negativeAnswerPointList
+  );
+
+  if (isPositive) {
+    console.log(`- ${questions}`);
+  }
 
   function chooseNewChoice(order: number, point: number) {
     if (focusedChoice == order) {
@@ -67,14 +74,25 @@ const Question: React.FC<IQuestion> = ({
   }, [focusedChoice]);
 
   return (
-    <Stack className={`w-[80%] self-center`} onClick={disabled? getError : ()=>{}}>
+    <Stack
+      className={`w-[80%] self-center`}
+      onClick={disabled ? getError : () => {}}
+    >
       {/* ${!isPositive? "bg-error-500/[0.2]" : "bg-primaryGreen/[0.2]"} */}
-      <Text className={`text-center text-xl tracking-4 ${disabled? "text-secondary-text-500" : "text-primary-text-500"}`}>
+      <Text
+        className={`text-center text-xl tracking-4 ${
+          disabled ? "text-secondary-text-500" : "text-primary-text-500"
+        }`}
+      >
         {idx}. {questions}
       </Text>
       <div className="self-center">
         <Group className="gap-6 self-center flex-nowrap relative">
-          <Text className={`self-end mb-1  text-xl font-poppins  absolute -left-40 ${disabled? "text-secondary-text-500" : "text-primaryGreen"}`}>
+          <Text
+            className={`self-end mb-1  text-xl font-poppins  absolute -left-40 ${
+              disabled ? "text-secondary-text-500" : "text-primaryGreen"
+            }`}
+          >
             Sangat Setuju
           </Text>
           <Group className="gap-8">
@@ -95,7 +113,11 @@ const Question: React.FC<IQuestion> = ({
               }
             )}
           </Group>
-          <Text className={`self-end mb-1  text-xl font-poppins  absolute -right-36 ${disabled? "text-secondary-text-500" : "text-primaryDarkBlue"}`}>
+          <Text
+            className={`self-end mb-1  text-xl font-poppins  absolute -right-36 ${
+              disabled ? "text-secondary-text-500" : "text-primaryDarkBlue"
+            }`}
+          >
             Tidak Setuju
           </Text>
         </Group>
