@@ -1,7 +1,7 @@
-import { Button, Stack, useMantineTheme } from "@mantine/core";
+import { Button, Stack, Stepper, useMantineTheme, Text } from "@mantine/core";
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRightAltIcon } from "../../assets/icons/Fluent";
+import { ArrowRightAltIcon, DescriptionIcon, InsightIcon, SearchIcon } from "../../assets/icons/Fluent";
 import ParagraphWithImage from "../../components/ParagraphWithImage.component";
 import MainLayout from "../../layouts/MainLayout.layout";
 import { ROUTES } from "../../utils/const/routes";
@@ -15,7 +15,7 @@ const Home: React.FC<IHome> = ({}) => {
     <MainLayout>
       <Stack className="">
         <HomeJumbotron />
-        {/* <Stack className="mb-72 w-[80%] self-center z-20">
+        <Stack className="mb-72 w-[80%] self-center z-20">
           <Stepper
             active={-1}
             breakpoint="sm"
@@ -54,7 +54,7 @@ const Home: React.FC<IHome> = ({}) => {
             <Stepper.Step
               icon={<SearchIcon size={28} />}
               label={
-                <Stack className="min-w-[280px] mx-auto bg-secondary-300 p-4 rounded-lg border-2 border-secondary-500">
+                <Stack className="min-w-[280px] mx-auto bg-secondary-300 p-4 rounded-md border-2 border-secondary-500">
                   <Text className=" text-center text-lg font-poppins min-h-[50px]">
                     Lakukan Tes Kecemasan
                   </Text>
@@ -70,7 +70,7 @@ const Home: React.FC<IHome> = ({}) => {
             <Stepper.Step
               icon={<DescriptionIcon size={28} />}
               label={
-                <Stack className="min-w-[280px] mx-auto bg-secondary-300 p-4 rounded-lg border-2 border-secondary-500">
+                <Stack className="min-w-[280px] mx-auto bg-secondary-300 p-4 rounded-md border-2 border-secondary-500">
                   <Text className=" text-center text-lg font-poppins min-h-[50px]">
                     Dapatkan Informasi Tentang Tingkat Kecemasan
                   </Text>
@@ -86,7 +86,7 @@ const Home: React.FC<IHome> = ({}) => {
             <Stepper.Step
               icon={<InsightIcon size={28} />}
               label={
-                <Stack className="min-w-[280px] mx-auto bg-secondary-300 p-4 rounded-lg border-2 border-secondary-500">
+                <Stack className="min-w-[280px] mx-auto bg-secondary-300 p-4 rounded-md border-2 border-secondary-500">
                   <Text className=" text-center text-lg font-poppins min-h-[50px]">
                     Atasi Kecemasan Anda
                   </Text>
@@ -99,7 +99,7 @@ const Home: React.FC<IHome> = ({}) => {
               }
             />
           </Stepper>
-        </Stack> */}
+        </Stack>
         <ParagraphWithImage
           primaryTitle=""
           // primaryTitle="Kata Pengantar"

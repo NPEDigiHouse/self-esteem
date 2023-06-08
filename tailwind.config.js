@@ -225,7 +225,21 @@ module.exports = {
         700: "#FEFF86",
         800: "#FEFF86",
         900: "#FEFF86"
-      }
+      },
+      "sc-cp": {
+        DEFAULT: "#B6076A",
+        50: "#B6076A",
+        100: "#DA216B",
+        200: "#DA216B",
+        300: "#F7B52F",
+        400: "#F7B52F",
+        500: "#FFDB57",
+        600: "#9C42B8",
+        700: "#9C42B8",
+        800: "#603991",
+        900: "#603991"
+      },
+      
     },
     fontFamily: {
       'poppins': [
@@ -287,6 +301,7 @@ module.exports = {
         'backgroundImg': "url('../src/assets/images/background-img.png')",
         'backgroundImg1': "url('../src/assets/images/background-img1.png')",
         'backgroundImg2': "url('../src/assets/images/background-img2.png')",
+        'bgColor': "url('../src/assets/images/bg.png')",
       },
       animation: {
         gradient: 'gradientAnim 2s ease infinite'
