@@ -1,15 +1,12 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import { MantineProvider } from "@mantine/core";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
-import Home from "./pages/home/Home.page";
-import PersonalityType from "./pages/personality-type/PersonalityType.page";
-import React from "react";
 import AppContextProvider from "./context/app-context.context";
+import Home from "./pages/home/Home.page";
 import PersonalityTest from "./pages/personality-test/PersonalityTest.page";
-import { MantineProvider, PaginationStylesParams } from "@mantine/core";
+import PersonalityType from "./pages/personality-type/PersonalityType.page";
 import { ROUTES } from "./utils/const/routes";
+import DerilPersonalityType from "./pages/deril/DerilPersonalityType";
 
 function App() {
   return (
@@ -149,6 +146,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path={ROUTES.anxietyClass} element={<PersonalityType />} />
             <Route path={ROUTES.anxietyTest} element={<PersonalityTest />} />
+            <Route path={ROUTES.deril} element={<DerilPersonalityType />} />
           </Routes>
         </BrowserRouter>
       </MantineProvider>

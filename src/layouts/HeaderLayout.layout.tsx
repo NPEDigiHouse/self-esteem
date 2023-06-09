@@ -58,6 +58,12 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({
             label="Tingkat Kecemasan"
             isActive={currentPage == ROUTES.anxietyClass}
           />
+          <HeaderNavbarMenuItems
+            href={`/${ROUTES.deril}`}
+            isScrolled={isScrolled}
+            label="Deril's Tingkat Self Esteem"
+            isActive={currentPage == ROUTES.deril}
+          />
         </Group>
       </Group>
     </div>
