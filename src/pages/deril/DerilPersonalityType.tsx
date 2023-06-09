@@ -8,9 +8,7 @@ const DerilPersonalityType: React.FC<IDerilPersonalityType> = ({}) => {
   return (
     <MainLayout>
       <Stack>
-        <div>
-          asd
-        </div>
+        <div className="ml-8">hjhgjg</div>
       </Stack>
     </MainLayout>
   );
