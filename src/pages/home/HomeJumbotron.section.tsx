@@ -10,7 +10,7 @@ export interface IHomeJumbotron {}
 const HomeJumbotron: React.FC<IHomeJumbotron> = ({}) => {
   const theme = useMantineTheme();
   return (
-    <Stack className="self-center pb-10 mb-10 w-full gap-0">
+    <Stack className="self-center pb-10 mb-20 w-full gap-0">
       <Stack className="self-center bg-bg1 bg-cover bg-center relative w-fit">
         <Stack className="gap-10 w-[65%] px-10 self-start ml-16 z-10 my-16 py-10 bg-white/[0.9] ">
           <Stack className="gap-0 items-center z-10">
@@ -29,7 +29,7 @@ const HomeJumbotron: React.FC<IHomeJumbotron> = ({}) => {
             wawasan mendalam tentang diri Anda.
           </Text>
           <Button
-            className="bg-transparent hover:bg-transparent border-sc-cp-900 border text-sc-cp-900 w-full -z-10 rounded-md px-10 w-fit !h-12 text-[18px] self-center font-normal"
+            className="bg-transparent hover:bg-transparent border-sc-cp-900 border text-sc-cp-900 w-full -z-10 rounded-md px-10 !h-12 text-[18px] self-center font-roboto font-normal"
             leftIcon={
               <SearchIconBold
                 size={28}
@@ -37,11 +37,10 @@ const HomeJumbotron: React.FC<IHomeJumbotron> = ({}) => {
                 color={theme.colors['sc-cp'][9]}
               />
             }
-            uppercase
             component={Link}
             to={ROUTES.anxietyTest}
           >
-            Tes Kecemasan
+            Tes Self-Esteem Sekarang
           </Button>
         </Stack>
         {/* <div className="bg-pastel-blue-black w-[450px] h-[450px] rounded-3xl mt-8 absolute -z-40 top-14 right-[72px]"></div> */}

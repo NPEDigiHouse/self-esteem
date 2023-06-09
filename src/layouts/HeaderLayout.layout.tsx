@@ -36,13 +36,13 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({
           gradient={{ from: theme.colors['sc-cp'][9], to: theme.colors['sc-cp'][6], deg: 0 }}
           className="font-alkatra-semibold text-[24px] ml-8"
         >
-          Self Acceptance
+          Self Esteem
         </Text>
         <Group>
           <HeaderNavbarMenuItems
             href={`/${ROUTES.home}`}
             isScrolled={isScrolled}
-            label="Home"
+            label="Beranda"
             // onClick={() => {
             //   setCurrentPage("");
             // }}

@@ -21,15 +21,15 @@ const ParagraphWithImage: React.FC<IParagraphWithImage> = ({
   return (
     <Group className="justify-center w-[80%] self-center gap-10 md:gap-10 flex-nowrap">
       <Stack className="relative ">
-        <Group className="gap-2 md:gap-4 w-fit">
+        <Group className="gap-2 md:gap-4 w-fit self-center">
           <DescriptionIcon size={52} color={theme.colors['primary-text'][5]} />
-          <Text className="font-roboto-bold text-[22px] md:text-[50px] text-primary-text-500 ">
+          <Text className="font-roboto-bold text-[22px] md:text-[50px] text-primary-text-500 text-center">
             {secondaryTitle}
           </Text>
         </Group>
-        <Stack className="gap-0 mt-2">
+        <Stack className="gap-0 mt-4">
           <Text
-            className={`md:w-[700px] text-primary-text-500 tracking-1 text-justify text-[18px]`}
+            className={`md:w-[750px] text-primary-text-500 tracking-1 text-justify text-[18px] leading-8`}
           >
             {paragraph}
           </Text>

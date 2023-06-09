@@ -27,7 +27,7 @@ const ExploreCard: React.FC<IExploreCard> = ({
             {title}
           </Text>
           {/* <VerticalDivider h="sm" /> */}
-          <Text className="text-lg text-primary-text-500 text-justify line-clamp-3 md:line-clamp-2">
+          <Text className="text-lg text-primary-text-500 text-justify line-clamp-3 md:line-clamp-3">
             {description ||
               "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea aliquideos inventore possimus tenetur sed libero numquam dolores impedit? Iusto."}
           </Text>

@@ -3,6 +3,7 @@ import React from "react";
 import ExploreCard from "../../components/ExploreCard.component";
 import personalityTest from "../../assets/images/self-esteem-test.jpg";
 import personalityResult from "../../assets/images/self-esteem-result.jpg";
+import { ROUTES } from "../../utils/const/routes";
 
 export interface IHomeExplore {}
 
@@ -16,19 +17,17 @@ const HomeExplore: React.FC<IHomeExplore> = ({}) => {
         <Grid.Col md={6} sm={12} className="hover:scale-[1.01] transition-all">
           <ExploreCard
             src={personalityTest}
-            to="umkm"
-            title="UMKM"
-            description="UMKM (Usaha Mikro Kecil dan Menengah) adalah usaha produktif yang
-            dimiliki perorangan maupun badan usaha yang telah memenuhi kriteria
-            sebagai usaha mikro"
+            to={ROUTES.anxietyTest}
+            title="Tes Self-Esteem"
+            description="Lakukan tes self-esteem, di mana anda akan diarahkan untuk menjawab 45 pertanyaan selama 5-10 menit. Jawaban tes self-esteem akan mempengaruhi hasil akhir."
           />
         </Grid.Col>
         <Grid.Col md={6} sm={12} className="hover:scale-[1.01] transition-all">
           <ExploreCard
             src={personalityResult}
-            to="bagan-kelurahan"
-            title="Bagan Kelurahan"
-            description="Bagan Kelurahan Banyorang, yang mencakup mulai dari Ketua Lurah, Ketua RW, sampai ketua RT masing-masing RW"
+            to={ROUTES.anxietyClass}
+            title="Tingkat Self-Esteem"
+            description="Tingkatan dari self-esteem diklasifikasikan 3 kelompok: rendah, sedang dan tinggi. Tingkat self-esteem dapat memberikan gambaran yang jelas tentang bagaimana kepercayaan diri seseorang mempengaruhi kesejahteraannya."
           />
         </Grid.Col>
       </Grid>
