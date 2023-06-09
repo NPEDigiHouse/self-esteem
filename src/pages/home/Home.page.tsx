@@ -6,6 +6,7 @@ import ParagraphWithImage from "../../components/ParagraphWithImage.component";
 import MainLayout from "../../layouts/MainLayout.layout";
 import { ROUTES } from "../../utils/const/routes";
 import HomeJumbotron from "./HomeJumbotron.section";
+import HomeExplore from "./HomeExplore.section";
 
 export interface IHome {}
 
@@ -15,7 +16,7 @@ const Home: React.FC<IHome> = ({}) => {
     <MainLayout>
       <Stack className="">
         <HomeJumbotron />
-        <Stack className="mb-72 w-[80%] self-center z-20">
+        {/* <Stack className="mb-72 w-[80%] self-center z-20">
           <Stepper
             active={-1}
             breakpoint="sm"
@@ -99,7 +100,7 @@ const Home: React.FC<IHome> = ({}) => {
               }
             />
           </Stepper>
-        </Stack>
+        </Stack> */}
         <ParagraphWithImage
           primaryTitle=""
           // primaryTitle="Kata Pengantar"
@@ -107,22 +108,8 @@ const Home: React.FC<IHome> = ({}) => {
           secondaryTitle="Kata Pengantar"
           paragraph="Berikut ini terdapat pernyataan-pernyataan yang berkenaan dengan skala kecemasan sosial siswa. Inventori ini bertujuan untuk penelitian kecemasan sosial siswa SMA guna menguji baliditas dan reliabilitas dari inventori berbasis web yang dikembangkan oleh kelompok. Disamping ini penelitian ini juga bertujuan untuk mengetahui tingkat kecemasan sosial yang dimiliki oleh siswa SMA. Hasil pengisian inventori ini hanya untuk kepentingan ilmiah dan tidak akan berpengaruh terhadap prestasi Anda di sekolah ini. Hal-hal yang bersifat pribadi akan dijaga kerahasiaannya oleh peneliti. Silahkan mengisi sesuai dengan keadaan Anda saat ini. Peneliti ucapkan terima kasih atas partisipasi Anda dalam mengisi inventori ini."
         />
+        <HomeExplore />
 
-        <Button
-          className="bg-primaryDarkBlue hover:bg-primaryDarkBlue z-10 rounded-full mt-4 px-10 w-fit !h-12 text-[18px] self-center font-normal"
-          rightIcon={
-            <ArrowRightAltIcon
-              size={28}
-              className="mt-[2px]"
-              color={"#FFFFFF"}
-            />
-          }
-          component={Link}
-          to={ROUTES.anxietyTest}
-        >
-          Tes Kecemasan
-        </Button>
-        {/* <div className="h-[1000px]"></div> */}
       </Stack>
     </MainLayout>
   );

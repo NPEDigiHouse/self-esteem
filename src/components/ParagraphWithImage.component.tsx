@@ -1,8 +1,10 @@
-import { Group, Stack, Text } from '@mantine/core';
-import React from 'react';
-import { MirrorSelfEsteemIcon, PersonalitySearchIcon, QuotesIconOutline } from '../assets/icons/Fluent';
-import personaLogo from "../assets/images/persona-logos.png";
-import VerticalDivider from './VerticalDivider.component';
+import { Group, Image, Stack, Text, useMantineTheme } from "@mantine/core";
+import React from "react";
+import {
+  DescriptionIcon,
+  MirrorSelfEsteemIcon
+} from "../assets/icons/Fluent";
+import bg3 from "../assets/images/bg3.jpg";
 
 export interface IParagraphWithImage {
   primaryTitle: string;
@@ -10,49 +12,35 @@ export interface IParagraphWithImage {
   paragraph: string;
 }
 
-const ParagraphWithImage: React.FC<IParagraphWithImage> = ({ 
+const ParagraphWithImage: React.FC<IParagraphWithImage> = ({
   primaryTitle,
   secondaryTitle,
   paragraph
 }) => {
+  const theme= useMantineTheme();
   return (
     <Group className="justify-center w-[80%] self-center gap-10 md:gap-10 flex-nowrap">
-        <div className="self-center w-[200px] md:w-[320px] overflow-hidden bg-white">
-          {/* <img
-            src={personaLogo}
-            className="w-fit rounded-full"
-            alt="Foto Ketua Lurah"
-          /> */}
-          <MirrorSelfEsteemIcon size={300} />
-          
-        </div>
-      <Stack className="relative">
-        <QuotesIconOutline
-          size={96}
-          color={"#deddf1"}
-          className="absolute -z-10 right-0 -bottom-6 md:top-0"
-        />
-        <Stack className="gap-2 md:gap-0">
-          <Text className="font-roboto-bold text-[18px] md:text-[30px] text-primary-text-500">
-            {primaryTitle}
-          </Text>
-          <Text className="font-roboto-bold text-[22px] md:text-[54px] text-sc-cp-900 -mt-2">
+      <Stack className="relative ">
+        <Group className="gap-2 md:gap-4 w-fit">
+          <DescriptionIcon size={52} color={theme.colors['primary-text'][5]} />
+          <Text className="font-roboto-bold text-[22px] md:text-[50px] text-primary-text-500 ">
             {secondaryTitle}
           </Text>
-        </Stack>
-        <div className='-mt-4'>
-
-        <VerticalDivider  />
-        </div>
-        <Stack className="gap-0">
+        </Group>
+        <Stack className="gap-0 mt-2">
           <Text
-            className={`md:w-[600px] text-primary-text-500 tracking-1 text-justify text-[18px]`}
+            className={`md:w-[700px] text-primary-text-500 tracking-1 text-justify text-[18px]`}
           >
             {paragraph}
           </Text>
         </Stack>
       </Stack>
+
+      {/* <div className="w-[200px] md:w-[320px] overflow-hidden bg-white self-center">
+        <Image src={bg3} />
+      </div> */}
+        {/* <MirrorSelfEsteemIcon size={260} /> */}
     </Group>
-  )
-}
+  );
+};
 export default ParagraphWithImage;

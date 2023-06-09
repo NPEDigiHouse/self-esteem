@@ -28,7 +28,7 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({
         className={`${
           !isScrolled
             ? "bg-white border-white"
-            : "bg-white !border-secondary-500 shadow-[0_0_20px_4px_rgba(0,0,0,0.125)]"
+            : "bg-white !border-secondary-500"
         } px-3 py-4 transition-all ease-linear duration-200 gap-4 mx-auto border w-full justify-between`}
       >
         <Text

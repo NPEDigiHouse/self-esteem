@@ -302,6 +302,9 @@ module.exports = {
         'backgroundImg1': "url('../src/assets/images/background-img1.png')",
         'backgroundImg2': "url('../src/assets/images/background-img2.png')",
         'bgColor': "url('../src/assets/images/bg.png')",
+        'bg1': "url('../src/assets/images/bg1.jpg')",
+        'bg2': "url('../src/assets/images/bg2.jpg')",
+        'bg3': "url('../src/assets/images/bg3.jpg')",
       },
       animation: {
         gradient: 'gradientAnim 2s ease infinite'

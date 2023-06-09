@@ -1,7 +1,7 @@
 import { Button, Image, Stack, Text, useMantineTheme } from "@mantine/core";
 import React from "react";
 import uinLogo from "../../assets/images/uin-logo.png";
-import { ArrowRightAltIcon } from "../../assets/icons/Fluent";
+import { ArrowRightAltIcon, SearchIconBold } from "../../assets/icons/Fluent";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../../utils/const/routes";
 
@@ -11,15 +11,15 @@ const HomeJumbotron: React.FC<IHomeJumbotron> = ({}) => {
   const theme = useMantineTheme();
   return (
     <Stack className="self-center pb-10 mb-10 w-full gap-0">
-      <Stack className="self-center bg-bgColor bg-cover bg-center relative w-full">
-        <Stack className="gap-10 w-full px-64 self-center z-10 my-14 py-10 bg-white/[0.8]">
+      <Stack className="self-center bg-bg1 bg-cover bg-center relative w-fit">
+        <Stack className="gap-10 w-[65%] px-10 self-start ml-16 z-10 my-16 py-10 bg-white/[0.9] ">
           <Stack className="gap-0 items-center z-10">
-            <Text className="font-roboto text-[40px] text-primary-text-500 z-10 text-center rounded-xl">
+            <Text className="font-roboto text-[44px] text-primary-text-500 z-10 text-center rounded-xl">
               Temukan{" "}
               <span className="font-bold text-sc-cp-700">
                 Kekuatan Dalam Diri
               </span>
-              , Wujudkan Potensi Sejati!”
+              , Wujudkan Potensi Sejati!
             </Text>
           </Stack>
           <Text className="text-[18px] self-center mx-8 text-center tracking-4 text-primary-text-500 z-10 rounded-b-xl">
@@ -29,14 +29,15 @@ const HomeJumbotron: React.FC<IHomeJumbotron> = ({}) => {
             wawasan mendalam tentang diri Anda.
           </Text>
           <Button
-            className="bg-white hover:bg-white border-sc-cp-900 border-2 text-sc-cp-900  -z-10 rounded-md px-10 w-fit !h-12 text-[18px] self-center font-normal"
-            rightIcon={
-              <ArrowRightAltIcon
+            className="bg-transparent hover:bg-transparent border-sc-cp-900 border text-sc-cp-900 w-full -z-10 rounded-md px-10 w-fit !h-12 text-[18px] self-center font-normal"
+            leftIcon={
+              <SearchIconBold
                 size={28}
                 className="mt-[2px]"
                 color={theme.colors['sc-cp'][9]}
               />
             }
+            uppercase
             component={Link}
             to={ROUTES.anxietyTest}
           >

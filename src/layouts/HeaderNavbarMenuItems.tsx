@@ -20,7 +20,7 @@ const HeaderNavbarMenuItems: React.FC<IHeaderNavbarMenuItems> = ({
   return (
     <Link
       to={href}
-      className={`px-4 py-2 rounded-md ${
+      className={`px-4 py-2 rounded-sm ${
         isActive
           ? `bg-sc-cp-900 text-white ${
               isScrolled ? "" : ""
@@ -29,7 +29,7 @@ const HeaderNavbarMenuItems: React.FC<IHeaderNavbarMenuItems> = ({
       }`}
       onClick={onClick}
     >
-      <Text className="font-roboto-semibold text-lg tracking-[0.04em]">
+      <Text className="font-roboto-semibold text-lg tracking-2">
         {label}
       </Text>
     </Link>
