@@ -138,7 +138,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
             <Stack className="mt-36 gap-24 mb-10">
               <Stack className="gap-12">
                 <Stack className="gap-0">
-                  <Text className="font-poppins-semibold text-2xl text-primary-text-500 text-center">
+                  <Text className="font-roboto-semibold text-2xl text-primary-text-500 text-center">
                     Pengisian Identitas
                   </Text>
                   <Text className="text-lg text-secondary-text-500 text-center">
@@ -149,7 +149,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                 <Grid className="w-[80%] self-center" gutter={"xl"}>
                   <Grid.Col md={6}>
                     <Stack className="gap-[2px]">
-                      <Text className="text-lg font-poppins text-primary-text-500 text-start">
+                      <Text className="text-lg font-roboto text-primary-text-500 text-start">
                         Nama
                       </Text>
                       <TextInput
@@ -163,7 +163,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   </Grid.Col>
                   <Grid.Col md={6}>
                     <Stack className="gap-[2px]">
-                      <Text className="text-lg font-poppins text-primary-text-500 text-start">
+                      <Text className="text-lg font-roboto text-primary-text-500 text-start">
                         Kelas
                       </Text>
                       <TextInput
@@ -177,7 +177,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   </Grid.Col>
                   <Grid.Col md={6}>
                     <Stack className="gap-[2px]">
-                      <Text className="text-lg font-poppins text-primary-text-500 text-start">
+                      <Text className="text-lg font-roboto text-primary-text-500 text-start">
                         Jenis Kelamin
                       </Text>
                       <SelectInput
@@ -206,7 +206,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
 
                   <Grid.Col md={6}>
                     <Stack className="gap-[2px]">
-                      <Text className="text-lg font-poppins text-primary-text-500 text-start">
+                      <Text className="text-lg font-roboto text-primary-text-500 text-start">
                         Umur
                       </Text>
                       <MyNumberInput
@@ -224,7 +224,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                 </Grid>
               </Stack>
               <Stack className="gap-0 -mb-4">
-                <Text className="font-poppins-semibold text-2xl text-primary-text-500 text-center">
+                <Text className="font-roboto-semibold text-2xl text-primary-text-500 text-center">
                   Pertanyaan
                 </Text>
                 <Text className="text-lg text-secondary-text-500 text-center w-[90%] self-center">

@@ -242,17 +242,17 @@ module.exports = {
       
     },
     fontFamily: {
-      'poppins': [
-        'poppins', 'sans-serif'
+      'roboto': [
+        'roboto', 'sans-serif'
       ],
-      'poppins-bold': [
-        'poppins-bold', 'sans-serif'
+      'roboto-bold': [
+        'roboto-bold', 'sans-serif'
       ],
-      'poppins-light': [
-        'poppins-light', 'sans-serif'
+      'roboto-light': [
+        'roboto-light', 'sans-serif'
       ],
-      'poppins-semibold': [
-        'poppins-semibold', 'sans-serif'
+      'roboto-semibold': [
+        'roboto-semibold', 'sans-serif'
       ],
       'alkatra': [
         'alkatra', 'sans-serif'

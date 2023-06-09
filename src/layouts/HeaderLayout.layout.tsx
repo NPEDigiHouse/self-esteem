@@ -1,4 +1,4 @@
-import { Grid, Group, Text } from "@mantine/core";
+import { Grid, Group, Text, useMantineTheme } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 import HeaderNavbarMenuItems from "./HeaderNavbarMenuItems";
 import { NavbarMenuType } from "../utils/const/types";
@@ -20,6 +20,8 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({
     setIsScrolled(scrollY != 0);
   }, [scrollY]);
 
+  const theme= useMantineTheme();
+
   return (
     <div className="relative z-[100] ">
       <Group
@@ -31,8 +33,8 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({
       >
         <Text
           variant="gradient"
-          gradient={{ from: "#B6076A", to: "#603991", deg: 0 }}
-          className="font-alkatra-semibold text-[22px] ml-8"
+          gradient={{ from: theme.colors['sc-cp'][9], to: theme.colors['sc-cp'][6], deg: 0 }}
+          className="font-alkatra-semibold text-[24px] ml-8"
         >
           Self Acceptance
         </Text>

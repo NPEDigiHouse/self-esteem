@@ -89,7 +89,7 @@ const Question: React.FC<IQuestion> = ({
       <div className="self-center">
         <Group className="gap-6 self-center flex-nowrap relative">
           <Text
-            className={`self-end mb-1  text-xl font-poppins  absolute -left-40 ${
+            className={`self-end mb-1  text-xl font-roboto  absolute -left-40 ${
               disabled ? "text-secondary-text-500" : "text-primaryGreen"
             }`}
           >
@@ -114,7 +114,7 @@ const Question: React.FC<IQuestion> = ({
             )}
           </Group>
           <Text
-            className={`self-end mb-1  text-xl font-poppins  absolute -right-36 ${
+            className={`self-end mb-1  text-xl font-roboto  absolute -right-36 ${
               disabled ? "text-secondary-text-500" : "text-primaryDarkBlue"
             }`}
           >

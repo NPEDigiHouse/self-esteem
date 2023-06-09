@@ -34,7 +34,7 @@ const PersonalityTestJumbotron: React.FC<IPersonalityTestJumbotron> = ({
               className="absolute top-0"
             /> */}
             <Stack className="w-fit align-middle h-fit self-center gap-8">
-              <Text className="font-poppins-semibold text-[38px] md:text-[46px] lg:text-[54px] text-pastel-primary-text z-10">
+              <Text className="font-roboto-semibold text-[38px] md:text-[46px] lg:text-[54px] text-pastel-primary-text z-10">
                 {/* Tes Kecemasan */}
                 Petunjuk Pengisian
               </Text>

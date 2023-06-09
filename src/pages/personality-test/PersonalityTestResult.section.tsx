@@ -52,13 +52,13 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
         />
       </PDFModal>
       <Stack className="gap-0 self-center w-[90%]">
-        <Text className="self-center font-poppins-semibold text-[30px] md:text-[38px] text-primary-text-500 text-center">
+        <Text className="self-center font-roboto-semibold text-[30px] md:text-[38px] text-primary-text-500 text-center">
           Nama: {currentTesterName}
         </Text>
-        <Text className="self-center font-poppins-semibold text-[30px] md:text-[38px] text-primary-text-500 text-center">
+        <Text className="self-center font-roboto-semibold text-[30px] md:text-[38px] text-primary-text-500 text-center">
           Hasil Tes: Kecemasan
           <span
-            className={`w-[90%] font-poppins-bold  ${
+            className={`w-[90%] font-roboto-bold  ${
               result === "Rendah"
                 ? "text-primaryGreen"
                 : result === "Sedang"
@@ -88,7 +88,7 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
             className="absolute -z-10 right-0 -bottom-6 md:-top-4"
           />
           <Stack className="gap-2 md:gap-0">
-            <Text className="font-poppins-bold text-[18px] md:text-[30px] text-primary-text-500">
+            <Text className="font-roboto-bold text-[18px] md:text-[30px] text-primary-text-500">
               Tingkat Kecemasan {result}
             </Text>
             <Text className="text-[18px] md:text-[20px] text-secondary-text-500 -mt-1">

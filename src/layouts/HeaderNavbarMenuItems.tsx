@@ -29,7 +29,7 @@ const HeaderNavbarMenuItems: React.FC<IHeaderNavbarMenuItems> = ({
       }`}
       onClick={onClick}
     >
-      <Text className="font-poppins-semibold text-lg tracking-[0.04em]">
+      <Text className="font-roboto-semibold text-lg tracking-[0.04em]">
         {label}
       </Text>
     </Link>

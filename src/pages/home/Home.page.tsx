@@ -55,7 +55,7 @@ const Home: React.FC<IHome> = ({}) => {
               icon={<SearchIcon size={28} />}
               label={
                 <Stack className="min-w-[280px] mx-auto bg-secondary-300 p-4 rounded-md border-2 border-secondary-500">
-                  <Text className=" text-center text-lg font-poppins min-h-[50px]">
+                  <Text className=" text-center text-lg font-roboto min-h-[50px]">
                     Lakukan Tes Kecemasan
                   </Text>
 
@@ -71,7 +71,7 @@ const Home: React.FC<IHome> = ({}) => {
               icon={<DescriptionIcon size={28} />}
               label={
                 <Stack className="min-w-[280px] mx-auto bg-secondary-300 p-4 rounded-md border-2 border-secondary-500">
-                  <Text className=" text-center text-lg font-poppins min-h-[50px]">
+                  <Text className=" text-center text-lg font-roboto min-h-[50px]">
                     Dapatkan Informasi Tentang Tingkat Kecemasan
                   </Text>
 
@@ -87,7 +87,7 @@ const Home: React.FC<IHome> = ({}) => {
               icon={<InsightIcon size={28} />}
               label={
                 <Stack className="min-w-[280px] mx-auto bg-secondary-300 p-4 rounded-md border-2 border-secondary-500">
-                  <Text className=" text-center text-lg font-poppins min-h-[50px]">
+                  <Text className=" text-center text-lg font-roboto min-h-[50px]">
                     Atasi Kecemasan Anda
                   </Text>
 

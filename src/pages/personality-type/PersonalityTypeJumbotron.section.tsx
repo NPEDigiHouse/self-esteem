@@ -63,7 +63,7 @@ const PersonalityTypeJumbotron: React.FC<IPersonalityTypeJumbotron> = ({}) => {
         <Grid.Col span={9}>
           <Stack className="relative">
             <Group className="justify-between">
-              <Text className="font-poppins-semibold text-[38px] md:text-[42px] lg:text-[48px] text-pastel-primary-text z-10">
+              <Text className="font-roboto-semibold text-[38px] md:text-[42px] lg:text-[48px] text-pastel-primary-text z-10">
                 3 Tingkat Kecemasan
               </Text>
 

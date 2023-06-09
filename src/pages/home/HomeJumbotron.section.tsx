@@ -12,11 +12,11 @@ const HomeJumbotron: React.FC<IHomeJumbotron> = ({}) => {
   return (
     <Stack className="self-center pb-10 mb-10 w-full gap-0">
       <Stack className="self-center bg-bgColor bg-cover bg-center relative w-full">
-        <Stack className="gap-10 w-[70%] px-10 self-center rounded-lg z-10 my-14 py-10 bg-white/[0.75]">
+        <Stack className="gap-10 w-full px-64 self-center z-10 my-14 py-10 bg-white/[0.8]">
           <Stack className="gap-0 items-center z-10">
-            <Text className="font-poppins-semibold text-[40px] text-pastel-primary-text z-10 text-center rounded-xl">
+            <Text className="font-roboto text-[40px] text-primary-text-500 z-10 text-center rounded-xl">
               Temukan{" "}
-              <span className="font-bold text-primaryBlue">
+              <span className="font-bold text-sc-cp-700">
                 Kekuatan Dalam Diri
               </span>
               , Wujudkan Potensi Sejati!”
@@ -29,12 +29,12 @@ const HomeJumbotron: React.FC<IHomeJumbotron> = ({}) => {
             wawasan mendalam tentang diri Anda.
           </Text>
           <Button
-            className="bg-primaryDarkBlue hover:bg-primaryDarkBlue z-10 rounded-full px-10 w-fit !h-12 text-[18px] self-center font-normal"
+            className="bg-white hover:bg-white border-sc-cp-900 border-2 text-sc-cp-900  -z-10 rounded-md px-10 w-fit !h-12 text-[18px] self-center font-normal"
             rightIcon={
               <ArrowRightAltIcon
                 size={28}
                 className="mt-[2px]"
-                color={"#FFFFFF"}
+                color={theme.colors['sc-cp'][9]}
               />
             }
             component={Link}

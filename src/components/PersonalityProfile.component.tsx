@@ -18,7 +18,7 @@ const PersonalityProfile: React.FC<IPersonalityProfile> = ({
       <Stack className="rounded-full border-[4px] border-pastel-yellow-50 h-32 w-32 overflow-hidden bg-white p-2">
         <Image src={imgSrc} className="" />
       </Stack>
-      <Text className="self-center font-poppins-semibold tracking-4">
+      <Text className="self-center font-roboto-semibold tracking-4">
         {personalityType}
       </Text>
     </Stack>

@@ -16,7 +16,7 @@ const FooterLayout: React.FC<IFooterLayout> = ({}) => {
         </div>
         {/* <DotDivider />
         <Stack className="gap-1">
-          <Text className="self-center text-[18px] font-poppins text-white">
+          <Text className="self-center text-[18px] font-roboto text-white">
             Find Us On
           </Text>
           <Group className="gap-4">

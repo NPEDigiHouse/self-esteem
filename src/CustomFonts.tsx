@@ -1,5 +1,5 @@
 import { Global } from "@mantine/core";
-import PoppinsMedium from "./assets/fonts/Poppins/Poppins-Medium.ttf";
+import RobotoMedium from "./assets/fonts/Roboto/Roboto-Medium.ttf";
 
 const CustomFonts = () => {
   return (
@@ -7,8 +7,8 @@ const CustomFonts = () => {
       styles={[
         {
           "@font-face": {
-            fontFamily: "Poppins",
-            src: `url('${PoppinsMedium}') format("truetype")`,
+            fontFamily: "Roboto",
+            src: `url('${RobotoMedium}') format("truetype")`,
             fontWeight: 400,
             fontStyle: "normal"
           }

@@ -20,24 +20,24 @@
 }
 
 @font-face {
-  font-family: "poppins";
-  src: url("./assets/fonts/Poppins/Poppins-Medium.ttf");
+  font-family: "roboto";
+  src: url("./assets/fonts/Roboto/Roboto-Medium.ttf");
 }
 
 @font-face {
-  font-family: "poppins-bold";
-  src: url("./assets/fonts/Poppins/Poppins-Bold.ttf");
+  font-family: "roboto-bold";
+  src: url("./assets/fonts/Roboto/Roboto-Bold.ttf");
 }
 
 
 @font-face {
-  font-family: "poppins-semibold";
-  src: url("./assets/fonts/Poppins/Poppins-SemiBold.ttf");
+  font-family: "roboto-semibold";
+  src: url("./assets/fonts/Roboto/Roboto-SemiBold.ttf");
 }
 
 @font-face {
-  font-family: "poppins-light";
-  src: url("./assets/fonts/Poppins/Poppins-Light.ttf");
+  font-family: "roboto-light";
+  src: url("./assets/fonts/Roboto/Roboto-Light.ttf");
 }
 
 

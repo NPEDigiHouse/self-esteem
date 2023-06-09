@@ -8,7 +8,7 @@ const PersonalityTypeList: React.FC<IPersonalityTypeList> = ({}) => {
   return (
     <Stack className="mt-32">
       <Stack>
-        <Text className="font-poppins-semibold text-[32px] md:text-[38px] text-pastel-primary-text z-10 text-center self-center w-fit">
+        <Text className="font-roboto-semibold text-[32px] md:text-[38px] text-pastel-primary-text z-10 text-center self-center w-fit">
           Detail Tingkat Kecemasan
           <Divider className="mt-2" />
         </Text>

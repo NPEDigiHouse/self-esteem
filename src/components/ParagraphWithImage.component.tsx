@@ -33,10 +33,10 @@ const ParagraphWithImage: React.FC<IParagraphWithImage> = ({
           className="absolute -z-10 right-0 -bottom-6 md:top-0"
         />
         <Stack className="gap-2 md:gap-0">
-          <Text className="font-poppins-bold text-[18px] md:text-[30px] text-primary-text-500">
+          <Text className="font-roboto-bold text-[18px] md:text-[30px] text-primary-text-500">
             {primaryTitle}
           </Text>
-          <Text className="font-poppins-bold text-[22px] md:text-[54px] text-sc-cp-900 -mt-2">
+          <Text className="font-roboto-bold text-[22px] md:text-[54px] text-sc-cp-900 -mt-2">
             {secondaryTitle}
           </Text>
         </Stack>

@@ -10,7 +10,7 @@ const PersonalityTestInformation: React.FC<
 > = ({}) => {
   return (
     <Stack className="self-center rounded-full w-[80%] justify-center mt-32">
-      <Text className="text-center self-center font-poppins text-xl text-primary-text-500">
+      <Text className="text-center self-center font-roboto text-xl text-primary-text-500">
         Keterangan Pilihan Jawaban
       </Text>
       <Group className="self-center bg-secondary-400 justify-center gap-8 rounded-full py-2 px-10">

@@ -25,7 +25,7 @@ const PersonalityTypeCard: React.FC<IPersonalityTypeCard> = ({
             <ResultAnxietyIcon size={300} className="self-center " />
           )}
     </div>
-    <Text className="font-poppins-semibold text-primary-text-500 text-xl text-center">{anxietyLevel}</Text>
+    <Text className="font-roboto-semibold text-primary-text-500 text-xl text-center">{anxietyLevel}</Text>
     <Stack className="gap-0">
       <Text className="text-primary-text-500 text-justify px-4 pb-4">
         {description}
