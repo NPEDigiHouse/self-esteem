@@ -3,8 +3,7 @@ import {
   Group,
   Image,
   Stack,
-  Text,
-  useMantineTheme
+  Text
 } from "@mantine/core";
 import React from "react";
 import uinLogo from "../../assets/images/uin-logo.png";
@@ -13,7 +12,6 @@ import VerticalDivider from "../../components/VerticalDivider.component";
 export interface IPersonalityTypeJumbotron {}
 
 const PersonalityTypeJumbotron: React.FC<IPersonalityTypeJumbotron> = ({}) => {
-  const theme = useMantineTheme();
   return (
     <Stack>
       <div className="w-[72px] ml-10 mt-4 hidden md:block">

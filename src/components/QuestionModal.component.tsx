@@ -1,4 +1,4 @@
-import { Modal, Stack, Text } from "@mantine/core";
+import { Modal, Stack } from "@mantine/core";
 import React from "react";
 
 interface IQuestionModalProps {

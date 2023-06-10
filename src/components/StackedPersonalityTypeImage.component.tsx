@@ -1,4 +1,4 @@
-import { Stack, Image } from "@mantine/core";
+import { Stack } from "@mantine/core";
 import React from "react";
 import PersonalityTypeImage from "./PersonalityTypeImage.component";
 

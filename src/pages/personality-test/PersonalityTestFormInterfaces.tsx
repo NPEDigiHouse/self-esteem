@@ -1,15 +1,17 @@
 import * as yup from "yup";
 
 export interface IPersonalityTestForm {
-  name: string;
-  class: string;
-  gender: string;
-  age: number;
+  name: String;
+  class: String;
+  gender: String;
+  school: String;
+  birthDate: any;
 }
 
 export const personalityTestFormSchema = yup.object({
   name: yup.string().required("Masukkan nama terlebih dahulu"),
   class: yup.string().required("Masukkan kelas terlebih dahulu"),
   gender: yup.string().required("Masukkan jenis kelamin terlebih dahulu"),
-  age: yup.string().required("Masukkan umur terlebih dahulu")
+  school: yup.string().required("Masukkan sekolah terlebih dahulu"),
+  birthDate: yup.string().required("Masukkan tanggal lahir terlebih dahulu")
 });

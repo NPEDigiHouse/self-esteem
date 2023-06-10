@@ -1,22 +1,38 @@
-import React from "react";
 import {
-  Page,
-  Text,
-  View,
   Document,
+  Image,
+  Page,
   StyleSheet,
-  PDFViewer,
-  Image
+  Text,
+  View
 } from "@react-pdf/renderer";
+import React from "react";
 import { TestResult } from "../utils/const/types";
 // Create styles
 export interface IAnxietyTestResult {
   name: String;
   gender: String;
   classes: String;
-  age: number;
   result: TestResult;
   percentage: number | null;
+  birthDate: Date;
+  school: String;
+}
+
+export function extractDate(date: any | null) {
+  console.log(date, "date");
+
+  if (date == null || isNaN(date)) {
+    return "";
+  }
+
+  let d = date.toLocaleDateString("id", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric"
+  });
+
+  return d;
 }
 
 // Create Document Component
@@ -24,53 +40,72 @@ const AnxietyTestResult: React.FC<IAnxietyTestResult> = ({
   name,
   percentage,
   result,
-  age,
   classes,
-  gender
+  gender,
+  birthDate,
+  school
 }) => (
-  <PDFViewer style={styles.viewer}>
-    <Document title={`Hasil Tes Kecemasan - ${name}`}>
-      <Page size="A4" style={styles.page}>
+  <Document title={`Hasil Tes Kecemasan - ${name}`}>
+    <Page size="A4" style={styles.page}>
+      <View style={styles.stack}>
         <View style={styles.content}>
           <View style={styles.contentTitle}>
-            {/* <Text style={styles.contentTitleText}>
-              DEPARTEMEN PENDIDIKAN NASIONAL
+            <Text style={styles.contentTitleText}>
+              KEMENTERIAN AGAMA REPUBLIK INDONESIA
             </Text>
             <Text style={styles.contentTitleText}>
-              UIN SATU SAYYID ALI RAHMATULLAH TULUNGAGUNG
+              UNIVERSITAS ISLAM NEGERI
             </Text>
             <Text style={styles.contentTitleText}>
-              FAKULTAS USHULUDDIN ADAB DAN DAKWAH
+              SAYYID ALI RAHMATULLAH TULUNGAGUNG
             </Text>
-            <Text style={styles.contentTitleText}>
-              JURUSAN BIMBINGAN KONSELING ISLAM
-            </Text> */}
-            <Text style={styles.contentTitleText2}>
-              LAPORAN HASIL KECEMASAN SOSIAL PADA SISWA
+            <Text style={styles.contentTitleText3}>
+              Jalan Mayor Sujadi Timur Nomor 46 Tulungagung - Jawa
             </Text>
+            <Text style={styles.contentTitleText3}>
+              Timur 66221 Telepon (0355) 321513, 321656 Faximile
+            </Text>
+
+            <Text style={styles.contentTitleText3}>(0355) 321656</Text>
+
+            <Image
+              style={styles.hr}
+              src={window.location.origin + "/images/hr.png"}
+            />
+            <Image
+              style={styles.imageHeader}
+              src={window.location.origin + "/images/uin-logo.png"}
+            />
           </View>
 
+          <Text style={styles.contentTitleText2}>
+            LAPORAN HASIL KEBERHARGAAN DIRI SISWA
+          </Text>
           <View style={styles.students}>
             <View style={styles.biodataContainer}>
               <View style={styles.biodata}>
                 <View style={styles.studentData}>
                   <Text style={styles.data}>Nama</Text>
                   <Text style={styles.data}>Kelas</Text>
+                  <Text style={styles.data}>Sekolah</Text>
                 </View>
                 <View style={styles.studentDataValue}>
                   <Text style={styles.data}>: {name}</Text>
                   <Text style={styles.data}>: {classes}</Text>
+                  <Text style={styles.data}>: {school}</Text>
                   {/* <Text style={styles.data}></Text> */}
                 </View>
               </View>
               <View style={styles.biodata}>
                 <View style={styles.studentData}>
                   <Text style={styles.data}>Jenis Kelamin</Text>
-                  <Text style={styles.data}>Umur</Text>
+                  <Text style={styles.data}>Tanggal Tes</Text>
+                  <Text style={styles.data}>Tanggal Lahir</Text>
                 </View>
                 <View style={styles.studentDataValue}>
                   <Text style={styles.data}>: {gender}</Text>
-                  <Text style={styles.data}>: {age}</Text>
+                  <Text style={styles.data}>: {extractDate(new Date())}</Text>
+                  <Text style={styles.data}>: {extractDate(birthDate)}</Text>
                   {/* <Text style={styles.data}></Text> */}
                 </View>
               </View>
@@ -95,14 +130,34 @@ const AnxietyTestResult: React.FC<IAnxietyTestResult> = ({
                 hasil presentase sebesar {percentage?.toFixed(2)} %. Dengan ini
                 Anda dinyatakan masuk dalam kategori {result}.{" "}
                 {result == "Rendah"
-                  ? "Anda mampu meningkatkan self esteem sehingga dapat menerima segala kelebihan dan kekurangan yang dimiliki, mendapatkan kepuasan hidup, kesehatan fisik dan psikologis lebih terjaga, memudahkan untuk berinteraksi sosial."
-                  : "Dampak dari kecemasan sosial termasuk kesulitan dalam situasi sosial, harga diri yang rendah, performa akademis yang menurun bahkan buruk, masalah kesehatan fisik, dan juga dapat berdampak pada hubungan interpersonal dengan orang lain."}
+                  ? "[Kata Kalau Rendah]"
+                  : "[Kata Kalau Sedang/Tinggi]"}
               </Text>
             </View>
           </View>
         </View>
-      </Page>
-      {/* <Page size="A4" style={styles.page}>
+
+        <View style={styles.isoKanContainer}>
+          <View>
+            <View>
+              <View>
+                <Text style={styles.conselor}>{extractDate(new Date())}</Text>
+              </View>
+            </View>
+          </View>
+          <View>
+            <Image
+              style={styles.ttdImage}
+              src={`${window.location.origin}/images/ttd_sifa.jpg`}
+            />
+          </View>
+          <View style={styles.footerTextContent}>
+            <Text style={styles.conselor}>Konselor</Text>
+          </View>
+        </View>
+      </View>
+    </Page>
+    {/* <Page size="A4" style={styles.page}>
         <View style={styles.content}>
           <View style={styles.contentTitle}>
             <Text style={styles.contentTitleText}>
@@ -154,11 +209,10 @@ const AnxietyTestResult: React.FC<IAnxietyTestResult> = ({
           </View>
         </View>
       </Page> */}
-    </Document>
-  </PDFViewer>
+  </Document>
 );
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   viewer: {
     width: "100%",
     height: "100vh"
@@ -167,6 +221,18 @@ const styles = StyleSheet.create({
     paddingHorizontal: 58,
     paddingVertical: 30,
     fontFamily: "Times-Roman"
+  },
+  hr: {
+    width: "103%",
+    marginLeft: "-0.2125cm",
+    // width: "100%",
+    height: "40px"
+  },
+  imageHeader: {
+    width: "2.8cm",
+    // height: "3.72cm",
+    position: "absolute",
+    top: "0cm"
   },
 
   section: {
@@ -192,7 +258,7 @@ const styles = StyleSheet.create({
   },
   isoKanContainer: {
     position: "absolute",
-    bottom: 10,
+    bottom: -450,
     right: 20
   },
   isoKan: {
@@ -231,29 +297,33 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontSize: 12,
     marginBottom: 16,
-    marginTop: 16,
-    fontFamily: "Times-Bold"
+    marginTop: 8
   },
   contentTitleText: {
     fontSize: 12,
+    marginBottom: 2,
+    fontFamily: "Times-Bold"
+  },
+  contentTitleText3: {
+    fontSize: 11,
     marginBottom: 2
   },
   contentTitleText2: {
-    marginTop: 24,
-    fontSize: 12
+    fontSize: 12,
+    textAlign: "center"
   },
   data: {
     fontSize: 11,
     fontWeight: "bold",
     // paddingLeft: 12,
-    marginBottom: 10,
+    marginBottom: 14,
     fontFamily: "Times-Bold",
     flexWrap: "wrap",
     overflow: "hidden"
   },
   headerTextContent: {
     fontSize: 12,
-    marginTop: 16,
+    marginTop: 20,
     // marginBottom: 12000,
     textAlign: "justify",
     lineHeight: "1.25px",
@@ -266,12 +336,17 @@ const styles = StyleSheet.create({
     fontFamily: "Times-Bold"
   },
   footerTextContent: {
-    fontSize: 11,
-    textAlign: "justify",
-    marginTop: 16,
+    fontSize: 12,
+    textAlign: "center",
+    marginTop: 6,
     lineHeight: "1.75px",
     letterSpacing: "0.25px",
     fontFamily: "Times-Roman"
+  },
+  conselor: {
+    textAlign: "center",
+    margin: "auto",
+    fontSize: 12,
   },
   address: {
     fontSize: 11,
@@ -281,10 +356,16 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "column"
   },
+  stack: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+    position: "relative"
+  },
   students: {
     display: "flex",
     flexDirection: "column",
-    marginTop:  10
+    marginTop: 10
   },
   biodataContainer: {
     display: "flex",

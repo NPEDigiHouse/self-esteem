@@ -1,8 +1,8 @@
-import { Grid, Group, Text, useMantineTheme } from "@mantine/core";
+import { Group, Text, useMantineTheme } from "@mantine/core";
 import React, { useEffect, useState } from "react";
-import HeaderNavbarMenuItems from "./HeaderNavbarMenuItems";
-import { NavbarMenuType } from "../utils/const/types";
 import { ROUTES } from "../utils/const/routes";
+import { NavbarMenuType } from "../utils/const/types";
+import HeaderNavbarMenuItems from "./HeaderNavbarMenuItems";
 
 export interface IHeaderLayout {
   scrollY: any;
@@ -38,7 +38,7 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({
         >
           Self Esteem
         </Text>
-        <Group>
+        <Group className="mr-10">
           <HeaderNavbarMenuItems
             href={`/${ROUTES.home}`}
             isScrolled={isScrolled}
@@ -54,7 +54,7 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({
             label="Tes Kecemasan"
             isActive={currentPage == ROUTES.anxietyTest}
           />
-          <HeaderNavbarMenuItems
+          {/* <HeaderNavbarMenuItems
             href={`/${ROUTES.anxietyClass}`}
             isScrolled={isScrolled}
             label="Tingkat Kecemasan"
@@ -65,7 +65,7 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({
             isScrolled={isScrolled}
             label="Deril's Tingkat Self Esteem"
             isActive={currentPage == ROUTES.deril}
-          />
+          /> */}
         </Group>
       </Group>
     </div>

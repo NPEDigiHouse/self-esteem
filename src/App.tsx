@@ -2,11 +2,11 @@ import { MantineProvider } from "@mantine/core";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import AppContextProvider from "./context/app-context.context";
+import DerilPersonalityType from "./pages/deril/DerilPersonalityType";
 import Home from "./pages/home/Home.page";
 import PersonalityTest from "./pages/personality-test/PersonalityTest.page";
 import PersonalityType from "./pages/personality-type/PersonalityType.page";
 import { ROUTES } from "./utils/const/routes";
-import DerilPersonalityType from "./pages/deril/DerilPersonalityType";
 
 function App() {
   return (

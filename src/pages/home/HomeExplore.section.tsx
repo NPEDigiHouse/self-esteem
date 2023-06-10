@@ -19,7 +19,7 @@ const HomeExplore: React.FC<IHomeExplore> = ({}) => {
             src={personalityTest}
             to={ROUTES.anxietyTest}
             title="Tes Self-Esteem"
-            description="Lakukan tes self-esteem, di mana anda akan diarahkan untuk menjawab 45 pertanyaan selama 5-10 menit. Jawaban tes self-esteem akan mempengaruhi hasil akhir."
+            description="Lakukan tes self-esteem, di mana anda akan diarahkan untuk menjawab 42 pertanyaan selama 5-10 menit. Jawaban tes self-esteem akan mempengaruhi hasil akhir."
           />
         </Grid.Col>
         <Grid.Col md={6} sm={12} className="hover:scale-[1.01] transition-all">

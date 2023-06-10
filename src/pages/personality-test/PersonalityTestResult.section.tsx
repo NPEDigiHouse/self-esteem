@@ -1,29 +1,31 @@
-import { Button, Grid, Group, Stack, Text } from "@mantine/core";
-import React, { useContext, useState } from "react";
 import {
-  FileCheckIcon,
-  NormalAnxietyIcon,
-  NotAnxietyIcon,
-  PDFIcon,
+  Button,
+  Grid,
+  Stack,
+  Text,
+  useMantineTheme
+} from "@mantine/core";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import React, { useContext } from "react";
+import {
+  DownloadIcon,
   RestartIcon,
-  ResultAnxietyIcon
+  SelfLoveHigh,
+  SelfLoveLow,
+  SelfLoveNormal
 } from "../../assets/icons/Fluent";
-import PDFModal from "../../components/PDFModal";
-import VerticalDivider from "../../components/VerticalDivider.component";
 import { AppContext } from "../../context/app-context.context";
 import AnxietyTestResult from "../../letters/AnxietyTestResult.letter";
 
 export interface IPersonalityTestResult {
   scene: "pertanyaan" | "hasil";
   setScene: React.Dispatch<React.SetStateAction<"pertanyaan" | "hasil">>;
-  scrollTo: any;
+  scrollTo?: any;
   scrollIntoView: any;
 }
 
 const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
-  scene,
   setScene,
-  scrollTo,
   scrollIntoView
 }) => {
   const {
@@ -32,105 +34,116 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
     setResult,
     setResultPercentage,
     currentTesterName,
-    currentTesterAge,
+    currentTesterSchool,
     currentTesterClass,
-    currentTesterGender
+    currentTesterGender,
+    currentTesterBirthDate
   } = useContext(AppContext);
 
-  const [isResultModalOpened, setIsResultModalOpened] = useState(false);
+  const theme = useMantineTheme();
 
   return (
-    <Stack className="mt-28">
-      <PDFModal opened={isResultModalOpened} setOpened={setIsResultModalOpened}>
-        <AnxietyTestResult
-          name={currentTesterName || ""}
-          age={currentTesterAge || 0}
-          classes={currentTesterClass || ""}
-          gender={currentTesterGender || ""}
-          percentage={resultPercentage}
-          result={result}
-        />
-      </PDFModal>
-      <Stack className="gap-0 self-center w-[90%]">
-        <Text className="self-center font-roboto-semibold text-[30px] md:text-[38px] text-primary-text-500 text-center">
-          Nama: {currentTesterName}
+    <Stack className="mt-14">
+      <Stack className="gap-0 self-center w-[50%]">
+        <Text className="self-start font-roboto-semibold text-[30px] md:text-xl text-secondary-text-500">
+          Responded yang bernama {currentTesterName} dari kelas{" "}
+          {currentTesterClass}
         </Text>
-        <Text className="self-center font-roboto-semibold text-[30px] md:text-[38px] text-primary-text-500 text-center">
-          Hasil Tes: Kecemasan
+        <Text className="self-start font-roboto-semibold text-[30px] md:text-[38px] text-primary-text-500">
+          Memiliki Tingkat Self-Esteem
           <span
             className={`w-[90%] font-roboto-bold  ${
-              result === "Rendah"
+              result === "Tinggi"
                 ? "text-primaryGreen"
                 : result === "Sedang"
-                ? "text-primaryBlue"
-                : "text-primaryDarkBlue"
+                ? "text-sc-cp-50"
+                : "text-sc-cp-50"
             }`}
           >
             {" "}
-            Tingkat {result}
+            {result}
           </span>
         </Text>
       </Stack>
-      <Group className="justify-center w-[90%] self-center gap-10 md:gap-10 mt-0 md:mt-10">
+      <Stack className="justify-center w-[90%] self-center gap-10 md:gap-10 mt-0 md:mt-10">
         <div className="flex self-center w-[200px] md:w-[320px] overflow-hidden">
           {result === "Rendah" ? (
-            <NotAnxietyIcon size={300} />
+            <SelfLoveLow size={300} />
           ) : result === "Sedang" ? (
-            <NormalAnxietyIcon size={300} className="self-center ml-2" />
+            <SelfLoveNormal size={300} className="self-center" />
           ) : (
-            <ResultAnxietyIcon size={300} className="self-center ml-2" />
+            <SelfLoveHigh size={300} className="self-center" />
           )}
         </div>
-        <Stack className="relative">
-          <FileCheckIcon
-            size={96}
-            color={"#deddf1"}
-            className="absolute -z-10 right-0 -bottom-6 md:-top-4"
-          />
-          <Stack className="gap-2 md:gap-0">
-            <Text className="font-roboto-bold text-[18px] md:text-[30px] text-primary-text-500">
-              Tingkat Kecemasan {result}
-            </Text>
-            <Text className="text-[18px] md:text-[20px] text-secondary-text-500 -mt-1">
-              Dengan Presentase Kecemasan {resultPercentage?.toFixed(1)} %
+        <Stack className="relative self-center">
+          <Stack className="gap-2 md:gap-0 self-center">
+            <Text className="text-[18px] md:text-[18px] text-secondary-text-500 -mt-4">
+              Presentase Self-Esteem {resultPercentage?.toFixed(1)} % (Semakin
+              tinggi semakin baik)
             </Text>
           </Stack>
-          <div className="">
-            <VerticalDivider h="sm" />
-          </div>
-          <Stack className="gap-0">
+          <Stack className="gap-0 mt-4">
             <Text
-              className={`md:w-[700px] text-primary-text-500 tracking-1 text-justify text-[18px]`}
+              className={`w-[80%] self-center text-primary-text-500 tracking-1 text-justify text-[18px]`}
             >
               {result === "Rendah" ? (
                 <>
-                  Siswa memiliki persepsi positif terhadap diri dan lingkungan
-                  yang mendukungnya untuk dapat melakukan interaksi sosial
-                  dengan baik
+                  Orang dengan tingkat self-esteem rendah mungkin merasa tidak
+                  berharga, meragukan kemampuan dan nilai diri mereka, serta
+                  cenderung meremehkan pencapaian pribadi mereka. Mereka mungkin
+                  mengalami kesulitan dalam menghadapi tantangan dan mengambil
+                  risiko, dan seringkali lebih rentan terhadap pengaruh negatif
+                  dari orang lain.
+                  <br />
+                  <br />
+                  Meningkatkan self-esteem rendah melibatkan pekerjaan dalam
+                  mengembangkan penghargaan diri, mengidentifikasi kelebihan,
+                  dan memperbaiki pola pikir yang negatif.
                 </>
               ) : result === "Sedang" ? (
                 <>
-                  Siswa cukup memiliki persepsi negatif terhadap diri dan
-                  lingkungan yang mengakibatkan siswa melakukan penghindaran
-                  sosial
+                  Orang dengan tingkat self-esteem sedang memiliki kepercayaan
+                  diri yang cukup untuk menghadapi tantangan dan mengambil
+                  risiko yang wajar. Mereka mengakui kelebihan dan kekurangan
+                  mereka dengan sikap realistis, dan mampu menghargai dan
+                  menghormati diri sendiri.
+                  <br />
+                  <br />
+                  Mereka memiliki keyakinan dalam kemampuan mereka, tetapi juga
+                  terbuka untuk belajar dan tumbuh. Tingkat self-esteem sedang
+                  adalah target yang baik untuk diupayakan dan dipertahankan,
+                  karena menciptakan landasan yang kokoh untuk kesejahteraan dan
+                  kesuksesan pribadi.
                 </>
               ) : (
                 <>
-                  Siswa memiliki persepsi negatif terhadap diri dan
-                  lingkungannya yang mengakibatkan siswa melakukan penghindaran
-                  sosial
+                  Orang dengan tingkat self-esteem tinggi memiliki pandangan
+                  positif tentang diri sendiri dan menghargai diri mereka dengan
+                  penuh kasih sayang.
+                  <br />
+                  <br />
+                  Mereka merasa puas dengan diri sendiri, menerima kelebihan dan
+                  kekurangan mereka, dan berani mengambil langkah-langkah yang
+                  diperlukan untuk mencapai tujuan mereka. Tingkat self-esteem
+                  tinggi memungkinkan seseorang untuk mengatasi rintangan dengan
+                  percaya diri, mengembangkan hubungan sosial yang sehat, dan
+                  mengambil risiko yang produktif dalam kehidupan.
                 </>
               )}
             </Text>
           </Stack>
         </Stack>
-      </Group>
+      </Stack>
       <Grid className="mt-16 self-center w-[80%]">
         <Grid.Col sm={12} md={6}>
           <Button
-            className="bg-primaryGreen hover:bg-primaryGreen rounded-full !h-14 text-xl font-normal !w-full"
-            rightIcon={
-              <RestartIcon size={26} className="mt-[2px]" color={"#FFFFFF"} />
+            className="bg-sc-cp-500 hover:bg-sc-cp-500 rounded-sm !h-14 text-xl font-normal !w-full text-primary-text-500"
+            leftIcon={
+              <RestartIcon
+                size={26}
+                className="mt-[2px]"
+                color={theme.colors["primary-text"][5]}
+              />
             }
             onClick={() => {
               setScene("pertanyaan");
@@ -148,17 +161,33 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
           </Button>
         </Grid.Col>
         <Grid.Col sm={12} md={6}>
-          <Button
-            className="bg-primaryDarkBlue hover:bg-primaryDarkBlue rounded-full !h-14 text-xl font-normal !w-full"
-            rightIcon={
-              <PDFIcon size={26} className="mt-[2px]" color={"#FFFFFF"} />
+          <PDFDownloadLink
+            document={
+              <AnxietyTestResult
+                name={currentTesterName || ""}
+                school={currentTesterSchool || ""}
+                classes={currentTesterClass || ""}
+                gender={currentTesterGender || ""}
+                percentage={resultPercentage}
+                result={result}
+                birthDate={currentTesterBirthDate as Date}
+              />
             }
-            onClick={() => {
-              setIsResultModalOpened(true);
-            }}
+            fileName="hasil-tes-kecemasan.pdf"
           >
-            Tampilkan Dokumen Hasil
-          </Button>
+            <Button
+              className="bg-sc-cp-900 hover:bg-sc-cp-900 rounded-sm !h-14 text-xl font-normal !w-full"
+              leftIcon={
+                <DownloadIcon
+                  size={26}
+                  className="mt-[2px]"
+                  color={"#FFFFFF"}
+                />
+              }
+            >
+              Download Dokumen Hasil
+            </Button>
+          </PDFDownloadLink>
         </Grid.Col>
       </Grid>
     </Stack>

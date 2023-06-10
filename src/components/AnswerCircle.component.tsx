@@ -12,7 +12,6 @@ export interface IAnswerCircle {
 }
 
 const AnswerCircle: React.FC<IAnswerCircle> = ({
-  size = "md",
   color = "step2",
   focus = false,
   onClick = () => {},
@@ -63,7 +62,7 @@ const AnswerCircle: React.FC<IAnswerCircle> = ({
     }`;
   }
 
-  return <div onClick={disabled ? () => {} : onClick} className={"w-full  h-full border-y-[2px] !border-primary-text-500"}>
+  return <div onClick={disabled ? () => {} : onClick} className={"w-full  h-full border-b-[2px] !border-primary-text-500"}>
     <div className={cn}>
       {
         focus?

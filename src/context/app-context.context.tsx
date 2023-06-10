@@ -18,8 +18,10 @@ interface IAppContext {
   setCurrentTesterClass: React.Dispatch<React.SetStateAction<String | null>>;
   currentTesterGender: String | null;
   setCurrentTesterGender: React.Dispatch<React.SetStateAction<String | null>>;
-  currentTesterAge: number | null;
-  setCurrentTesterAge: React.Dispatch<React.SetStateAction<number | null>>;
+  currentTesterSchool: String | null;
+  setCurrentTesterSchool: React.Dispatch<React.SetStateAction<String | null>>;
+  currentTesterBirthDate: any | null;
+  setCurrentTesterBirthDate: React.Dispatch<React.SetStateAction<any | null>>;
 }
 
 export const AppContext = React.createContext<IAppContext>({
@@ -35,8 +37,10 @@ export const AppContext = React.createContext<IAppContext>({
   setCurrentTesterClass: () => {},
   currentTesterGender: "",
   setCurrentTesterGender: () => {},
-  currentTesterAge: null,
-  setCurrentTesterAge: () => {}
+  currentTesterSchool: null,
+  setCurrentTesterSchool: () => {},
+  currentTesterBirthDate: null,
+  setCurrentTesterBirthDate: () => {}
 });
 
 const AppContextProvider: React.FC<IAppContextProvider> = ({ children }) => {
@@ -51,7 +55,12 @@ const AppContextProvider: React.FC<IAppContextProvider> = ({ children }) => {
   const [currentTesterGender, setCurrentTesterGender] = useState<String | null>(
     null
   );
-  const [currentTesterAge, setCurrentTesterAge] = useState<number | null>(null);
+  const [currentTesterSchool, setCurrentTesterSchool] = useState<String | null>(
+    null
+  );
+  const [currentTesterBirthDate, setCurrentTesterBirthDate] = useState<
+    any | null
+  >(null);
   const [resultPercentage, setResultPercentage] = useState<number | null>(null);
 
   const defaultAppContext: IAppContext = {
@@ -67,8 +76,10 @@ const AppContextProvider: React.FC<IAppContextProvider> = ({ children }) => {
     setCurrentTesterClass: setCurrentTesterClass,
     currentTesterGender: currentTesterGender,
     setCurrentTesterGender: setCurrentTesterGender,
-    currentTesterAge: currentTesterAge,
-    setCurrentTesterAge: setCurrentTesterAge
+    currentTesterSchool: currentTesterSchool,
+    setCurrentTesterSchool: setCurrentTesterSchool,
+    currentTesterBirthDate: currentTesterBirthDate,
+    setCurrentTesterBirthDate: setCurrentTesterBirthDate
   };
 
   return (

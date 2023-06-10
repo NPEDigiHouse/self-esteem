@@ -1,18 +1,18 @@
 import { AppShell } from "@mantine/core";
-import React, { useContext, useEffect } from "react";
-import HeaderLayout from "./HeaderLayout.layout";
-import { useWindowScrollPositions } from "../hooks/useWindowScrollPositions";
-import FooterLayout from "./FooterLayout.layout";
-import { AppContext } from "../context/app-context.context";
+import React, { useContext } from "react";
 import { useLocation } from "react-router-dom";
+import { AppContext } from "../context/app-context.context";
+import { useWindowScrollPositions } from "../hooks/useWindowScrollPositions";
 import { NavbarMenuType } from "../utils/const/types";
+import FooterLayout from "./FooterLayout.layout";
+import HeaderLayout from "./HeaderLayout.layout";
 
 export interface IMainLayout {
   children: JSX.Element;
 }
 
 const MainLayout: React.FC<IMainLayout> = ({ children }) => {
-  const { scrollX, scrollY } = useWindowScrollPositions();
+  const { scrollY } = useWindowScrollPositions();
   const {currentPage, setCurrentPage} = useContext(AppContext);
 
   const location= useLocation();

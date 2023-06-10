@@ -1,26 +1,28 @@
 import {
   Button,
-  Divider,
   Grid,
-  Slider,
+  Group,
   Stack,
   Text,
   useMantineTheme
 } from "@mantine/core";
 import { useForm, yupResolver } from "@mantine/form";
-import { useScrollIntoView, useWindowScroll } from "@mantine/hooks";
+import { useScrollIntoView } from "@mantine/hooks";
 import React, { useContext, useEffect, useMemo, useState } from "react";
-import { SearchIcon } from "../../assets/icons/Fluent";
+import { FileCheckIcon, SearchIcon } from "../../assets/icons/Fluent";
 import {
-  MyNumberInput,
+  DatePickerInput,
   SelectInput,
   TextInput
 } from "../../components/FormInput.component";
-import Question from "../../components/Questions.component";
+import QuestionTable from "../../components/QuestionTable.component";
 import { AppContext } from "../../context/app-context.context";
 import useArray from "../../hooks/useArray";
 import MainLayout from "../../layouts/MainLayout.layout";
-import { IQuestionPack, getQuestionPack } from "../../utils/const/questions";
+import {
+  IQuestionPackType,
+  getQuestionPack
+} from "../../utils/const/questions";
 import {
   IPersonalityTestForm,
   personalityTestFormSchema
@@ -28,28 +30,27 @@ import {
 import PersonalityTestInformation from "./PersonalityTestInformation.section";
 import PersonalityTestJumbotron from "./PersonalityTestJumbotron.section";
 import PersonalityTestResult from "./PersonalityTestResult.section";
-import { positiveAnswerPointList } from "../../utils/const/answesList";
-import { IQuestionCircleComponent } from "../../components/QuestionCircle.component";
 
 export interface IPersonalityTest {}
 
-const defaultScoreArr: Array<number> = Array(getQuestionPack().length).fill(0);
+const defaultScoreArr: Array<number> = Array(42).fill(0);
 
 const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
   const {
     currentPage,
     result,
-    resultPercentage,
     setResult,
     setResultPercentage,
     currentTesterName,
     setCurrentTesterName,
     currentTesterClass,
-    currentTesterAge,
+    currentTesterSchool,
     currentTesterGender,
-    setCurrentTesterAge,
+    setCurrentTesterSchool,
     setCurrentTesterClass,
-    setCurrentTesterGender
+    setCurrentTesterGender,
+    currentTesterBirthDate,
+    setCurrentTesterBirthDate
   } = useContext(AppContext);
 
   const QuestionPack = useMemo(() => getQuestionPack(), [currentPage]);
@@ -59,8 +60,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
   const [scene, setScene] = useState<"pertanyaan" | "hasil">(
     result == null ? "pertanyaan" : "hasil"
   );
-
-  const [scroll, scrollTo] = useWindowScroll();
+  
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
     duration: 500
   });
@@ -75,8 +75,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
   );
 
   const [progressCount, setProgressCount] = useState<number>(0);
-  const progressPercentage: number =
-    (progressCount / QuestionPack.length) * 100;
+  const progressPercentage: number = (progressCount / 42) * 100;
 
   useEffect(() => {
     setSumScoreArr(
@@ -87,16 +86,17 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
   const { onSubmit, ...form } = useForm<IPersonalityTestForm>({
     validate: yupResolver(personalityTestFormSchema)
   });
-  console.log("Pertanyaan Positif: ");
-
+  
   const { getInputProps, errors, setValues, values } = form;
+  console.log("Pertanyaan Positif: ", values);
 
   useEffect(() => {
     setValues({
-      age: currentTesterAge || undefined,
+      school: currentTesterSchool || undefined,
       class: (currentTesterClass || undefined) as any,
       gender: (currentTesterGender || undefined) as any,
-      name: (currentTesterName || undefined) as any
+      name: (currentTesterName || undefined) as any,
+      birthDate: (currentTesterBirthDate || undefined) as any,
     });
   }, []);
 
@@ -104,13 +104,11 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
   //   scrollTo({ y: (scene=="hasil"? 1000 : 500) });
   // }, [scene]);
 
-  let cn = "";
-  cn = `text-center font-semibold text-white h-full pt-1 bg-primaryGreen`;
 
   return (
     <MainLayout>
       <Stack className="mb-16 relative">
-        {progressCount != 0 && (
+        {/* {progressCount != 0 && (
           <div className="w-1/2 self-center py-1 px-2 bg-secondary-500 rounded-full fixed bottom-6 z-[100]">
             <Slider
               size={"xs"}
@@ -125,11 +123,10 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
               }}
             />
           </div>
-        )}
+        )} */}
         <PersonalityTestJumbotron
           scrollIntoView={result == null ? scrollIntoView2 : scrollIntoView}
         />
-        {/* <PersonalityTestInformation /> */}
         <div
           ref={targetRef}
           className="absolute top-[1200px] self-center -z-10"
@@ -141,17 +138,20 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
         {scene === "pertanyaan" && result == null ? (
           <>
             <Stack className="mt-10 mb-10 gap-0">
-              <Stack className="gap-12">
+              <Stack className="gap-8 w-[75%] self-center">
                 <Stack className="gap-0">
-                  <Text className="font-roboto-semibold text-2xl text-primary-text-500 text-center">
-                    Pengisian Identitas
-                  </Text>
-                  <Text className="text-lg text-secondary-text-500 text-center">
+                  <Group className="gap-2">
+                    <FileCheckIcon size={32} color="#603991" />
+                    <Text className="font-roboto-semibold text-2xl text-primary-text-500 ">
+                      Pengisian Identitas
+                    </Text>
+                  </Group>
+                  <Text className="text-lg text-primary-text-500 mt-4">
                     Pertanyaan tes tidak bisa dijawab pertanyaan jika tidak
                     mengisi identitas terlebih dahulu.
                   </Text>
                 </Stack>
-                <Grid className="w-[80%] self-center" gutter={"xl"}>
+                <Grid className="self-center" gutter={"lg"}>
                   <Grid.Col md={6}>
                     <Stack className="gap-[2px]">
                       <Text className="text-lg font-roboto text-primary-text-500 text-start">
@@ -163,20 +163,6 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                         disabled={progressPercentage != 0}
                         error={errors["name" as keyof IPersonalityTestForm]}
                         // value={(currentTesterName || null) as any}
-                      />
-                    </Stack>
-                  </Grid.Col>
-                  <Grid.Col md={6}>
-                    <Stack className="gap-[2px]">
-                      <Text className="text-lg font-roboto text-primary-text-500 text-start">
-                        Kelas
-                      </Text>
-                      <TextInput
-                        size="md"
-                        {...getInputProps("class")}
-                        disabled={progressPercentage != 0}
-                        error={errors["class" as keyof IPersonalityTestForm]}
-                        // value={(currentTesterClass || null) as any}
                       />
                     </Stack>
                   </Grid.Col>
@@ -212,131 +198,75 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   <Grid.Col md={6}>
                     <Stack className="gap-[2px]">
                       <Text className="text-lg font-roboto text-primary-text-500 text-start">
-                        Umur
+                        Sekolah
                       </Text>
-                      <MyNumberInput
+                      <TextInput
                         size="md"
-                        {...getInputProps("age")}
+                        {...getInputProps("school")}
                         disabled={progressPercentage != 0}
-                        error={errors["age" as keyof IPersonalityTestForm]}
-                        min={0}
-                        max={150}
-                        type={"number"}
-                        // value={(currentTesterAge || null) as any}
+                        error={errors["school" as keyof IPersonalityTestForm]}
+                        // value={(currentTesterName || null) as any}
+                      />
+                    </Stack>
+                  </Grid.Col>
+                  <Grid.Col md={6}>
+                    <Stack className="gap-[2px]">
+                      <Text className="text-lg font-roboto text-primary-text-500 text-start">
+                        Kelas
+                      </Text>
+                      <TextInput
+                        size="md"
+                        {...getInputProps("class")}
+                        disabled={progressPercentage != 0}
+                        error={errors["class" as keyof IPersonalityTestForm]}
+                        // value={(currentTesterClass || null) as any}
+                      />
+                    </Stack>
+                  </Grid.Col>
+                  <Grid.Col md={12}>
+                    <Stack className="gap-[2px]">
+                      <Text className="text-lg font-roboto text-primary-text-500 text-start">
+                        Tanggal Lahir
+                      </Text>
+                      <DatePickerInput
+                        size="md"
+                        placeholder="Pilih tanggal pelaksanaan"
+                        className="self-start w-full"
+                        {...getInputProps("birthDate")}
+                        // defaultValue={seminarDateDefault}
                       />
                     </Stack>
                   </Grid.Col>
                 </Grid>
               </Stack>
-              <Stack className="gap-0 mt-20">
-                <Text className="font-roboto-semibold text-2xl text-primary-text-500 text-center">
-                  Pertanyaan
-                </Text>
-                <Text className="text-lg text-secondary-text-500 text-center w-[90%] self-center">
-                  Pilih jawaban yang paling sesuai dengan pengalaman pribadi
-                  Anda karena pilihan jawaban akan memberikan kontribusi
-                  terhadap hasil akhir
-                </Text>
-              </Stack>
-              <Grid
-                className={`w-[90%] self-center mt-10`}
-                // onClick={disabled ? getError : () => {}}
-              >
-                {/* ${!isPositive? "bg-error-500/[0.2]" : "bg-primaryGreen/[0.2]"} */}
-                <Grid.Col
-                  span={9}
-                  className={`border-l-2 border-r border-y-2 z-10 border-primary-text-500 flex items-center flex-col p-4 pb-8`}
-                >
-                  <Text
-                    className={`text-start self-start text-xl tracking-4 h-fit align-middle bg-white text-primary-text-500`}
-                  >
-                    Pertanyaan
-                  </Text>
-                </Grid.Col>
-                <Grid.Col
-                  span={3}
-                  className="border border-primary-text-500 p-0 bg-secondary-text-500"
-                >
-                  <Grid
-                    className="gap-0 flex-nowrap w-full self-center h-full"
-                    gutter={0}
-                  >
-                    <Grid.Col
-                      span={3}
-                      className="border border-primary-text-500"
-                    >
-                      <Text
-                        className={`text-center font-semibold text-white h-full pb-3 flex items-center justify-center bg-answer-gradient-50`}
-                      >
-                        SS
-                      </Text>
-                    </Grid.Col>
-                    <Grid.Col
-                      span={3}
-                      className="border border-primary-text-500"
-                    >
-                      <Text
-                        className={`text-center font-semibold text-white h-full pb-3 flex items-center justify-center bg-answer-gradient-200`}
-                      >
-                        S
-                      </Text>
-                    </Grid.Col>
-                    <Grid.Col
-                      span={3}
-                      className="border border-primary-text-500"
-                    >
-                      <Text
-                        className={`text-center font-semibold text-white h-full pb-3 flex items-center justify-center bg-answer-gradient-400`}
-                      >
-                        KS
-                      </Text>
-                    </Grid.Col>
-                    <Grid.Col
-                      span={3}
-                      className="border border-primary-text-500"
-                    >
-                      <Text
-                        className={`text-center font-semibold text-white h-full pb-3 flex items-center justify-center bg-answer-gradient-800`}
-                      >
-                        TS
-                      </Text>
-                    </Grid.Col>
-                  </Grid>
-                </Grid.Col>
-              </Grid>
-              {QuestionPack?.map((question: IQuestionPack, e: number) => {
-                return (
-                  <>
-                    <Question
-                      key={e}
-                      idx={e + 1}
-                      isPositive={question.isPositive}
-                      questions={question.question}
+
+              <PersonalityTestInformation />
+              <Stack className="gap-28 mt-20">
+                {QuestionPack.map((questions: IQuestionPackType, e: number) => {
+                  return (
+                    <QuestionTable
+                      key={"questions:" + e}
                       progressCount={progressCount}
                       setProgressCount={setProgressCount}
                       updateScore={update}
-                      getError={onSubmit(() => {})}
                       disabled={
-                        values.age == null ||
+                        values.school == null ||
                         values.class == null ||
                         values.gender == null ||
                         values.name == null ||
-                        typeof values.age != "number"
+                        values.birthDate == null
                       }
+                      getError={onSubmit(() => {})}
+                      questionPack={questions.questions}
+                      questionType={questions.type}
                     />
-                    {/* {e + 1 < QuestionPack.length && (
-                      <Divider
-                        key={"divider-" + e}
-                        className="w-[90%] self-center"
-                      />
-                    )} */}
-                  </>
-                );
-              })}
+                  );
+                })}
+              </Stack>
             </Stack>
             <Button
-              className="bg-primaryDarkBlue hover:bg-primaryDarkBlue rounded-full w-[80%] !h-14 text-xl self-center font-normal mt-20"
-              rightIcon={
+              className="bg-sc-cp-900 hover:bg-sc-cp-900 rounded-sm w-[80%] !h-14 text-xl self-center font-normal mt-10"
+              leftIcon={
                 <SearchIcon
                   size={26}
                   className="mt-[2px]"
@@ -356,12 +286,12 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                 });
 
                 setCurrentTesterName(values.name.trim());
-                setCurrentTesterAge(values.age);
+                setCurrentTesterSchool(values.school.trim());
                 setCurrentTesterClass(values.class.trim());
                 setCurrentTesterGender(values.gender.trim());
+                setCurrentTesterBirthDate(values.birthDate);
 
-                let percentage =
-                  (sumScoreArr / (QuestionPack.length * 4)) * 100;
+                let percentage = (sumScoreArr / (42 * 4)) * 100;
 
                 if (percentage >= 66) {
                   setResult("Tinggi");
@@ -374,14 +304,13 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                 setResultPercentage(percentage);
               }}
             >
-              Lihat Hasil
+              Tampilkan Hasil Akhir
             </Button>
           </>
         ) : (
           <PersonalityTestResult
             scene={scene}
             setScene={setScene}
-            scrollTo={scrollTo}
             scrollIntoView={scrollIntoView2}
           />
         )}

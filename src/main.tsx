@@ -1,4 +1,4 @@
-import { MantineProvider, PaginationStylesParams } from "@mantine/core";
+import { MantineProvider } from "@mantine/core";
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
@@ -137,7 +137,7 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         fontFamily: "Nunito Sans, sans-serif",
         components: {
           Pagination: {
-            styles: (theme, params: PaginationStylesParams) => ({
+            styles: (theme) => ({
               item: {
                 color: theme.colors["primary-text"][5]
               }

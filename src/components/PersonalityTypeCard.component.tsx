@@ -1,8 +1,7 @@
-import { Stack, Text, Image } from "@mantine/core";
-import studying from "../assets/images/studying.png";
+import { Stack, Text } from "@mantine/core";
 import React from "react";
-import { TestResult } from "../utils/const/types";
 import { NormalAnxietyIcon, NotAnxietyIcon, ResultAnxietyIcon } from "../assets/icons/Fluent";
+import { TestResult } from "../utils/const/types";
 
 export interface IPersonalityTypeCard {
   anxietyLevel: TestResult;
@@ -12,7 +11,6 @@ export interface IPersonalityTypeCard {
 
 const PersonalityTypeCard: React.FC<IPersonalityTypeCard> = ({
   anxietyLevel,
-  title="Clever",
   description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam, enim aut quaerat obcaecati assumenda corporis magnam reprehenderit quibusdam vitae nemo!"
 }) => (
   <Stack className="bg-white rounded-xl p-2 border border-secondary-500 shadow-xl">

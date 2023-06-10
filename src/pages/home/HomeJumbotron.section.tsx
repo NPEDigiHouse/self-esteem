@@ -1,8 +1,7 @@
-import { Button, Image, Stack, Text, useMantineTheme } from "@mantine/core";
+import { Button, Stack, Text, useMantineTheme } from "@mantine/core";
 import React from "react";
-import uinLogo from "../../assets/images/uin-logo.png";
-import { ArrowRightAltIcon, SearchIconBold } from "../../assets/icons/Fluent";
 import { Link } from "react-router-dom";
+import { SearchIconBold } from "../../assets/icons/Fluent";
 import { ROUTES } from "../../utils/const/routes";
 
 export interface IHomeJumbotron {}
@@ -16,7 +15,7 @@ const HomeJumbotron: React.FC<IHomeJumbotron> = ({}) => {
           <Stack className="gap-0 items-center z-10">
             <Text className="font-roboto text-[44px] text-primary-text-500 z-10 text-center rounded-xl">
               Temukan{" "}
-              <span className="font-bold text-sc-cp-700">
+              <span className="font-bold text-sc-cp-600">
                 Kekuatan Dalam Diri
               </span>
               , Wujudkan Potensi Sejati!
@@ -25,7 +24,7 @@ const HomeJumbotron: React.FC<IHomeJumbotron> = ({}) => {
           <Text className="text-[18px] self-center mx-8 text-center tracking-4 text-primary-text-500 z-10 rounded-b-xl">
             Website ini dirancang khusus untuk membantu Anda memahami dan
             mengukur tingkat kepercayaan diri Anda. Tes self-esteem kami terdiri
-            dari 45 pertanyaan yang dirancang secara cermat untuk memperoleh
+            dari 42 pertanyaan yang dirancang secara cermat untuk memperoleh
             wawasan mendalam tentang diri Anda.
           </Text>
           <Button
