@@ -7,19 +7,19 @@ import {
 import bg3 from "../assets/images/bg3.jpg";
 
 export interface IParagraphWithImage {
-  primaryTitle: string;
   secondaryTitle: string;
   paragraph: string;
+  paragraph2: string;
 }
 
 const ParagraphWithImage: React.FC<IParagraphWithImage> = ({
-  primaryTitle,
   secondaryTitle,
-  paragraph
+  paragraph,
+  paragraph2
 }) => {
   const theme= useMantineTheme();
   return (
-    <Group className="justify-center w-[80%] self-center gap-10 md:gap-10 flex-nowrap">
+    <Group className="justify-center w-[70%] self-center gap-10 md:gap-10 flex-nowrap">
       <Stack className="relative ">
         <Group className="gap-2 md:gap-4 w-fit self-center">
           <DescriptionIcon size={52} color={theme.colors['primary-text'][5]} />
@@ -29,9 +29,12 @@ const ParagraphWithImage: React.FC<IParagraphWithImage> = ({
         </Group>
         <Stack className="gap-0 mt-4">
           <Text
-            className={`md:w-[750px] text-primary-text-500 tracking-1 text-justify text-[18px] leading-8`}
+            className={`text-primary-text-500 tracking-1 text-justify text-[18px] leading-8`}
           >
             {paragraph}
+            <br/>
+            <br/>
+            {paragraph2}
           </Text>
         </Stack>
       </Stack>

@@ -1,7 +1,12 @@
 import { Button, Stack, Stepper, useMantineTheme, Text } from "@mantine/core";
 import React from "react";
 import { Link } from "react-router-dom";
-import { ArrowRightAltIcon, DescriptionIcon, InsightIcon, SearchIcon } from "../../assets/icons/Fluent";
+import {
+  ArrowRightAltIcon,
+  DescriptionIcon,
+  InsightIcon,
+  SearchIcon
+} from "../../assets/icons/Fluent";
 import ParagraphWithImage from "../../components/ParagraphWithImage.component";
 import MainLayout from "../../layouts/MainLayout.layout";
 import { ROUTES } from "../../utils/const/routes";
@@ -102,14 +107,11 @@ const Home: React.FC<IHome> = ({}) => {
           </Stepper>
         </Stack> */}
         <ParagraphWithImage
-          primaryTitle=""
-          // primaryTitle="Kata Pengantar"
-          // secondaryTitle=""
-          secondaryTitle="Kata Pengantar"
-          paragraph="Berikut ini terdapat pernyataan-pernyataan yang berkenaan dengan skala kecemasan sosial siswa. Inventori ini bertujuan untuk penelitian kecemasan sosial siswa SMA guna menguji baliditas dan reliabilitas dari inventori berbasis web yang dikembangkan oleh kelompok. Disamping ini penelitian ini juga bertujuan untuk mengetahui tingkat kecemasan sosial yang dimiliki oleh siswa SMA. Hasil pengisian inventori ini hanya untuk kepentingan ilmiah dan tidak akan berpengaruh terhadap prestasi Anda di sekolah ini. Hal-hal yang bersifat pribadi akan dijaga kerahasiaannya oleh peneliti. Silahkan mengisi sesuai dengan keadaan Anda saat ini. Peneliti ucapkan terima kasih atas partisipasi Anda dalam mengisi inventori ini."
+          secondaryTitle="Apa itu Self-Esteem ?"
+          paragraph="Self-esteem adalah penilaian dan sikap yang kita miliki terhadap diri sendiri. Ini melibatkan keyakinan, penghargaan, dan perasaan yang kita rasakan tentang nilai diri kita sendiri. Tingkat self-esteem yang sehat sangat penting dalam membentuk citra diri kita dan pengaruhnya terhadap kehidupan sehari-hari. Ketika seseorang memiliki self-esteem yang tinggi, mereka memiliki keyakinan yang kuat dalam kemampuan dan nilai diri mereka. Mereka merasa puas dengan diri sendiri, menerima diri mereka dengan segala kelebihan dan kekurangan, dan mampu menghadapi tantangan dengan lebih percaya diri. Sebaliknya, tingkat self-esteem yang rendah dapat menyebabkan perasaan tidak berharga, keraguan diri, dan ketidakmampuan untuk mengenali dan menghargai kualitas positif dalam diri kita sendiri. Ini dapat mempengaruhi hubungan, prestasi, dan kesejahteraan kita secara keseluruhan."
+          paragraph2="Penting untuk diingat bahwa self-esteem dapat berkembang dan berubah seiring waktu. Dengan pemahaman yang lebih baik tentang self-esteem dan upaya untuk memperkuatnya, kita dapat membangun kepercayaan diri yang lebih sehat dan positif. Tes self-esteem kami dirancang untuk membantu Anda mengidentifikasi tingkat self-esteem Anda dan memberikan panduan serta saran untuk meningkatkannya. Dengan meningkatkan self-esteem, Anda dapat mencapai potensi terbaik Anda, mengatasi rintangan, dan hidup dengan lebih percaya diri dan bahagia."
         />
         <HomeExplore />
-
       </Stack>
     </MainLayout>
   );
