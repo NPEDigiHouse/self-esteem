@@ -318,6 +318,30 @@ export function FileCheckIcon({
   );
 }
 
+export function CheckOutline({
+  size = 24,
+  color = 'black',
+  onClick,
+  className
+}: IFluentProps) {
+  return (
+    <svg
+      width={size+`px`}
+      height={size+`px`}
+      viewBox={`0 -960 960 960`}
+      fill='none'
+      xmlns='http://www.w3.org/2000/svg'
+      onClick={onClick}
+      className={className}
+    >
+      <path
+      d='M378-232.434 140.434-470l57.131-57.131L378-346.696l383.435-383.435L818.566-673 378-232.434Z'
+      fill={color}
+      />
+    </svg>
+  );
+}
+
 export function PersonalitySearchGradientIcon({
   size = 24,
   onClick,

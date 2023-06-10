@@ -10,7 +10,7 @@ export interface IHomeExplore {}
 const HomeExplore: React.FC<IHomeExplore> = ({}) => {
   return (
     <Stack className="mx-8 md:mx-12 mt-16 md:mt-32">
-      <Text className="font-roboto-semibold text-[28px] md:text-[38px] text-primary-text-500 text-center mb-4">
+      <Text className="font-roboto-bold text-[28px] md:text-[38px] text-primary-text-500 text-center mb-4">
         Jelajahi
       </Text>
       <Grid className="" gutter={80}>

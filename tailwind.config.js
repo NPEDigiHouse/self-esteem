@@ -239,6 +239,19 @@ module.exports = {
         800: "#603991",
         900: "#603991"
       },
+      "answer-gradient": {
+        DEFAULT: "#f7b52f",
+        50: "#f7b52f",
+        100: "#f7b52f",
+        200: "#cb895d",
+        300: "#cb895d",
+        400: "#9c5f7a",
+        500: "#9c5f7a",
+        600: "#603991",
+        700: "#603991",
+        800: "#603991",
+        900: "#603991"
+      },
       
     },
     fontFamily: {
@@ -305,6 +318,8 @@ module.exports = {
         'bg1': "url('../src/assets/images/bg1.jpg')",
         'bg2': "url('../src/assets/images/bg2.jpg')",
         'bg3': "url('../src/assets/images/bg3.jpg')",
+        'test': "url('../src/assets/images/self-esteem-test.jpg')",
+        'type': "url('../src/assets/images/self-esteem-result.jpg')"
       },
       animation: {
         gradient: 'gradientAnim 2s ease infinite'

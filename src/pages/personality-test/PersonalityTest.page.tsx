@@ -28,6 +28,8 @@ import {
 import PersonalityTestInformation from "./PersonalityTestInformation.section";
 import PersonalityTestJumbotron from "./PersonalityTestJumbotron.section";
 import PersonalityTestResult from "./PersonalityTestResult.section";
+import { positiveAnswerPointList } from "../../utils/const/answesList";
+import { IQuestionCircleComponent } from "../../components/QuestionCircle.component";
 
 export interface IPersonalityTest {}
 
@@ -85,7 +87,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
   const { onSubmit, ...form } = useForm<IPersonalityTestForm>({
     validate: yupResolver(personalityTestFormSchema)
   });
-  console.log('Pertanyaan Positif: ')
+  console.log("Pertanyaan Positif: ");
 
   const { getInputProps, errors, setValues, values } = form;
 
@@ -101,6 +103,9 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
   // useEffect(() => {
   //   scrollTo({ y: (scene=="hasil"? 1000 : 500) });
   // }, [scene]);
+
+  let cn = "";
+  cn = `text-center font-semibold text-white h-full pt-1 bg-primaryGreen`;
 
   return (
     <MainLayout>
@@ -124,7 +129,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
         <PersonalityTestJumbotron
           scrollIntoView={result == null ? scrollIntoView2 : scrollIntoView}
         />
-        <PersonalityTestInformation />
+        {/* <PersonalityTestInformation /> */}
         <div
           ref={targetRef}
           className="absolute top-[1200px] self-center -z-10"
@@ -135,7 +140,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
         ></div>
         {scene === "pertanyaan" && result == null ? (
           <>
-            <Stack className="mt-36 gap-24 mb-10">
+            <Stack className="mt-10 mb-10 gap-0">
               <Stack className="gap-12">
                 <Stack className="gap-0">
                   <Text className="font-roboto-semibold text-2xl text-primary-text-500 text-center">
@@ -223,7 +228,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   </Grid.Col>
                 </Grid>
               </Stack>
-              <Stack className="gap-0 -mb-4">
+              <Stack className="gap-0 mt-20">
                 <Text className="font-roboto-semibold text-2xl text-primary-text-500 text-center">
                   Pertanyaan
                 </Text>
@@ -233,6 +238,72 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   terhadap hasil akhir
                 </Text>
               </Stack>
+              <Grid
+                className={`w-[90%] self-center mt-10`}
+                // onClick={disabled ? getError : () => {}}
+              >
+                {/* ${!isPositive? "bg-error-500/[0.2]" : "bg-primaryGreen/[0.2]"} */}
+                <Grid.Col
+                  span={9}
+                  className={`border-l-2 border-r border-y-2 z-10 border-primary-text-500 flex items-center flex-col p-4 pb-8`}
+                >
+                  <Text
+                    className={`text-start self-start text-xl tracking-4 h-fit align-middle bg-white text-primary-text-500`}
+                  >
+                    Pertanyaan
+                  </Text>
+                </Grid.Col>
+                <Grid.Col
+                  span={3}
+                  className="border border-primary-text-500 p-0 bg-secondary-text-500"
+                >
+                  <Grid
+                    className="gap-0 flex-nowrap w-full self-center h-full"
+                    gutter={0}
+                  >
+                    <Grid.Col
+                      span={3}
+                      className="border border-primary-text-500"
+                    >
+                      <Text
+                        className={`text-center font-semibold text-white h-full pb-3 flex items-center justify-center bg-answer-gradient-50`}
+                      >
+                        SS
+                      </Text>
+                    </Grid.Col>
+                    <Grid.Col
+                      span={3}
+                      className="border border-primary-text-500"
+                    >
+                      <Text
+                        className={`text-center font-semibold text-white h-full pb-3 flex items-center justify-center bg-answer-gradient-200`}
+                      >
+                        S
+                      </Text>
+                    </Grid.Col>
+                    <Grid.Col
+                      span={3}
+                      className="border border-primary-text-500"
+                    >
+                      <Text
+                        className={`text-center font-semibold text-white h-full pb-3 flex items-center justify-center bg-answer-gradient-400`}
+                      >
+                        KS
+                      </Text>
+                    </Grid.Col>
+                    <Grid.Col
+                      span={3}
+                      className="border border-primary-text-500"
+                    >
+                      <Text
+                        className={`text-center font-semibold text-white h-full pb-3 flex items-center justify-center bg-answer-gradient-800`}
+                      >
+                        TS
+                      </Text>
+                    </Grid.Col>
+                  </Grid>
+                </Grid.Col>
+              </Grid>
               {QuestionPack?.map((question: IQuestionPack, e: number) => {
                 return (
                   <>
@@ -253,12 +324,12 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                         typeof values.age != "number"
                       }
                     />
-                    {e + 1 < QuestionPack.length && (
+                    {/* {e + 1 < QuestionPack.length && (
                       <Divider
                         key={"divider-" + e}
                         className="w-[90%] self-center"
                       />
-                    )}
+                    )} */}
                   </>
                 );
               })}

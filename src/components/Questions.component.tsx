@@ -1,4 +1,4 @@
-import { Group, Stack, Text } from "@mantine/core";
+import { Grid, Group, Stack, Text } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 import usePrevious from "../hooks/usePrevious";
 import {
@@ -74,55 +74,45 @@ const Question: React.FC<IQuestion> = ({
   }, [focusedChoice]);
 
   return (
-    <Stack
-      className={`w-[80%] self-center`}
+    <Grid
+      className={`w-[90%] self-center`}
       onClick={disabled ? getError : () => {}}
     >
       {/* ${!isPositive? "bg-error-500/[0.2]" : "bg-primaryGreen/[0.2]"} */}
-      <Text
-        className={`text-center text-xl tracking-4 ${
-          disabled ? "text-secondary-text-500" : "text-primary-text-500"
-        }`}
-      >
-        {idx}. {questions}
-      </Text>
-      <div className="self-center">
-        <Group className="gap-6 self-center flex-nowrap relative">
-          <Text
-            className={`self-end mb-1  text-xl font-roboto  absolute -left-40 ${
-              disabled ? "text-secondary-text-500" : "text-primaryGreen"
-            }`}
-          >
-            Sangat Setuju
-          </Text>
-          <Group className="gap-8">
-            {answerPointList?.map(
-              (point: IQuestionCircleComponent, e: number) => {
-                return (
+      <Grid.Col span={9} className={`border-l-2 border-r border-y-2 z-10 border-primary-text-500 ${idx%2==0? "bg-white" : "bg-white"} flex items-center flex-col p-4 pb-8`}>
+        <Text
+          className={`text-start self-start text-xl tracking-4 h-fit align-middle bg-white ${
+            disabled ? "text-secondary-text-500" : "text-primary-text-500"
+          }`}
+        >
+          {idx}. {questions}
+        </Text>
+      </Grid.Col>
+      <Grid.Col span={3} className="border border-secondary-text-500 p-0 bg-secondary-text-500">
+        <Grid className="gap-0 flex-nowrap w-full self-center h-full" gutter={0}>
+          {answerPointList?.map(
+            (point: IQuestionCircleComponent, e: number) => {
+              return (
+                <Grid.Col span={3}>
+
                   <QuestionCircleComponent
                     size={e + 1}
                     key={point.order + questions}
                     order={point.order}
                     point={point.point}
+                    desc={point.desc}
                     focusedChoice={focusedChoice}
                     chooseNewChoice={chooseNewChoice}
                     color={answerChoiceColour[e]}
                     disabled={disabled}
                   />
-                );
-              }
-            )}
-          </Group>
-          <Text
-            className={`self-end mb-1  text-xl font-roboto  absolute -right-36 ${
-              disabled ? "text-secondary-text-500" : "text-primaryDarkBlue"
-            }`}
-          >
-            Tidak Setuju
-          </Text>
-        </Group>
-      </div>
-    </Stack>
+                </Grid.Col>
+              );
+            }
+          )}
+        </Grid>
+      </Grid.Col>
+    </Grid>
   );
 };
 export default Question;

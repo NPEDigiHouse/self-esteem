@@ -1,4 +1,5 @@
 import React from "react";
+import { CheckOutline } from "../assets/icons/Fluent";
 import { AnswerCircleColorType } from "../utils/const/types";
 
 export interface IAnswerCircle {
@@ -21,47 +22,56 @@ const AnswerCircle: React.FC<IAnswerCircle> = ({
   let cn = "";
 
   if (color == "step2") {
-    cn = `${clickable ? "cursor-pointer" : ""} ${
-      size == "md" ? "h-10 w-10" : size == "sm" ? "h-8 w-8" : "h-12 w-12"
-    } ${
+    cn = `flex ${clickable ? "cursor-pointer" : ""}
+    w-full h-full
+    ${
       focus
-        ? `bg-step2`
-        : `bg-white ${clickable ? "hover:bg-step2/[0.25]" : ""} `
-    } rounded-full border-[4px] border-step2 ${
+        ? `bg-white`
+        : `bg-white ${clickable ? "hover:bg-secondary-400" : ""} `
+    }   ${
       disabled ? "!cursor-default !border-secondary-600 !bg-secondary-400" : ""
     }`;
   } else if (color == "step3") {
-    cn = `${clickable ? "cursor-pointer" : ""} ${
-      size == "md" ? "h-10 w-10" : size == "sm" ? "h-8 w-8" : "h-12 w-12"
-    } ${
+    cn = `flex ${clickable ? "cursor-pointer" : ""}
+    w-full h-full
+    ${
       focus
-        ? `bg-step3`
-        : `bg-white ${clickable ? "hover:bg-step3/[0.25]" : ""} `
-    } rounded-full border-[4px] border-step3 ${
+        ? `bg-white`
+        : `bg-white ${clickable ? "hover:bg-secondary-400" : ""} `
+    }   ${
       disabled ? "!cursor-default !border-secondary-600 !bg-secondary-400" : ""
     }`;
   } else if (color == "primaryDarkBlue") {
-    cn = `${clickable ? "cursor-pointer" : ""} ${
-      size == "md" ? "h-10 w-10" : size == "sm" ? "h-8 w-8" : "h-12 w-12"
-    } ${
+    cn = `flex ${clickable ? "cursor-pointer" : ""}
+    w-full h-full
+    ${
       focus
-        ? `bg-primaryDarkBlue`
-        : `bg-white ${clickable ? "hover:bg-primaryDarkBlue/[0.25]" : ""} `
-    } rounded-full border-[4px] border-primaryDarkBlue ${
+        ? `bg-white`
+        : `bg-white ${clickable ? "hover:bg-secondary-400" : ""} `
+    }   ${
       disabled ? "!cursor-default !border-secondary-600 !bg-secondary-400" : ""
     }`;
   } else {
-    cn = `${clickable ? "cursor-pointer" : ""} ${
-      size == "md" ? "h-10 w-10" : size == "sm" ? "h-8 w-8" : "h-12 w-12"
-    } ${
+    cn = `flex ${clickable ? "cursor-pointer" : ""}
+    w-full h-full
+    ${
       focus
-        ? `bg-primaryGreen`
-        : `bg-white ${clickable ? "hover:bg-primaryGreen/[0.25]" : ""} `
-    } rounded-full border-[4px] border-primaryGreen ${
+        ? `bg-white`
+        : `bg-white ${clickable ? "hover:bg-secondary-400" : ""} `
+    }   ${
       disabled ? "!cursor-default !border-secondary-600 !bg-secondary-400" : ""
     }`;
   }
 
-  return <div onClick={disabled ? () => {} : onClick} className={cn}></div>;
+  return <div onClick={disabled ? () => {} : onClick} className={"w-full  h-full border-y-[2px] !border-primary-text-500"}>
+    <div className={cn}>
+      {
+        focus?
+        <CheckOutline size={28} className="self-center w-full align-middle mb-3" />
+        :
+        null
+      }
+    </div>
+  </div>;
 };
 export default AnswerCircle;

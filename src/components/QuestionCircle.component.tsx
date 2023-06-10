@@ -7,6 +7,7 @@ export interface IQuestionCircleComponent {
   size?: number;
   order: number;
   point: number;
+  desc?: String;
   focusedChoice?: number | null;
   chooseNewChoice?: (a: number, b: number) => void;
   color?: AnswerCircleColorType ;
@@ -20,13 +21,12 @@ const QuestionCircleComponent: React.FC<IQuestionCircleComponent> = ({
   chooseNewChoice,
   focusedChoice=0,
   color="step2",
-  disabled= false
+  disabled= false,
+  desc
 }) => {
+  
   return (
-    <Stack className="bg-white gap-1 h-full">
-      <Text className="text-center font-semibold text-secondary-text-500">
-        {order}
-      </Text>
+    <Stack className="gap-0 h-full border-x border-primary-text-500 items-stretch">
       <AnswerCircle
         // size={
         //   size == 1 || size == 5
