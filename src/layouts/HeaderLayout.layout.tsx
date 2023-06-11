@@ -27,7 +27,7 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({
         >
           Self Esteem
         </Text>
-        <Group className="mr-10">
+        <Group className="sm:mr-10 flex-nowrap justify-center mx-auto gap-2 sm:gap-4">
           <HeaderNavbarMenuItems
             href={`/${ROUTES.home}`}
             label="Beranda"
@@ -38,7 +38,7 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({
           />
           <HeaderNavbarMenuItems
             href={`/${ROUTES.anxietyTest}`}
-            label="Tes Keberhargaan Diri"
+            label="Tes Self Esteem"
             isActive={currentPage == ROUTES.anxietyTest}
           />
           {/* <HeaderNavbarMenuItems
@@ -47,12 +47,11 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({
             label="Tingkat Kecemasan"
             isActive={currentPage == ROUTES.anxietyClass}
           /> */}
-          {/* <HeaderNavbarMenuItems
+          <HeaderNavbarMenuItems
             href={`/${ROUTES.deril}`}
-            isScrolled={isScrolled}
-            label="Deril's Tingkat Self Esteem"
+            label="Tingkat Self Esteem"
             isActive={currentPage == ROUTES.deril}
-          />  */}
+          /> 
         </Group>
       </Group>
     </div>

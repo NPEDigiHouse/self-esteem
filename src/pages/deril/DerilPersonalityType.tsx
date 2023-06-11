@@ -46,7 +46,7 @@ const DerilPersonalityType: React.FC<IDerilPersonalityType> = ({}) => {
           </Grid>
 
           <Stack>
-            <Grid className="mt-36 md:mt-16 w-[90%] md:w-[80%] self-center bg-white">
+            {/* <Grid className="mt-36 md:mt-16 w-[90%] md:w-[80%] self-center bg-white">
               <Grid.Col span={3} className="">
                 <Stack className=" gap-2 cursor-default">
                   <Stack className="gap-0">
@@ -86,47 +86,48 @@ const DerilPersonalityType: React.FC<IDerilPersonalityType> = ({}) => {
                     </Text>
                   </Stack>
                 </Stack>
-              </Grid.Col>
-              <Grid.Col span={9}>
-                <Stack className="relative">
-                  <Group className="justify-between">
-                    <Text className="font-roboto-bold text-[32px] md:text-[38px] text-primary-text-500 mt-2 text-center self-center w-fit">
-                      Tingkat Self Esteem
-                    </Text>
+              </Grid.Col> */}
+            {/* <Grid.Col span={9}> */}
+            <Stack className="relative w-[90%] self-center mt-20">
+              <Group className="justify-between">
+                <Text className="font-roboto-bold text-[32px] md:text-[38px] text-primary-text-500 mt-2 text-center self-center w-fit">
+                  Tingkat Self Esteem
+                </Text>
 
-                    {/* <SearchIcon
+                {/* <SearchIcon
                 size={84}
                 color={"#deddf1"}
                 // className="absolute z-0 right-0 -bottom-6 md:-top-4"
                 className="md:hidden"
               /> */}
-                  </Group>
+              </Group>
 
-                  {/* <VerticalDivider h="sm" /> */}
+              {/* <VerticalDivider h="sm" /> */}
 
-                  <Text className="text-[18px] self-center tracking-4 text-primary-text-500 text-justify">
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                    Assumenda doloribus quae repellendus eaque architecto, enim
-                    odit accusamus temporibus? Officiis ea cumque dolorum
-                    incidunt dolore velit nam odio eum doloribus natus.
-                    <br />
-                    <br />
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Accusamus quibusdam magni, architecto exercitationem dolorum
-                    non assumenda perferendis perspiciatis impedit recusandae ut
-                    consequuntur maiores laudantium rem facilis rerum quas
-                    repudiandae aperiam?
-                    <br />
-                    <br />
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Accusamus quibusdam magni, architecto exercitationem dolorum
-                    non assumenda perferendis perspiciatis impedit recusandae ut
-                    consequuntur maiores laudantium rem facilis rerum quas
-                    repudiandae aperiam?
-                  </Text>
-                </Stack>
-              </Grid.Col>
-            </Grid>
+              <Text className="text-[18px] self-center tracking-4 text-primary-text-500 text-justify">
+                Tingkat Tinggi (presentasi 66-100%): Dengan skor self-esteem anda yang tinggi. Dalam
+                hal ini Anda digambarkan sebagai seseorang yang mampu menghadapi
+                tugas dan orang lain dengan penuh pengharapan akan sukses dan
+                diterima. Anda juga memiliki pandangan yang lebih realistis dan
+                positif terhadap lingkungan sekitar dan juga terhadap diri
+                sendiri
+                <br />
+                <br />
+                Tingkat Sedang (presentasi 34-65%): Anda memiliki tingkat self esteem sedang. Dalam
+                hal ini Anda digambarkan sebagai seseorang yang memiliki
+                kepercayaan diri yang rendah. Hal ini ditandai dengan adanya
+                ketergantungan pada pendapat orang lain dalam melakukan evaluasi
+                pada diri Anda.
+                <br />
+                <br />
+                Tingkat Rendah (presentasi 1-33%): Anda memiliki tingkat self esteem rendah. Dalam
+                hal ini Anda digambarkan sebagai orang yang tidak percaya pada
+                dunia, disamping tidak adanya kepercayaan dan penghargaan pada
+                diri Anda.
+              </Text>
+            </Stack>
+            {/* </Grid.Col>
+            </Grid> */}
           </Stack>
         </div>
         {/* <Group className="justify-center self-center w-full md:w-[60%] self-center gap-12 mt-20  mb-20"> */}

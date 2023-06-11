@@ -11,5 +11,5 @@ export const ROUTES : IROUTES = {
   home: "",
   anxietyTest: "tes-keberhargaan-diri",
   anxietyClass: "tingkat-keberhargaan-diri",
-  deril: "tes-deril"
+  deril: "tingkat-keberhargaan-diri"
 }

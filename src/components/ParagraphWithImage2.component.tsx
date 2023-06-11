@@ -1,13 +1,6 @@
-import {
-  Group,
-  Stack,
-  Text,
-  useMantineTheme
-} from "@mantine/core";
+import { Group, Stack, Text, useMantineTheme } from "@mantine/core";
 import React from "react";
-import {
-  DescriptionIcon
-} from "../assets/icons/Fluent";
+import { DescriptionIcon } from "../assets/icons/Fluent";
 
 export interface IParagraphWithImage2 {
   secondaryTitle: string;
@@ -22,7 +15,7 @@ const ParagraphWithImage2: React.FC<IParagraphWithImage2> = ({
 }) => {
   const theme = useMantineTheme();
   return (
-    <Group className="justify-center w-[70%] self-center gap-10 md:gap-10 flex-nowrap">
+    <Group className="justify-center w-[85%] md:w-[70%] self-center gap-10 md:gap-10 flex-nowrap">
       <Stack className="relative ">
         <Group className="gap-2 md:gap-4 w-fit self-center">
           <DescriptionIcon size={52} color={theme.colors["primary-text"][5]} />
@@ -32,16 +25,16 @@ const ParagraphWithImage2: React.FC<IParagraphWithImage2> = ({
         </Group>
         <Stack className="gap-8 mt-4">
           <Text
-            className={`text-primary-text-500 tracking-1 text-justify text-[18px] leading-8`}
+            className={`text-primary-text-500 tracking-1 text-justify text-lg md:text-[18px] leading-8`}
           >
             {paragraph}
           </Text>
           {/* <div className="self-center">
             <SelfLoveNormal size={300} className="self-center" />
           </div> */}
-          
+
           <Text
-            className={`text-primary-text-500 tracking-1 text-justify text-[18px] leading-8`}
+            className={`text-primary-text-500 tracking-1 text-justify text-lg md:text-[18px] leading-8`}
           >
             {paragraph2}
           </Text>

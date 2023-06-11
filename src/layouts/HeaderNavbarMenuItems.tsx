@@ -18,14 +18,14 @@ const HeaderNavbarMenuItems: React.FC<IHeaderNavbarMenuItems> = ({
   return (
     <Link
       to={href}
-      className={`px-4 py-2 rounded-sm ${
+      className={`px-2 sm:px-4 py-1 sm:py-2 rounded-sm ${
         isActive
           ? `bg-sc-cp-900 text-white `
           : "bg-transparent text-primary-text-500"
       }`}
       onClick={onClick}
     >
-      <Text className="font-roboto-semibold text-lg tracking-2">{label}</Text>
+      <Text className="font-roboto-semibold text-md sm:text-lg sm:tracking-2">{label}</Text>
     </Link>
   );
 };

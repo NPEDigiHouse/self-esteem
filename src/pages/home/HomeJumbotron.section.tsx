@@ -9,11 +9,11 @@ export interface IHomeJumbotron {}
 const HomeJumbotron: React.FC<IHomeJumbotron> = ({}) => {
   const theme = useMantineTheme();
   return (
-    <Stack className="self-center pb-10 mb-20 w-full gap-0">
+    <Stack className="self-center pb-10 mb-10 md:mb-20 w-full gap-0">
       <Stack className="self-center bg-bg1 bg-cover bg-center relative w-fit">
-        <Stack className="gap-10 w-[65%] px-10 self-start ml-16 z-10 my-16 py-10 bg-white/[0.9] ">
+        <Stack className="gap-6 sm:gap-10 w-[90%] sm:w-[75%] md:w-[65%] px-4 sm:px-10 self-start mx-auto sm:ml-16 z-10 my-4 sm:my-16 py-10 sm:py-10 bg-white/[0.9] ">
           <Stack className="gap-0 items-center z-10">
-            <Text className="font-roboto text-[44px] text-primary-text-500 z-10 text-center rounded-xl">
+            <Text className="font-roboto text-[28px] md:text-[44px] text-primary-text-500 z-10 text-center rounded-xl">
               Temukan{" "}
               <span className="font-bold text-sc-cp-600">
                 Kekuatan Dalam Diri
@@ -21,7 +21,7 @@ const HomeJumbotron: React.FC<IHomeJumbotron> = ({}) => {
               , Wujudkan Potensi Sejati!
             </Text>
           </Stack>
-          <Text className="text-[18px] self-center mx-8 text-center tracking-4 text-primary-text-500 z-10 rounded-b-xl">
+          <Text className="text-lg md:text-[18px] self-center mx-2 md:mx-8 text-center tracking-4 text-primary-text-500 z-10 rounded-b-xl">
             Website ini dirancang khusus untuk membantu Anda memahami dan
             mengukur tingkat kepercayaan diri Anda. Tes self-esteem kami terdiri
             dari 42 pertanyaan yang dirancang secara cermat untuk memperoleh
