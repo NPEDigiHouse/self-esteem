@@ -20,8 +20,6 @@ export interface IAnxietyTestResult {
 }
 
 export function extractDate(date: any | null) {
-  console.log(date, "date");
-
   if (date == null || isNaN(date)) {
     return "";
   }
@@ -130,8 +128,10 @@ const AnxietyTestResult: React.FC<IAnxietyTestResult> = ({
                 hasil presentase sebesar {percentage?.toFixed(2)} %. Dengan ini
                 Anda dinyatakan masuk dalam kategori {result}.{" "}
                 {result == "Rendah"
-                  ? "[Kata Kalau Rendah]"
-                  : "[Kata Kalau Sedang/Tinggi]"}
+                  ? "Anda memiliki tingkat self esteem rendah. Dalam hal ini Anda digambarkan sebagai orang yang tidak percaya pada dunia, disamping tidak adanya kepercayaan dan penghargaan pada diri Anda."
+                  : result == "Sedang"
+                  ? "Anda memiliki tingkat self esteem sedang. Dalam hal ini Anda digambarkan sebagai seseorang yang memiliki kepercayaan diri yang rendah. Hal ini ditandai dengan adanya ketergantungan pada pendapat orang lain dalam melakukan evaluasi pada diri Anda."
+                  : "Dengan skor self-esteem anda yang tinggi. Dalam hal ini Anda digambarkan sebagai seseorang yang mampu menghadapi tugas dan orang lain dengan penuh pengharapan akan sukses dan diterima. Anda juga memiliki pandangan yang lebih realistis dan positif terhadap lingkungan sekitar dan juga terhadap diri sendiri"}
               </Text>
             </View>
           </View>
@@ -346,7 +346,7 @@ export const styles = StyleSheet.create({
   conselor: {
     textAlign: "center",
     margin: "auto",
-    fontSize: 12,
+    fontSize: 12
   },
   address: {
     fontSize: 11,

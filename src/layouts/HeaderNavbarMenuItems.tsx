@@ -7,31 +7,25 @@ export interface IHeaderNavbarMenuItems {
   href: string;
   isActive?: boolean;
   onClick?: () => void;
-  isScrolled?: boolean;
 }
 
 const HeaderNavbarMenuItems: React.FC<IHeaderNavbarMenuItems> = ({
   href,
   label,
   isActive = false,
-  onClick,
-  isScrolled = false
+  onClick
 }) => {
   return (
     <Link
       to={href}
       className={`px-4 py-2 rounded-sm ${
         isActive
-          ? `bg-sc-cp-900 text-white ${
-              isScrolled ? "" : ""
-            }`
+          ? `bg-sc-cp-900 text-white `
           : "bg-transparent text-primary-text-500"
       }`}
       onClick={onClick}
     >
-      <Text className="font-roboto-semibold text-lg tracking-2">
-        {label}
-      </Text>
+      <Text className="font-roboto-semibold text-lg tracking-2">{label}</Text>
     </Link>
   );
 };

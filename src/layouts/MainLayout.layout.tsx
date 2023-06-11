@@ -12,7 +12,6 @@ export interface IMainLayout {
 }
 
 const MainLayout: React.FC<IMainLayout> = ({ children }) => {
-  const { scrollY } = useWindowScrollPositions();
   const {currentPage, setCurrentPage} = useContext(AppContext);
 
   const location= useLocation();
@@ -23,7 +22,7 @@ const MainLayout: React.FC<IMainLayout> = ({ children }) => {
   return (
     <AppShell
       padding={0}
-      header={<HeaderLayout scrollY={scrollY} currentPage={currentPage} setCurrentPage={setCurrentPage} />}
+      header={<HeaderLayout currentPage={currentPage} setCurrentPage={setCurrentPage} />}
       className={""}
       footer={<FooterLayout />}
     >

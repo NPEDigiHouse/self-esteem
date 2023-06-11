@@ -22,6 +22,14 @@ interface IAppContext {
   setCurrentTesterSchool: React.Dispatch<React.SetStateAction<String | null>>;
   currentTesterBirthDate: any | null;
   setCurrentTesterBirthDate: React.Dispatch<React.SetStateAction<any | null>>;
+  kekuatanScore: number | null;
+  setkekuatanScore: React.Dispatch<React.SetStateAction<number | null>>;
+  kebajikanScore: number | null;
+  setkebajikanScore: React.Dispatch<React.SetStateAction<number | null>>;
+  keberartianScore: number | null;
+  setkeberartianScore: React.Dispatch<React.SetStateAction<number | null>>;
+  kemampuanDiriScore: number | null;
+  setkemampuanDiriScore: React.Dispatch<React.SetStateAction<number | null>>;
 }
 
 export const AppContext = React.createContext<IAppContext>({
@@ -40,7 +48,15 @@ export const AppContext = React.createContext<IAppContext>({
   currentTesterSchool: null,
   setCurrentTesterSchool: () => {},
   currentTesterBirthDate: null,
-  setCurrentTesterBirthDate: () => {}
+  setCurrentTesterBirthDate: () => {},
+  kebajikanScore: null,
+  keberartianScore: null,
+  kekuatanScore: null,
+  kemampuanDiriScore: null,
+  setkebajikanScore: () => {},
+  setkeberartianScore: () => {},
+  setkekuatanScore: () => {},
+  setkemampuanDiriScore: () => {},
 });
 
 const AppContextProvider: React.FC<IAppContextProvider> = ({ children }) => {
@@ -62,6 +78,11 @@ const AppContextProvider: React.FC<IAppContextProvider> = ({ children }) => {
     any | null
   >(null);
   const [resultPercentage, setResultPercentage] = useState<number | null>(null);
+  
+  const [a, seta] = useState<number | null>(null);
+  const [b, setb] = useState<number | null>(null);
+  const [c, setc] = useState<number | null>(null);
+  const [d, setd] = useState<number | null>(null);
 
   const defaultAppContext: IAppContext = {
     currentPage: currPage,
@@ -79,7 +100,15 @@ const AppContextProvider: React.FC<IAppContextProvider> = ({ children }) => {
     currentTesterSchool: currentTesterSchool,
     setCurrentTesterSchool: setCurrentTesterSchool,
     currentTesterBirthDate: currentTesterBirthDate,
-    setCurrentTesterBirthDate: setCurrentTesterBirthDate
+    setCurrentTesterBirthDate: setCurrentTesterBirthDate,
+    kekuatanScore: a,
+    kebajikanScore: b,
+    keberartianScore: c,
+    kemampuanDiriScore: d,
+    setkekuatanScore: seta,
+    setkebajikanScore: setb,
+    setkeberartianScore: setc,
+    setkemampuanDiriScore: setd
   };
 
   return (

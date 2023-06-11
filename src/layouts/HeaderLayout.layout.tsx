@@ -5,31 +5,20 @@ import { NavbarMenuType } from "../utils/const/types";
 import HeaderNavbarMenuItems from "./HeaderNavbarMenuItems";
 
 export interface IHeaderLayout {
-  scrollY: any;
   currentPage: NavbarMenuType;
   setCurrentPage: React.Dispatch<React.SetStateAction<NavbarMenuType>>;
 }
 
 const HeaderLayout: React.FC<IHeaderLayout> = ({
-  scrollY = 0,
   currentPage
 }) => {
-  const [isScrolled, setIsScrolled] = useState<boolean>(scrollY != 0);
-
-  useEffect(() => {
-    setIsScrolled(scrollY != 0);
-  }, [scrollY]);
 
   const theme= useMantineTheme();
 
   return (
     <div className="relative z-[100] ">
       <Group
-        className={`${
-          !isScrolled
-            ? "bg-white border-white"
-            : "bg-white !border-secondary-500"
-        } px-3 py-4 transition-all ease-linear duration-200 gap-4 mx-auto border w-full justify-between`}
+        className={` bg-white border-white px-3 py-4 transition-all ease-linear duration-200 gap-4 mx-auto border w-full justify-between`}
       >
         <Text
           variant="gradient"
@@ -41,7 +30,6 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({
         <Group className="mr-10">
           <HeaderNavbarMenuItems
             href={`/${ROUTES.home}`}
-            isScrolled={isScrolled}
             label="Beranda"
             // onClick={() => {
             //   setCurrentPage("");
@@ -50,7 +38,6 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({
           />
           <HeaderNavbarMenuItems
             href={`/${ROUTES.anxietyTest}`}
-            isScrolled={isScrolled}
             label="Tes Keberhargaan Diri"
             isActive={currentPage == ROUTES.anxietyTest}
           />
@@ -59,13 +46,13 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({
             isScrolled={isScrolled}
             label="Tingkat Kecemasan"
             isActive={currentPage == ROUTES.anxietyClass}
-          />
-          <HeaderNavbarMenuItems
+          /> */}
+          {/* <HeaderNavbarMenuItems
             href={`/${ROUTES.deril}`}
             isScrolled={isScrolled}
             label="Deril's Tingkat Self Esteem"
             isActive={currentPage == ROUTES.deril}
-          /> */}
+          />  */}
         </Group>
       </Group>
     </div>

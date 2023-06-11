@@ -1,17 +1,13 @@
-import {
-  Image,
-  Stack,
-  Text,
-  Group,
-  Grid,
-  BackgroundImage,
-} from "@mantine/core";
-import React, { useEffect } from "react";
-import MainLayout from "../../layouts/MainLayout.layout";
+import { Grid, Group, Image, Stack, Text } from "@mantine/core";
+import React from "react";
 import uinLogo from "../../assets/images/uin-logo.png";
-import { AnxietyPersonIcon } from "../../assets/icons/Fluent";
 import VerticalDivider from "../../components/VerticalDivider.component";
-import PersonalityTypeList from "../personality-type/PersonalityTypeList.section";
+import MainLayout from "../../layouts/MainLayout.layout";
+import {
+  SelfLoveLow,
+  SelfLoveNormal,
+  SelfLoveHigh
+} from "../../assets/icons/Fluent";
 
 export interface IDerilPersonalityType {}
 
@@ -19,35 +15,33 @@ const DerilPersonalityType: React.FC<IDerilPersonalityType> = ({}) => {
   return (
     <MainLayout>
       <Stack className="justify-center w-[100%] self-center gap-10 md:gap-10 flex-nowrap">
-        <div className="w-[72px] ml-10 mt-4 hidden md:block">
-          <Image src={uinLogo} className="" />
-        </div>
-
         <div>
-          <a href=" "></a>
-          <h1 className="text-center font-poppins-bold text-[36px] md:text-[46px] text-[#9C42B8] pb-7 ">
-            Self Esteem(Kepercayaan Diri)
+          <h1 className="text-center font-roboto-bold text-[32px] md:text-[42px] mt-20 text-[#9C42B8] pb-7 ">
+            Self Esteem (Keberhargaan Diri)
           </h1>
+          <Grid className="w-full self-center " gutter={"xl"}>
+            <Grid.Col md={4} className="flex">
+              <div className="flex self-center mx-auto w-[200px] md:w-[320px] overflow-hidden">
+                <SelfLoveLow size={200} className="mx-auto" />
+              </div>
+            </Grid.Col>
+            <Grid.Col md={4} className="flex">
+              <div className="flex self-center mx-auto w-[200px] md:w-[320px] overflow-hidden">
+                <SelfLoveNormal size={200} className="self-center mx-auto" />
+              </div>
+            </Grid.Col>
+            <Grid.Col md={4} className="flex">
+              <div className="flex self-center mx-auto w-[200px] md:w-[320px] overflow-hidden">
+                <SelfLoveHigh size={200} className="self-center mx-auto" />
+              </div>
+            </Grid.Col>
+          </Grid>
           <Grid className="justify-center ">
-            <div className="p-4 rounded-lg self-center  bg-secondary-500 overflow-hidden max-w-[440px] ">
-              <img src="/src/assets/images/self-esteem.jpg" alt="" />
-            </div>
-
-            <Text className="text-[18px] pt-7 md:text-xl text-primary-text-500 tracking-4 text-center text-justify px-20">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
-              incidunt soluta nobis at optio ipsam facere deleniti culpa
-              voluptatibus, similique quisquam ad quia est ducimus inventore
-              eaque quo enim reiciendis minima rem atque et ipsum. Suscipit
-              magnam recusandae quaerat totam asperiores illum amet maiores,
-              inventore quia nulla ab praesentium vel!
-              <br />
-              <br />
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Architecto dignissimos excepturi laborum quo quod illum, eaque,
-              itaque maxime veniam harum ut ullam molestias natus cupiditate aut
-              officia voluptate facere. Minus repellendus impedit, facilis fugit
-              perspiciatis eveniet enim sint eaque amet ducimus, beatae, eum
-              voluptatibus. Quas numquam necessitatibus mollitia placeat ex.
+            <Text className="text-[18px] pt-7 md:text-xl text-primary-text-500 tracking-4 text-justify px-20 mt-10">
+              Tingkatan dari self-esteem diklasifikasikan 3 kelompok: rendah,
+              sedang dan tinggi. Tingkat self-esteem dapat memberikan gambaran
+              yang jelas tentang bagaimana kepercayaan diri seseorang
+              mempengaruhi kesejahteraannya.
             </Text>
           </Grid>
 
@@ -96,7 +90,7 @@ const DerilPersonalityType: React.FC<IDerilPersonalityType> = ({}) => {
               <Grid.Col span={9}>
                 <Stack className="relative">
                   <Group className="justify-between">
-                    <Text className="font-roboto-bold text-[32px] md:text-[38px] text-[#603991] mt-2 text-center self-center w-fit">
+                    <Text className="font-roboto-bold text-[32px] md:text-[38px] text-primary-text-500 mt-2 text-center self-center w-fit">
                       Tingkat Self Esteem
                     </Text>
 
@@ -108,7 +102,7 @@ const DerilPersonalityType: React.FC<IDerilPersonalityType> = ({}) => {
               /> */}
                   </Group>
 
-                  <VerticalDivider h="sm" />
+                  {/* <VerticalDivider h="sm" /> */}
 
                   <Text className="text-[18px] self-center tracking-4 text-primary-text-500 text-justify">
                     Lorem ipsum, dolor sit amet consectetur adipisicing elit.
@@ -135,16 +129,16 @@ const DerilPersonalityType: React.FC<IDerilPersonalityType> = ({}) => {
             </Grid>
           </Stack>
         </div>
-        <Group className="justify-center self-center w-full md:w-[60%] self-center gap-12 mt-20  mb-20">
-          <Stack>
+        {/* <Group className="justify-center self-center w-full md:w-[60%] self-center gap-12 mt-20  mb-20"> */}
+        {/* <Stack>
             <div className="rounded-full">
               <img
                 src="/src/assets/images/anxiety.png"
                 className="w-48 rounded-full"
               />
             </div>
-          </Stack>
-          <Stack className="relative">
+          </Stack> */}
+        {/* <Stack className="relative">
             <Stack className="gap-0">
               <Text className="font-poppins-bold text-[22px] text-primary-text-500">
                 Disclaimer
@@ -159,8 +153,8 @@ const DerilPersonalityType: React.FC<IDerilPersonalityType> = ({}) => {
               Voluptatum unde enim soluta dolor placeat minima aliquid illo
               quidem assumenda suscipit..
             </Text>
-          </Stack>
-        </Group>
+          </Stack> */}
+        {/* </Group> */}
       </Stack>
     </MainLayout>
   );

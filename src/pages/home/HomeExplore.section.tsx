@@ -18,8 +18,8 @@ const HomeExplore: React.FC<IHomeExplore> = ({}) => {
           <ExploreCard
             src={personalityTest}
             to={ROUTES.anxietyTest}
-            title="Tes Self-Esteem"
-            description="Lakukan tes self-esteem, di mana anda akan diarahkan untuk menjawab 42 pertanyaan selama 5-10 menit. Jawaban tes self-esteem akan mempengaruhi hasil akhir."
+            title="Tes Keberhargaan Diri"
+            description="Lakukan tes keberhargaan diri / self-esteem, di mana anda akan diarahkan untuk menjawab 42 pertanyaan selama 5-10 menit. Jawaban tes self-esteem akan mempengaruhi hasil akhir."
           />
         </Grid.Col>
         <Grid.Col md={6} sm={12} className="hover:scale-[1.01] transition-all">
@@ -27,7 +27,7 @@ const HomeExplore: React.FC<IHomeExplore> = ({}) => {
             src={personalityResult}
             to={ROUTES.anxietyClass}
             title="Tingkat Self-Esteem"
-            description="Tingkatan dari self-esteem diklasifikasikan 3 kelompok: rendah, sedang dan tinggi. Tingkat self-esteem dapat memberikan gambaran yang jelas tentang bagaimana kepercayaan diri seseorang mempengaruhi kesejahteraannya."
+            description="Tingkatan dari keberhargaan diri / self-esteem diklasifikasikan 3 kelompok: rendah, sedang dan tinggi. Tingkat self-esteem dapat memberikan gambaran yang jelas tentang bagaimana kepercayaan diri seseorang mempengaruhi kesejahteraannya."
           />
         </Grid.Col>
       </Grid>

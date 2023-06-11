@@ -30,10 +30,38 @@ import {
 import PersonalityTestInformation from "./PersonalityTestInformation.section";
 import PersonalityTestJumbotron from "./PersonalityTestJumbotron.section";
 import PersonalityTestResult from "./PersonalityTestResult.section";
+import { TestResult } from "../../utils/const/types";
 
 export interface IPersonalityTest {}
 
-const defaultScoreArr: Array<number> = Array(42).fill(0);
+const defaultScoreArrKekuatan: Array<number> = Array(
+  getQuestionPack()[0].questions.length
+).fill(0);
+const defaultScoreArrKebajikan: Array<number> = Array(
+  getQuestionPack()[1].questions.length
+).fill(0);
+const defaultScoreArrKeberartian: Array<number> = Array(
+  getQuestionPack()[2].questions.length
+).fill(0);
+const defaultScoreArrKemampuanDiri: Array<number> = Array(
+  getQuestionPack()[3].questions.length
+).fill(0);
+
+export function calculateResult(arrSum: number, arrLen: number) {
+  let calc = (arrSum / (arrLen * 4)) * 100;
+
+  return calc;
+}
+
+export function calculateClass(percentage:number){
+  if (percentage >= 66) {
+    return "Tinggi" as TestResult;
+  } else if (percentage >= 34) {
+    return "Sedang" as TestResult;
+  } else {
+    return "Rendah" as TestResult;
+  }
+}
 
 const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
   const {
@@ -50,7 +78,11 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
     setCurrentTesterClass,
     setCurrentTesterGender,
     currentTesterBirthDate,
-    setCurrentTesterBirthDate
+    setCurrentTesterBirthDate,
+    setkebajikanScore,
+    setkeberartianScore,
+    setkekuatanScore,
+    setkemampuanDiriScore
   } = useContext(AppContext);
 
   const QuestionPack = useMemo(() => getQuestionPack(), [currentPage]);
@@ -60,7 +92,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
   const [scene, setScene] = useState<"pertanyaan" | "hasil">(
     result == null ? "pertanyaan" : "hasil"
   );
-  
+
   const { scrollIntoView, targetRef } = useScrollIntoView<HTMLDivElement>({
     duration: 500
   });
@@ -69,26 +101,75 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
       duration: 500
     });
 
-  const { array: scoreArr, update } = useArray(defaultScoreArr);
-  const [sumScoreArr, setSumScoreArr] = useState(
-    scoreArr.reduce((partialSum: number, a: number) => partialSum + a, 0)
+  const { array: strengthScoreArr, update: strengthUpdate } = useArray(
+    defaultScoreArrKekuatan
   );
+  const { array: kebajikanScoreArr, update: kebajikanUpdate } = useArray(
+    defaultScoreArrKebajikan
+  );
+  const { array: keberartianScoreArr, update: keberartianUpdate } = useArray(
+    defaultScoreArrKeberartian
+  );
+  const { array: kemampuanDiriScoreArr, update: kemampuanDiriUpdate } =
+    useArray(defaultScoreArrKemampuanDiri);
+
+  const [sumScoreArr, setSumScoreArr] = useState(
+    strengthScoreArr.reduce(
+      (partialSum: number, a: number) => partialSum + a,
+      0
+    ) +
+      kebajikanScoreArr.reduce(
+        (partialSum: number, a: number) => partialSum + a,
+        0
+      ) +
+      keberartianScoreArr.reduce(
+        (partialSum: number, a: number) => partialSum + a,
+        0
+      ) +
+      kemampuanDiriScoreArr.reduce(
+        (partialSum: number, a: number) => partialSum + a,
+        0
+      )
+  );
+
+  // console.log(QuestionPack)
 
   const [progressCount, setProgressCount] = useState<number>(0);
   const progressPercentage: number = (progressCount / 42) * 100;
 
   useEffect(() => {
     setSumScoreArr(
-      scoreArr.reduce((partialSum: number, a: number) => partialSum + a, 0)
+      strengthScoreArr.reduce(
+        (partialSum: number, a: number) => partialSum + a,
+        0
+      ) +
+        kebajikanScoreArr.reduce(
+          (partialSum: number, a: number) => partialSum + a,
+          0
+        ) +
+        keberartianScoreArr.reduce(
+          (partialSum: number, a: number) => partialSum + a,
+          0
+        ) +
+        kemampuanDiriScoreArr.reduce(
+          (partialSum: number, a: number) => partialSum + a,
+          0
+        )
     );
-  }, [scoreArr]);
+  }, [
+    strengthScoreArr,
+    kebajikanScoreArr,
+    keberartianScoreArr,
+    kemampuanDiriScoreArr
+  ]);
+
+  // console.log("sumScoreArr", sumScoreArr);
 
   const { onSubmit, ...form } = useForm<IPersonalityTestForm>({
     validate: yupResolver(personalityTestFormSchema)
   });
-  
+
   const { getInputProps, errors, setValues, values } = form;
-  console.log("Pertanyaan Positif: ", values);
 
   useEffect(() => {
     setValues({
@@ -96,7 +177,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
       class: (currentTesterClass || undefined) as any,
       gender: (currentTesterGender || undefined) as any,
       name: (currentTesterName || undefined) as any,
-      birthDate: (currentTesterBirthDate || undefined) as any,
+      birthDate: (currentTesterBirthDate || undefined) as any
     });
   }, []);
 
@@ -104,6 +185,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
   //   scrollTo({ y: (scene=="hasil"? 1000 : 500) });
   // }, [scene]);
 
+  // console.log(values)
 
   return (
     <MainLayout>
@@ -241,26 +323,112 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
 
               <PersonalityTestInformation />
               <Stack className="gap-28 mt-20">
-                {QuestionPack.map((questions: IQuestionPackType, e: number) => {
+                {/* {QuestionPack.map((questions: IQuestionPackType, e: number) => {
                   return (
                     <QuestionTable
                       key={"questions:" + e}
                       progressCount={progressCount}
                       setProgressCount={setProgressCount}
-                      updateScore={update}
+                      updateScore={update : strengthUpdate}
                       disabled={
-                        values.school == null ||
-                        values.class == null ||
-                        values.gender == null ||
-                        values.name == null ||
-                        values.birthDate == null
+                        // values.school == null ||
+                        // values.class == null ||
+                        // values.gender == null ||
+                        // values.name == null ||
+                        // values.birthDate == null
+                        false
                       }
                       getError={onSubmit(() => {})}
                       questionPack={questions.questions}
                       questionType={questions.type}
                     />
                   );
-                })}
+                })} */}
+
+                <QuestionTable
+                  progressCount={progressCount}
+                  setProgressCount={setProgressCount}
+                  updateScore={strengthUpdate}
+                  disabled={
+                    values.school == null ||
+                    values.class == null ||
+                    values.gender == null ||
+                    values.name == null ||
+                    values.birthDate == null ||
+                    values.school == "" ||
+                    values.class == "" ||
+                    values.gender == "" ||
+                    values.name == "" ||
+                    values.birthDate == "" 
+                    
+                  }
+                  getError={onSubmit(() => {})}
+                  questionPack={QuestionPack[0].questions}
+                  questionType={QuestionPack[0].type}
+                />
+                <QuestionTable
+                  progressCount={progressCount}
+                  setProgressCount={setProgressCount}
+                  updateScore={kebajikanUpdate}
+                  disabled={
+                    values.school == null ||
+                    values.class == null ||
+                    values.gender == null ||
+                    values.name == null ||
+                    values.birthDate == null ||
+                    values.school == "" ||
+                    values.class == "" ||
+                    values.gender == "" ||
+                    values.name == "" ||
+                    values.birthDate == "" 
+                    
+                  }
+                  getError={onSubmit(() => {})}
+                  questionPack={QuestionPack[1].questions}
+                  questionType={QuestionPack[1].type}
+                />
+                <QuestionTable
+                  progressCount={progressCount}
+                  setProgressCount={setProgressCount}
+                  updateScore={keberartianUpdate}
+                  disabled={
+                    values.school == null ||
+                    values.class == null ||
+                    values.gender == null ||
+                    values.name == null ||
+                    values.birthDate == null ||
+                    values.school == "" ||
+                    values.class == "" ||
+                    values.gender == "" ||
+                    values.name == "" ||
+                    values.birthDate == "" 
+                    
+                  }
+                  getError={onSubmit(() => {})}
+                  questionPack={QuestionPack[2].questions}
+                  questionType={QuestionPack[2].type}
+                />
+                <QuestionTable
+                  progressCount={progressCount}
+                  setProgressCount={setProgressCount}
+                  updateScore={kemampuanDiriUpdate}
+                  disabled={
+                    values.school == null ||
+                    values.class == null ||
+                    values.gender == null ||
+                    values.name == null ||
+                    values.birthDate == null ||
+                    values.school == "" ||
+                    values.class == "" ||
+                    values.gender == "" ||
+                    values.name == "" ||
+                    values.birthDate == "" 
+                    
+                  }
+                  getError={onSubmit(() => {})}
+                  questionPack={QuestionPack[3].questions}
+                  questionType={QuestionPack[3].type}
+                />
               </Stack>
             </Stack>
             <Button
@@ -290,7 +458,41 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                 setCurrentTesterGender(values.gender.trim());
                 setCurrentTesterBirthDate(values.birthDate);
 
-                let percentage = (sumScoreArr / (42 * 4)) * 100;
+                setkekuatanScore(
+                  strengthScoreArr.reduce(
+                    (partialSum: number, a: number) => partialSum + a,
+                    0
+                  )
+                );
+
+                setkebajikanScore(
+                  kebajikanScoreArr.reduce(
+                    (partialSum: number, a: number) => partialSum + a,
+                    0
+                  )
+                );
+
+                setkeberartianScore(
+                  keberartianScoreArr.reduce(
+                    (partialSum: number, a: number) => partialSum + a,
+                    0
+                  )
+                );
+
+                setkemampuanDiriScore(
+                  kemampuanDiriScoreArr.reduce(
+                    (partialSum: number, a: number) => partialSum + a,
+                    0
+                  )
+                );
+
+                let percentage = calculateResult(
+                  sumScoreArr,
+                  strengthScoreArr.length +
+                    kebajikanScoreArr.length +
+                    keberartianScoreArr.length +
+                    kemampuanDiriScoreArr.length
+                );
 
                 if (percentage >= 66) {
                   setResult("Tinggi");

@@ -16,6 +16,7 @@ export interface IQuestion {
   setProgressCount: React.Dispatch<React.SetStateAction<number>>;
   questions: string;
   isPositive: boolean;
+  answerPointList: Array<IQuestionCircleComponent>;
   updateScore: any;
   disabled?: boolean;
   getError?: () => void;
@@ -34,6 +35,7 @@ const Question: React.FC<IQuestion> = ({
   setProgressCount,
   questions,
   isPositive,
+  answerPointList,
   updateScore,
   disabled = false,
   getError = () => {}
@@ -42,13 +44,14 @@ const Question: React.FC<IQuestion> = ({
   const prevFocusedChoice = usePrevious(focusedChoice);
   const [currPoint, setCurrPoint] = useState(0);
 
-  const [answerPointList] = useState<Array<IQuestionCircleComponent>>(
-    isPositive ? positiveAnswerPointList : negativeAnswerPointList
-  );
-
-  if (isPositive) {
-    console.log(`- ${questions}`);
-  }
+  // const [answerPointList] = useState<Array<IQuestionCircleComponent>>(
+  //   !isPositive ? positiveAnswerPointList : negativeAnswerPointList
+  // );
+  // if (idx < 2) {
+  //   console.log(questions);
+  //   console.log(isPositive);
+  //   console.log(answerPointList);
+  // }
 
   function chooseNewChoice(order: number, point: number) {
     if (focusedChoice == order) {
@@ -79,22 +82,27 @@ const Question: React.FC<IQuestion> = ({
       onClick={disabled ? getError : () => {}}
     >
       {/* ${!isPositive? "bg-error-500/[0.2]" : "bg-primaryGreen/[0.2]"} */}
-      <Grid.Col span={9} className={`border-l-2 border-r border-b-2 z-10 border-primary-text-500 ${idx%2==0? "bg-white" : "bg-white"} flex items-center flex-col p-4 pb-8`}>
+      <Grid.Col
+        span={9}
+        className={`border-l-2 border-r border-b-2 z-10 border-primary-text-500 flex items-center flex-col p-4 pb-8`}
+      >
         <Text
           className={`text-start self-start text-xl tracking-4 h-fit align-middle bg-white ${
             disabled ? "text-secondary-text-500" : "text-primary-text-500"
           }`}
         >
-          {idx}. {questions}
+          {idx + 1}. {questions}
         </Text>
       </Grid.Col>
       <Grid.Col span={3} className="p-0 bg-secondary-text-500">
-        <Grid className="gap-0 flex-nowrap w-full self-center h-full" gutter={0}>
+        <Grid
+          className="gap-0 flex-nowrap w-full self-center h-full"
+          gutter={0}
+        >
           {answerPointList?.map(
             (point: IQuestionCircleComponent, e: number) => {
               return (
                 <Grid.Col span={3}>
-
                   <QuestionCircleComponent
                     size={e + 1}
                     key={point.order + questions}

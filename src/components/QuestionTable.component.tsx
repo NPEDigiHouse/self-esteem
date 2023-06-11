@@ -2,6 +2,11 @@ import { Grid, Stack, Text } from "@mantine/core";
 import React from "react";
 import { IQuestionPack } from "../utils/const/questions";
 import Question from "./Questions.component";
+import useArray from "../hooks/useArray";
+import {
+  negativeAnswerPointList,
+  positiveAnswerPointList
+} from "../utils/const/answesList";
 
 export interface IQuestionTable {
   progressCount: number;
@@ -27,7 +32,7 @@ const QuestionTable: React.FC<IQuestionTable> = ({
       <Stack className="gap-0">
         <Stack className="relative w-[90%] self-center">
           <div className="absolute top-6 w-[90%] bg-secondary-500 h-[1px] self-center"></div>
-          <Text className=" self-center tracking-4 text-[32px] font-roboto-bold text-center bg-white z-10 px-8 text-sc-cp-900">
+          <Text className=" self-center tracking-4 text-[32px] font-roboto-bold text-center bg-white z-10 px-8 text-primary-text-500">
             {questionType}
           </Text>
         </Stack>
@@ -90,11 +95,16 @@ const QuestionTable: React.FC<IQuestionTable> = ({
         </Grid.Col>
       </Grid>
       {questionPack?.map((question: IQuestionPack, e: number) => {
+        const answerPointList = !question.isPositive
+          ? positiveAnswerPointList
+          : negativeAnswerPointList;
+          
         return (
           <>
             <Question
               key={e}
-              idx={e + 1}
+              idx={e}
+              answerPointList={answerPointList}
               isPositive={question.isPositive}
               questions={question.question}
               progressCount={progressCount}
