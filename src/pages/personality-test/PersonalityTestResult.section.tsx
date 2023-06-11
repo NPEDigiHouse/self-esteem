@@ -1,7 +1,6 @@
 import {
   Button,
   Grid,
-  Group,
   Stack,
   Text,
   useMantineTheme
@@ -15,10 +14,10 @@ import {
   SelfLoveLow,
   SelfLoveNormal
 } from "../../assets/icons/Fluent";
+import SelfEsteemAspectResult from "../../components/SelfEsteemAspectResult.component";
 import { AppContext } from "../../context/app-context.context";
 import AnxietyTestResult from "../../letters/AnxietyTestResult.letter";
 import { calculateClass, calculateResult } from "./PersonalityTest.page";
-import SelfEsteemAspectResult from "../../components/SelfEsteemAspectResult.component";
 
 export interface IPersonalityTestResult {
   scene: "pertanyaan" | "hasil";

@@ -1,4 +1,4 @@
-import { Grid, Group, Stack, Text } from "@mantine/core";
+import { Grid, Stack, Text } from "@mantine/core";
 import React from "react";
 import { TestResult } from "../utils/const/types";
 

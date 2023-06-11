@@ -1,5 +1,5 @@
 import { Group, Text, useMantineTheme } from "@mantine/core";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { ROUTES } from "../utils/const/routes";
 import { NavbarMenuType } from "../utils/const/types";
 import HeaderNavbarMenuItems from "./HeaderNavbarMenuItems";

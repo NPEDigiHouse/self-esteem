@@ -1,10 +1,6 @@
 import { Grid, Text } from "@mantine/core";
 import React, { useEffect, useState } from "react";
 import usePrevious from "../hooks/usePrevious";
-import {
-  negativeAnswerPointList,
-  positiveAnswerPointList
-} from "../utils/const/answesList";
 import { AnswerCircleColorType } from "../utils/const/types";
 import QuestionCircleComponent, {
   IQuestionCircleComponent
@@ -34,7 +30,6 @@ const Question: React.FC<IQuestion> = ({
   idx,
   setProgressCount,
   questions,
-  isPositive,
   answerPointList,
   updateScore,
   disabled = false,

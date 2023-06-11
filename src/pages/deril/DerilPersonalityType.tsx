@@ -1,13 +1,11 @@
-import { Grid, Group, Image, MediaQuery, Stack, Text } from "@mantine/core";
+import { Grid, Group, MediaQuery, Stack, Text } from "@mantine/core";
 import React from "react";
-import uinLogo from "../../assets/images/uin-logo.png";
-import VerticalDivider from "../../components/VerticalDivider.component";
-import MainLayout from "../../layouts/MainLayout.layout";
 import {
+  SelfLoveHigh,
   SelfLoveLow,
-  SelfLoveNormal,
-  SelfLoveHigh
+  SelfLoveNormal
 } from "../../assets/icons/Fluent";
+import MainLayout from "../../layouts/MainLayout.layout";
 
 export interface IDerilPersonalityType {}
 

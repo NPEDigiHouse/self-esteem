@@ -20,9 +20,9 @@ import { AppContext } from "../../context/app-context.context";
 import useArray from "../../hooks/useArray";
 import MainLayout from "../../layouts/MainLayout.layout";
 import {
-  IQuestionPackType,
   getQuestionPack
 } from "../../utils/const/questions";
+import { TestResult } from "../../utils/const/types";
 import {
   IPersonalityTestForm,
   personalityTestFormSchema
@@ -30,7 +30,6 @@ import {
 import PersonalityTestInformation from "./PersonalityTestInformation.section";
 import PersonalityTestJumbotron from "./PersonalityTestJumbotron.section";
 import PersonalityTestResult from "./PersonalityTestResult.section";
-import { TestResult } from "../../utils/const/types";
 
 export interface IPersonalityTest {}
 

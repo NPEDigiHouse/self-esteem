@@ -1,12 +1,11 @@
 import { Grid, Stack, Text } from "@mantine/core";
 import React from "react";
-import { IQuestionPack } from "../utils/const/questions";
-import Question from "./Questions.component";
-import useArray from "../hooks/useArray";
 import {
   negativeAnswerPointList,
   positiveAnswerPointList
 } from "../utils/const/answesList";
+import { IQuestionPack } from "../utils/const/questions";
+import Question from "./Questions.component";
 
 export interface IQuestionTable {
   progressCount: number;

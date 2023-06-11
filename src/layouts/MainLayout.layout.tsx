@@ -2,7 +2,6 @@ import { AppShell } from "@mantine/core";
 import React, { useContext } from "react";
 import { useLocation } from "react-router-dom";
 import { AppContext } from "../context/app-context.context";
-import { useWindowScrollPositions } from "../hooks/useWindowScrollPositions";
 import { NavbarMenuType } from "../utils/const/types";
 import FooterLayout from "./FooterLayout.layout";
 import HeaderLayout from "./HeaderLayout.layout";
