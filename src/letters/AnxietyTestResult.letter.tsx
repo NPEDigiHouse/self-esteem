@@ -258,7 +258,7 @@ export const styles = StyleSheet.create({
   },
   isoKanContainer: {
     position: "absolute",
-    bottom: -450,
+    bottom: -400,
     right: 20
   },
   isoKan: {
