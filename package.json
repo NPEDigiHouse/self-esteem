@@ -16,6 +16,7 @@
     "@mantine/hooks": "^6.0.11",
     "@react-pdf/renderer": "^3.1.10",
     "@tailwindcss/line-clamp": "^0.4.4",
+    "@types/aos": "^3.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-pdf": "^7.0.2",
