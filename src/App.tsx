@@ -156,9 +156,9 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path={ROUTES.anxietyClass} element={<PersonalityType />} />
+            <Route path={ROUTES.anxietyClass} element={<DerilPersonalityType />} />
             <Route path={ROUTES.anxietyTest} element={<PersonalityTest />} />
-            <Route path={ROUTES.deril} element={<DerilPersonalityType />} />
+            {/* <Route path={ROUTES.deril} element={<DerilPersonalityType />} /> */}
           </Routes>
         </BrowserRouter>
       </MantineProvider>

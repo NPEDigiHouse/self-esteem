@@ -219,7 +219,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
         ></div>
         {scene === "pertanyaan" && result == null ? (
           <>
-            <Stack className="mt-10 mb-10 gap-0">
+            <Stack className="mt-6 sm:mt-10 mb-10 gap-0">
               <Stack className="gap-8 w-[75%] self-center">
                 <Stack className="gap-0">
                   <Group className="gap-2">

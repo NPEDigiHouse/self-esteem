@@ -1,4 +1,4 @@
-import { Grid, Group, Image, Stack, Text } from "@mantine/core";
+import { Grid, Group, Image, MediaQuery, Stack, Text } from "@mantine/core";
 import React from "react";
 import uinLogo from "../../assets/images/uin-logo.png";
 import VerticalDivider from "../../components/VerticalDivider.component";
@@ -16,28 +16,30 @@ const DerilPersonalityType: React.FC<IDerilPersonalityType> = ({}) => {
     <MainLayout>
       <Stack className="justify-center w-[100%] self-center gap-10 md:gap-10 flex-nowrap">
         <div>
-          <h1 className="text-center font-roboto-bold text-[32px] md:text-[42px] mt-20 text-[#9C42B8] pb-7 ">
+          <h1 className="text-center font-roboto-bold text-[24px] sm:text-[32px] md:text-[42px] mt-10 sm:mt-20 text-[#9C42B8] pb-7 ">
             Self Esteem (Keberhargaan Diri)
           </h1>
-          <Grid className="w-full self-center " gutter={"xl"}>
-            <Grid.Col md={4} className="flex">
-              <div className="flex self-center mx-auto w-[200px] md:w-[320px] overflow-hidden">
-                <SelfLoveLow size={200} className="mx-auto" />
-              </div>
-            </Grid.Col>
-            <Grid.Col md={4} className="flex">
-              <div className="flex self-center mx-auto w-[200px] md:w-[320px] overflow-hidden">
-                <SelfLoveNormal size={200} className="self-center mx-auto" />
-              </div>
-            </Grid.Col>
-            <Grid.Col md={4} className="flex">
-              <div className="flex self-center mx-auto w-[200px] md:w-[320px] overflow-hidden">
-                <SelfLoveHigh size={200} className="self-center mx-auto" />
-              </div>
-            </Grid.Col>
-          </Grid>
+          <MediaQuery smallerThan="md" styles={{ display: "none" }}>
+            <Grid className="w-full self-center " gutter={"xl"}>
+              <Grid.Col md={4} className="flex">
+                <div className="flex self-center mx-auto w-[200px] md:w-[320px] overflow-hidden">
+                  <SelfLoveLow size={200} className="mx-auto" />
+                </div>
+              </Grid.Col>
+              <Grid.Col md={4} className="flex">
+                <div className="flex self-center mx-auto w-[200px] md:w-[320px] overflow-hidden">
+                  <SelfLoveNormal size={200} className="self-center mx-auto" />
+                </div>
+              </Grid.Col>
+              <Grid.Col md={4} className="flex">
+                <div className="flex self-center mx-auto w-[200px] md:w-[320px] overflow-hidden">
+                  <SelfLoveHigh size={200} className="self-center mx-auto" />
+                </div>
+              </Grid.Col>
+            </Grid>
+          </MediaQuery>
           <Grid className="justify-center ">
-            <Text className="text-[18px] pt-7 md:text-xl text-primary-text-500 tracking-4 text-justify px-20 mt-10">
+            <Text className="text-[18px] pt-2 sm:pt-7 md:text-xl text-primary-text-500 tracking-4 text-justify px-8 sm:px-20 mt-4 sm:mt-10">
               Tingkatan dari self-esteem diklasifikasikan 3 kelompok: rendah,
               sedang dan tinggi. Tingkat self-esteem dapat memberikan gambaran
               yang jelas tentang bagaimana kepercayaan diri seseorang
@@ -90,7 +92,7 @@ const DerilPersonalityType: React.FC<IDerilPersonalityType> = ({}) => {
             {/* <Grid.Col span={9}> */}
             <Stack className="relative w-[90%] self-center mt-20">
               <Group className="justify-between">
-                <Text className="font-roboto-bold text-[32px] md:text-[38px] text-primary-text-500 mt-2 text-center self-center w-fit">
+                <Text className="font-roboto-bold text-[24px] md:text-[38px] text-primary-text-500 mt-2 text-center self-center w-fit">
                   Tingkat Self Esteem
                 </Text>
 
@@ -104,26 +106,26 @@ const DerilPersonalityType: React.FC<IDerilPersonalityType> = ({}) => {
 
               {/* <VerticalDivider h="sm" /> */}
 
-              <Text className="text-[18px] self-center tracking-4 text-primary-text-500 text-justify">
-                Tingkat Tinggi (presentasi 66-100%): Dengan skor self-esteem anda yang tinggi. Dalam
-                hal ini Anda digambarkan sebagai seseorang yang mampu menghadapi
-                tugas dan orang lain dengan penuh pengharapan akan sukses dan
-                diterima. Anda juga memiliki pandangan yang lebih realistis dan
-                positif terhadap lingkungan sekitar dan juga terhadap diri
-                sendiri
+              <Text className="text-lg sm:text-[18px] self-center tracking-4 text-primary-text-500 text-justify">
+                Tingkat Tinggi (presentasi 66-100%): Dengan skor self-esteem
+                anda yang tinggi. Dalam hal ini Anda digambarkan sebagai
+                seseorang yang mampu menghadapi tugas dan orang lain dengan
+                penuh pengharapan akan sukses dan diterima. Anda juga memiliki
+                pandangan yang lebih realistis dan positif terhadap lingkungan
+                sekitar dan juga terhadap diri sendiri
                 <br />
                 <br />
-                Tingkat Sedang (presentasi 34-65%): Anda memiliki tingkat self esteem sedang. Dalam
-                hal ini Anda digambarkan sebagai seseorang yang memiliki
-                kepercayaan diri yang rendah. Hal ini ditandai dengan adanya
-                ketergantungan pada pendapat orang lain dalam melakukan evaluasi
-                pada diri Anda.
+                Tingkat Sedang (presentasi 34-65%): Anda memiliki tingkat self
+                esteem sedang. Dalam hal ini Anda digambarkan sebagai seseorang
+                yang memiliki kepercayaan diri yang rendah. Hal ini ditandai
+                dengan adanya ketergantungan pada pendapat orang lain dalam
+                melakukan evaluasi pada diri Anda.
                 <br />
                 <br />
-                Tingkat Rendah (presentasi 1-33%): Anda memiliki tingkat self esteem rendah. Dalam
-                hal ini Anda digambarkan sebagai orang yang tidak percaya pada
-                dunia, disamping tidak adanya kepercayaan dan penghargaan pada
-                diri Anda.
+                Tingkat Rendah (presentasi 1-33%): Anda memiliki tingkat self
+                esteem rendah. Dalam hal ini Anda digambarkan sebagai orang yang
+                tidak percaya pada dunia, disamping tidak adanya kepercayaan dan
+                penghargaan pada diri Anda.
               </Text>
             </Stack>
             {/* </Grid.Col>

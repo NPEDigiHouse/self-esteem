@@ -30,9 +30,9 @@ const QuestionTable: React.FC<IQuestionTable> = ({
   return (
     <Stack className="">
       <Stack className="gap-0">
-        <Stack className="relative w-[90%] self-center">
+        <Stack className="relative w-[95%] sm:w-[90%] self-center">
           <div className="absolute top-6 w-[90%] bg-secondary-500 h-[1px] self-center"></div>
-          <Text className=" self-center tracking-4 text-[32px] font-roboto-bold text-center bg-white z-10 px-8 text-primary-text-500">
+          <Text className=" self-center tracking-4 text-[28px] sm:text-[32px] font-roboto-bold text-center bg-white z-10 px-8 text-primary-text-500">
             {questionType}
           </Text>
         </Stack>
@@ -46,17 +46,19 @@ const QuestionTable: React.FC<IQuestionTable> = ({
       >
         {/* ${!isPositive? "bg-error-500/[0.2]" : "bg-primaryGreen/[0.2]"} */}
         <Grid.Col
-          span={9}
+          md={9}
+          span={6}
           className={`border-l-2 border-r border-y-2 z-10 border-primary-text-500 flex items-center flex-col p-4`}
         >
           <Text
-            className={`font-roboto-bold text-start self-start text-xl tracking-4 h-fit align-middle bg-white text-primary-text-500`}
+            className={`font-roboto-bold text-start self-start text-lg sm:text-xl tracking-4 h-fit align-middle bg-white text-primary-text-500`}
           >
             Pertanyaan
           </Text>
         </Grid.Col>
         <Grid.Col
-          span={3}
+          md={3}
+          span={6}
           className="border border-primary-text-500 p-0 bg-secondary-text-500"
         >
           <Grid

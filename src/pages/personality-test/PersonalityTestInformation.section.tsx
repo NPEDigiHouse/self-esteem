@@ -21,8 +21,8 @@ const PersonalityTestInformation: React.FC<
         mempunyai 4 pilihan:
       </Text>
       <Grid className="mt-4">
-        <Grid.Col span={6}>
-          <Group>
+        <Grid.Col span={12} sm={6}>
+          <Group className="flex-nowrap">
             <Text
               className={`w-16 h-16 text-center font-semibold text-white flex items-center justify-center bg-answer-gradient-50`}
             >
@@ -32,8 +32,8 @@ const PersonalityTestInformation: React.FC<
           </Group>
         </Grid.Col>
 
-        <Grid.Col span={6}>
-          <Group>
+        <Grid.Col span={12} sm={6}>
+          <Group className="flex-nowrap">
             <Text
               className={`w-16 h-16 text-center font-semibold text-white flex items-center justify-center bg-answer-gradient-300`}
             >
@@ -43,8 +43,8 @@ const PersonalityTestInformation: React.FC<
           </Group>
         </Grid.Col>
 
-        <Grid.Col span={6}>
-          <Group>
+        <Grid.Col span={12} sm={6}>
+          <Group className="flex-nowrap">
             <Text
               className={`w-16 h-16 text-center font-semibold text-white flex items-center justify-center bg-answer-gradient-500`}
             >
@@ -54,8 +54,8 @@ const PersonalityTestInformation: React.FC<
           </Group>
         </Grid.Col>
 
-        <Grid.Col span={6}>
-          <Group>
+        <Grid.Col span={12} sm={6}>
+          <Group className="flex-nowrap">
             <Text
               className={`w-16 h-16 text-center font-semibold text-white flex items-center justify-center bg-answer-gradient-800`}
             >

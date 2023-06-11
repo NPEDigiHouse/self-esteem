@@ -83,18 +83,19 @@ const Question: React.FC<IQuestion> = ({
     >
       {/* ${!isPositive? "bg-error-500/[0.2]" : "bg-primaryGreen/[0.2]"} */}
       <Grid.Col
-        span={9}
-        className={`border-l-2 border-r border-b-2 z-10 border-primary-text-500 flex items-center flex-col p-4 pb-8`}
+        md={9}
+        span={6}
+        className={`border-l-2 border-r border-b-2 z-10 border-primary-text-500 flex items-center flex-col p-2 sm:p-4 pb-4 sm:pb-8`}
       >
         <Text
-          className={`text-start self-start text-xl tracking-4 h-fit align-middle bg-white ${
+          className={`text-start self-start text-[15px] sm:text-xl tracking-4 h-fit align-middle bg-white ${
             disabled ? "text-secondary-text-500" : "text-primary-text-500"
           }`}
         >
           {idx + 1}. {questions}
         </Text>
       </Grid.Col>
-      <Grid.Col span={3} className="p-0 bg-secondary-text-500">
+      <Grid.Col span={6} md={3} className="p-0 bg-secondary-text-500">
         <Grid
           className="gap-0 flex-nowrap w-full self-center h-full"
           gutter={0}

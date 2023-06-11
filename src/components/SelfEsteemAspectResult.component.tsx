@@ -20,24 +20,22 @@ const SelfEsteemAspectResult: React.FC<ISelfEsteemAspectResult> = ({
   type
 }) => {
   return (
-    <Grid className="w-[80%] self-center flex-nowrap mt-4">
-      <Grid.Col span={3}>
+    <Grid className="w-[98%] sm:w-[80%] self-center flex-nowrap mt-4">
+      <Grid.Col span={4} md={3}>
         <Stack className="gap-0">
-          <Text className="text-primary-text-500 font-roboto-bold text-xl self-start">
-            {type}
+          <Text className="text-primary-text-500 font-roboto-bold text-lg sm:text-xl self-start">
+            {type}: {result}
           </Text>
           <Text className="text-secondary-text-500 text-lg self-start">
             Persentase: {percentage?.toFixed(2)} %
           </Text>
         </Stack>
       </Grid.Col>
-      <Grid.Col span={9}>
+      <Grid.Col span={8} md={9}>
         <Stack className="gap-0">
           <Text
-            className={`text-primary-text-500 tracking-1 text-justify text-[18px]`}
+            className={`text-primary-text-500 tracking-1 text-justify text-lg sm:text-[18px]`}
           >
-            {" "}
-            :{" "}
             {result === "Rendah" ? (
               <>{resultLow}</>
             ) : result === "Sedang" ? (
