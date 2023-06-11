@@ -99,7 +99,7 @@ const Home: React.FC<IHome> = ({}) => {
         </Stack> */}
         <ParagraphWithImage2
           secondaryTitle="Apa itu Self-Esteem ?"
-          paragraph="Self-esteem adalah penilaian dan sikap yang kita miliki terhadap diri sendiri. Ini melibatkan keyakinan, penghargaan, dan perasaan yang kita rasakan tentang nilai diri kita sendiri. Tingkat self-esteem yang sehat sangat penting dalam membentuk citra diri kita dan pengaruhnya terhadap kehidupan sehari-hari. "
+          paragraph="Self-esteem atau keberhargaan diri adalah penilaian dan sikap yang kita miliki terhadap diri sendiri. Ini melibatkan keyakinan, penghargaan, dan perasaan yang kita rasakan tentang nilai diri kita sendiri. Tingkat self-esteem yang sehat sangat penting dalam membentuk citra diri kita dan pengaruhnya terhadap kehidupan sehari-hari. "
           paragraph2="Penting untuk diingat bahwa self-esteem dapat berkembang dan berubah seiring waktu. Dengan pemahaman yang lebih baik tentang self-esteem dan upaya untuk memperkuatnya, kita dapat membangun kepercayaan diri yang lebih sehat dan positif. Tes self-esteem kami dirancang untuk membantu Anda mengidentifikasi tingkat self-esteem Anda dan memberikan panduan serta saran untuk meningkatkannya. Dengan meningkatkan self-esteem, Anda dapat mencapai potensi terbaik Anda, mengatasi rintangan, dan hidup dengan lebih percaya diri dan bahagia."
         />
         <HomeExplore />

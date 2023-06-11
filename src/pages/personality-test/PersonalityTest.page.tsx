@@ -230,7 +230,6 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                       </Text>
                       <DatePickerInput
                         size="md"
-                        placeholder="Pilih tanggal pelaksanaan"
                         className="self-start w-full"
                         {...getInputProps("birthDate")}
                         // defaultValue={seminarDateDefault}

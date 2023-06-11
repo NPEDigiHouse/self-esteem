@@ -51,7 +51,7 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({
           <HeaderNavbarMenuItems
             href={`/${ROUTES.anxietyTest}`}
             isScrolled={isScrolled}
-            label="Tes Kecemasan"
+            label="Tes Keberhargaan Diri"
             isActive={currentPage == ROUTES.anxietyTest}
           />
           {/* <HeaderNavbarMenuItems
