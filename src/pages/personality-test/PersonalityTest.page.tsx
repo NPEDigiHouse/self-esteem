@@ -211,7 +211,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
           ref={targetRef2}
           className="absolute top-[900px] self-center -z-10"
         ></div>
-        {scene === "pertanyaan" && result == null ? (
+        {scene === "hasil" ? (
           <>
             <Stack className="mt-6 sm:mt-10 mb-10 gap-0">
               <Stack className="gap-8 w-[75%] self-center">

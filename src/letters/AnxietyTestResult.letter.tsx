@@ -83,25 +83,33 @@ const AnxietyTestResult: React.FC<IAnxietyTestResult> = ({
                 <View style={styles.studentData}>
                   <Text style={styles.data}>Nama</Text>
                   <Text style={styles.data}>Jenis Kelamin</Text>
-                  <Text style={styles.data}>Sekolah</Text>
                 </View>
                 <View style={styles.studentDataValue}>
                   <Text style={styles.data}>: {name}</Text>
                   <Text style={styles.data}>: {gender}</Text>
-                  <Text style={styles.data}>: {school}</Text>
                   {/* <Text style={styles.data}></Text> */}
                 </View>
               </View>
               <View style={styles.biodata}>
                 <View style={styles.studentData}>
-                  <Text style={styles.data}>Tanggal Tes</Text>
+                  <Text style={styles.data}>Instansi</Text>
                   <Text style={styles.data}>Tanggal Lahir</Text>
                 </View>
                 <View style={styles.studentDataValue}>
-                  <Text style={styles.data}>: {extractDate(new Date())}</Text>
+                  <Text style={styles.data}>: {school}</Text>
                   <Text style={styles.data}>: {extractDate(birthDate)}</Text>
                   {/* <Text style={styles.data}></Text> */}
                 </View>
+              </View>
+            </View>
+
+            <View style={styles.biodata2}>
+              <View style={styles.studentData2}>
+                <Text style={styles.data}>Tanggal Kuesioner</Text>
+              </View>
+              <View style={styles.studentDataValue2}>
+                <Text style={styles.data}>: {extractDate(new Date())}</Text>
+                {/* <Text style={styles.data}></Text> */}
               </View>
             </View>
 
@@ -372,13 +380,28 @@ export const styles = StyleSheet.create({
     marginTop: 16,
     fontFamily: "Times-Bold"
   },
+  biodata2: {
+    flexDirection: "row",
+    width: "100%",
+    marginTop: 0,
+    fontFamily: "Times-Bold"
+  },
   studentData: {
     minWidth: "17%",
     fontFamily: "Times-Roman",
     overflow: "hidden"
   },
+  studentData2: {
+    width: "20%",
+    fontFamily: "Times-Roman",
+    overflow: "hidden"
+  },
   studentDataValue: {
     width: "83%",
+    fontFamily: "Times-Roman"
+  },
+  studentDataValue2: {
+    width: "80%",
     fontFamily: "Times-Roman"
   },
 
