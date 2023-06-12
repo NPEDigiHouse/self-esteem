@@ -9,7 +9,7 @@ interface IROUTES {
 
 export const ROUTES : IROUTES = {
   home: "",
-  anxietyTest: "tes-keberhargaan-diri",
+  anxietyTest: "kuesioner-keberhargaan-diri",
   anxietyClass: "tingkat-keberhargaan-diri",
   deril: "tingkat-keberhargaan-diri"
 }

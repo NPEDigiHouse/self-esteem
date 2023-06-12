@@ -41,7 +41,7 @@ const AnxietyTestResult: React.FC<IAnxietyTestResult> = ({
   birthDate,
   school
 }) => (
-  <Document title={`Hasil Tes Kecemasan - ${name}`}>
+  <Document title={`Hasil Kuesioner Keberhargaan Diri - ${name}`}>
     <Page size="A4" style={styles.page}>
       <View style={styles.stack}>
         <View style={styles.content}>
@@ -75,7 +75,7 @@ const AnxietyTestResult: React.FC<IAnxietyTestResult> = ({
           </View>
 
           <Text style={styles.contentTitleText2}>
-            LAPORAN HASIL KEBERHARGAAN DIRI SISWA
+            LAPORAN HASIL KEBERHARGAAN DIRI MAHASISWA
           </Text>
           <View style={styles.students}>
             <View style={styles.biodataContainer}>

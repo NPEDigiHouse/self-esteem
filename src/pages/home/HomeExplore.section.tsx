@@ -18,8 +18,8 @@ const HomeExplore: React.FC<IHomeExplore> = ({}) => {
           <ExploreCard
             src={personalityTest}
             to={ROUTES.anxietyTest}
-            title="Tes Keberhargaan Diri"
-            description="Lakukan tes keberhargaan diri / self-esteem, di mana anda akan diarahkan untuk menjawab 42 pertanyaan selama 5-10 menit. Jawaban tes self-esteem akan mempengaruhi hasil akhir."
+            title="Kuesioner Keberhargaan Diri"
+            description="Lakukan kuesioner keberhargaan diri / self-esteem, di mana anda akan diarahkan untuk menjawab 42 pertanyaan selama 5-10 menit. Jawaban kuesioner self-esteem akan mempengaruhi hasil akhir."
           />
         </Grid.Col>
         <Grid.Col md={6} sm={12} className="hover:scale-[1.01] transition-all">

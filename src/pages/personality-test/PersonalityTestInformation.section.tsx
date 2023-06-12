@@ -12,7 +12,7 @@ const PersonalityTestInformation: React.FC<
       <Group className="gap-2">
         <FileCheckIcon size={32} color="#603991" />
         <Text className="font-roboto-semibold text-2xl text-primary-text-500 ">
-          Instruksi Tes
+          Instruksi Kuesioner
         </Text>
       </Group>
       <Text className="text-lg text-primary-text-500 tracking-4 mt-4">

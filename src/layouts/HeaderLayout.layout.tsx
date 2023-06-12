@@ -38,7 +38,7 @@ const HeaderLayout: React.FC<IHeaderLayout> = ({
           />
           <HeaderNavbarMenuItems
             href={`/${ROUTES.anxietyTest}`}
-            label="Tes Self Esteem"
+            label="Kuesioner Self Esteem"
             isActive={currentPage == ROUTES.anxietyTest}
           />
           {/* <HeaderNavbarMenuItems

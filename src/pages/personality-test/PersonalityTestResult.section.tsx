@@ -226,7 +226,7 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
               setkekuatanScore(null);
             }}
           >
-            Ulang Tes
+            Ulang Kuesioner
           </Button>
         </Grid.Col>
         <Grid.Col sm={12} md={6}>
@@ -241,7 +241,7 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
                 birthDate={currentTesterBirthDate as Date}
               />
             }
-            fileName="hasil-tes-kecemasan.pdf"
+            fileName="hasil-kuesioner-keberhargaan-diri.pdf"
           >
             <Button
               className="bg-sc-cp-900 hover:bg-sc-cp-900 rounded-sm !h-14 text-xl font-normal !w-full"

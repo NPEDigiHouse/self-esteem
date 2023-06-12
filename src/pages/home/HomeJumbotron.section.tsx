@@ -23,12 +23,12 @@ const HomeJumbotron: React.FC<IHomeJumbotron> = ({}) => {
           </Stack>
           <Text className="text-lg md:text-[18px] self-center mx-2 md:mx-8 text-center tracking-4 text-primary-text-500 z-10 rounded-b-xl">
             Website ini dirancang khusus untuk membantu Anda memahami dan
-            mengukur tingkat kepercayaan diri Anda. Tes self-esteem kami terdiri
+            mengukur tingkat kepercayaan diri Anda. Kuesioner self-esteem kami terdiri
             dari 42 pertanyaan yang dirancang secara cermat untuk memperoleh
             wawasan mendalam tentang diri Anda.
           </Text>
           <Button
-            className="bg-transparent hover:bg-transparent border-sc-cp-900 border text-sc-cp-900 w-full -z-10 rounded-md px-10 !h-12 text-[18px] self-center font-roboto font-normal"
+            className="bg-transparent hover:bg-transparent border-sc-cp-900 border text-sc-cp-900 w-full -z-10 rounded-md px-2 sm:px-10 !h-12 text-[18px] self-center font-roboto font-normal"
             leftIcon={
               <SearchIconBold
                 size={28}
@@ -39,7 +39,7 @@ const HomeJumbotron: React.FC<IHomeJumbotron> = ({}) => {
             component={Link}
             to={ROUTES.anxietyTest}
           >
-            Tes Self-Esteem Sekarang
+            Kuesioner Self-Esteem 
           </Button>
         </Stack>
         {/* <div className="bg-pastel-blue-black w-[450px] h-[450px] rounded-3xl mt-8 absolute -z-40 top-14 right-[72px]"></div> */}

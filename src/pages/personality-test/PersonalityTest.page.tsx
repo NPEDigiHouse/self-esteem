@@ -223,7 +223,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                     </Text>
                   </Group>
                   <Text className="text-lg text-primary-text-500 mt-4">
-                    Pertanyaan tes tidak bisa dijawab pertanyaan jika tidak
+                    Pertanyaan kuesioner tidak bisa dijawab pertanyaan jika tidak
                     mengisi identitas terlebih dahulu.
                   </Text>
                 </Stack>
