@@ -1,17 +1,7 @@
-import {
-  Image,
-  Stack,
-  Text,
-  Group,
-  Grid,
-  BackgroundImage,
-} from "@mantine/core";
-import React, { useEffect } from "react";
+import { Image, Stack, Text, Group, Grid } from "@mantine/core";
 import MainLayout from "../../layouts/MainLayout.layout";
 import uinLogo from "../../assets/images/uin-logo.png";
-import { AnxietyPersonIcon } from "../../assets/icons/Fluent";
 import VerticalDivider from "../../components/VerticalDivider.component";
-import PersonalityTypeList from "../personality-type/PersonalityTypeList.section";
 
 export interface IDerilPersonalityType {}
 
@@ -33,7 +23,7 @@ const DerilPersonalityType: React.FC<IDerilPersonalityType> = ({}) => {
               <img src="/src/assets/images/self-esteem.jpg" alt="" />
             </div>
 
-            <Text className="text-[18px] pt-7 md:text-xl text-primary-text-500 tracking-4 text-center text-justify px-20">
+            <Text className="text-[18px] pt-7 md:text-xl text-primary-text-500 tracking-4 text-justify  px-20">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus,
               incidunt soluta nobis at optio ipsam facere deleniti culpa
               voluptatibus, similique quisquam ad quia est ducimus inventore
@@ -135,7 +125,7 @@ const DerilPersonalityType: React.FC<IDerilPersonalityType> = ({}) => {
             </Grid>
           </Stack>
         </div>
-        <Group className="justify-center self-center w-full md:w-[60%] self-center gap-12 mt-20  mb-20">
+        <Group className="justify-center  w-full md:w-[60%] self-center gap-12 mt-20  mb-20">
           <Stack>
             <div className="rounded-full">
               <img
