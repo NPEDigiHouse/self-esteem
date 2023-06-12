@@ -12,7 +12,6 @@ import { TestResult } from "../utils/const/types";
 export interface IAnxietyTestResult {
   name: String;
   gender: String;
-  classes: String;
   result: TestResult;
   percentage: number | null;
   birthDate: Date;
@@ -38,7 +37,6 @@ const AnxietyTestResult: React.FC<IAnxietyTestResult> = ({
   name,
   percentage,
   result,
-  classes,
   gender,
   birthDate,
   school
@@ -84,24 +82,22 @@ const AnxietyTestResult: React.FC<IAnxietyTestResult> = ({
               <View style={styles.biodata}>
                 <View style={styles.studentData}>
                   <Text style={styles.data}>Nama</Text>
-                  <Text style={styles.data}>Kelas</Text>
+                  <Text style={styles.data}>Jenis Kelamin</Text>
                   <Text style={styles.data}>Sekolah</Text>
                 </View>
                 <View style={styles.studentDataValue}>
                   <Text style={styles.data}>: {name}</Text>
-                  <Text style={styles.data}>: {classes}</Text>
+                  <Text style={styles.data}>: {gender}</Text>
                   <Text style={styles.data}>: {school}</Text>
                   {/* <Text style={styles.data}></Text> */}
                 </View>
               </View>
               <View style={styles.biodata}>
                 <View style={styles.studentData}>
-                  <Text style={styles.data}>Jenis Kelamin</Text>
                   <Text style={styles.data}>Tanggal Tes</Text>
                   <Text style={styles.data}>Tanggal Lahir</Text>
                 </View>
                 <View style={styles.studentDataValue}>
-                  <Text style={styles.data}>: {gender}</Text>
                   <Text style={styles.data}>: {extractDate(new Date())}</Text>
                   <Text style={styles.data}>: {extractDate(birthDate)}</Text>
                   {/* <Text style={styles.data}></Text> */}

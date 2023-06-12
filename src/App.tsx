@@ -6,6 +6,7 @@ import DerilPersonalityType from "./pages/deril/DerilPersonalityType";
 import Home from "./pages/home/Home.page";
 import PersonalityTest from "./pages/personality-test/PersonalityTest.page";
 import { ROUTES } from "./utils/const/routes";
+import PageNotFound from "./pages/not-found/PageNotFound.page";
 
 function App() {
   return (
@@ -157,6 +158,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path={ROUTES.anxietyClass} element={<DerilPersonalityType />} />
             <Route path={ROUTES.anxietyTest} element={<PersonalityTest />} />
+            <Route path={"*"} element={<PageNotFound />} />
             {/* <Route path={ROUTES.deril} element={<DerilPersonalityType />} /> */}
           </Routes>
         </BrowserRouter>

@@ -1,10 +1,4 @@
-import {
-  Button,
-  Grid,
-  Stack,
-  Text,
-  useMantineTheme
-} from "@mantine/core";
+import { Button, Grid, Stack, Text, useMantineTheme } from "@mantine/core";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import React, { useContext, useState } from "react";
 import {
@@ -37,7 +31,6 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
     setResultPercentage,
     currentTesterName,
     currentTesterSchool,
-    currentTesterClass,
     currentTesterGender,
     currentTesterBirthDate,
     kebajikanScore,
@@ -82,8 +75,8 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
     <Stack className="mt-8 sm:mt-14">
       <Stack className="gap-0 self-center w-[90%] sm:w-[50%]">
         <Text className="self-start font-roboto text-lg md:text-xl text-secondary-text-500">
-          Responden yang bernama {currentTesterName} dari kelas{" "}
-          {currentTesterClass}
+          Responden yang bernama {currentTesterName} dari instansi{" "}
+          {currentTesterSchool}
         </Text>
         <Text className="self-start font-roboto-semibold text-[24px] md:text-[38px] text-primary-text-500">
           Memiliki Tingkat Self-Esteem
@@ -242,7 +235,6 @@ const PersonalityTestResult: React.FC<IPersonalityTestResult> = ({
               <AnxietyTestResult
                 name={currentTesterName || ""}
                 school={currentTesterSchool || ""}
-                classes={currentTesterClass || ""}
                 gender={currentTesterGender || ""}
                 percentage={resultPercentage}
                 result={result}

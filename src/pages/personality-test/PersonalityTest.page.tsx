@@ -19,9 +19,7 @@ import QuestionTable from "../../components/QuestionTable.component";
 import { AppContext } from "../../context/app-context.context";
 import useArray from "../../hooks/useArray";
 import MainLayout from "../../layouts/MainLayout.layout";
-import {
-  getQuestionPack
-} from "../../utils/const/questions";
+import { getQuestionPack } from "../../utils/const/questions";
 import { TestResult } from "../../utils/const/types";
 import {
   IPersonalityTestForm,
@@ -52,7 +50,7 @@ export function calculateResult(arrSum: number, arrLen: number) {
   return calc;
 }
 
-export function calculateClass(percentage:number){
+export function calculateClass(percentage: number) {
   if (percentage >= 66) {
     return "Tinggi" as TestResult;
   } else if (percentage >= 34) {
@@ -70,11 +68,9 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
     setResultPercentage,
     currentTesterName,
     setCurrentTesterName,
-    currentTesterClass,
     currentTesterSchool,
     currentTesterGender,
     setCurrentTesterSchool,
-    setCurrentTesterClass,
     setCurrentTesterGender,
     currentTesterBirthDate,
     setCurrentTesterBirthDate,
@@ -173,7 +169,6 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
   useEffect(() => {
     setValues({
       school: currentTesterSchool || undefined,
-      class: (currentTesterClass || undefined) as any,
       gender: (currentTesterGender || undefined) as any,
       name: (currentTesterName || undefined) as any,
       birthDate: (currentTesterBirthDate || undefined) as any
@@ -279,7 +274,7 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   <Grid.Col md={6}>
                     <Stack className="gap-[2px]">
                       <Text className="text-lg font-roboto text-primary-text-500 text-start">
-                        Sekolah
+                        Asal Instansi
                       </Text>
                       <TextInput
                         size="md"
@@ -291,20 +286,6 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                     </Stack>
                   </Grid.Col>
                   <Grid.Col md={6}>
-                    <Stack className="gap-[2px]">
-                      <Text className="text-lg font-roboto text-primary-text-500 text-start">
-                        Kelas
-                      </Text>
-                      <TextInput
-                        size="md"
-                        {...getInputProps("class")}
-                        disabled={progressPercentage != 0}
-                        error={errors["class" as keyof IPersonalityTestForm]}
-                        // value={(currentTesterClass || null) as any}
-                      />
-                    </Stack>
-                  </Grid.Col>
-                  <Grid.Col md={12}>
                     <Stack className="gap-[2px]">
                       <Text className="text-lg font-roboto text-primary-text-500 text-start">
                         Tanggal Lahir
@@ -350,16 +331,13 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   updateScore={strengthUpdate}
                   disabled={
                     values.school == null ||
-                    values.class == null ||
                     values.gender == null ||
                     values.name == null ||
                     values.birthDate == null ||
                     values.school == "" ||
-                    values.class == "" ||
                     values.gender == "" ||
                     values.name == "" ||
-                    values.birthDate == "" 
-                    
+                    values.birthDate == ""
                   }
                   getError={onSubmit(() => {})}
                   questionPack={QuestionPack[0].questions}
@@ -371,16 +349,13 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   updateScore={kebajikanUpdate}
                   disabled={
                     values.school == null ||
-                    values.class == null ||
                     values.gender == null ||
                     values.name == null ||
                     values.birthDate == null ||
                     values.school == "" ||
-                    values.class == "" ||
                     values.gender == "" ||
                     values.name == "" ||
-                    values.birthDate == "" 
-                    
+                    values.birthDate == ""
                   }
                   getError={onSubmit(() => {})}
                   questionPack={QuestionPack[1].questions}
@@ -392,16 +367,13 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   updateScore={keberartianUpdate}
                   disabled={
                     values.school == null ||
-                    values.class == null ||
                     values.gender == null ||
                     values.name == null ||
                     values.birthDate == null ||
                     values.school == "" ||
-                    values.class == "" ||
                     values.gender == "" ||
                     values.name == "" ||
-                    values.birthDate == "" 
-                    
+                    values.birthDate == ""
                   }
                   getError={onSubmit(() => {})}
                   questionPack={QuestionPack[2].questions}
@@ -413,16 +385,13 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
                   updateScore={kemampuanDiriUpdate}
                   disabled={
                     values.school == null ||
-                    values.class == null ||
                     values.gender == null ||
                     values.name == null ||
                     values.birthDate == null ||
                     values.school == "" ||
-                    values.class == "" ||
                     values.gender == "" ||
                     values.name == "" ||
-                    values.birthDate == "" 
-                    
+                    values.birthDate == ""
                   }
                   getError={onSubmit(() => {})}
                   questionPack={QuestionPack[3].questions}
@@ -453,7 +422,6 @@ const PersonalityTest: React.FC<IPersonalityTest> = ({}) => {
 
                 setCurrentTesterName(values.name.trim());
                 setCurrentTesterSchool(values.school.trim());
-                setCurrentTesterClass(values.class.trim());
                 setCurrentTesterGender(values.gender.trim());
                 setCurrentTesterBirthDate(values.birthDate);
 

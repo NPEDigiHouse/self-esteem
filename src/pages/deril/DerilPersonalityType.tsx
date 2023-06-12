@@ -14,7 +14,7 @@ const DerilPersonalityType: React.FC<IDerilPersonalityType> = ({}) => {
     <MainLayout>
       <Stack className="justify-center w-[100%] self-center gap-10 md:gap-10 flex-nowrap">
         <div>
-          <h1 className="text-center font-roboto-bold text-[24px] sm:text-[32px] md:text-[42px] mt-10 sm:mt-20 text-[#9C42B8] pb-7 ">
+          <h1 className="text-center font-roboto-bold text-[24px] sm:text-[32px] md:text-[42px] mt-10 sm:mt-20 text-sc-cp-800 pb-7 ">
             Self Esteem (Keberhargaan Diri)
           </h1>
           <MediaQuery smallerThan="md" styles={{ display: "none" }}>
